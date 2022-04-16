@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="存储器的性能指标  MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T    相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB 10">
+    <meta name="description" content="存储器的性能指标   MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^ 同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T     相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="05计算机的性能指标[大章]">
 <meta property="og:url" content="http://example.com/posts/dd8cec3a.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="存储器的性能指标  MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T    相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB 10">
+<meta property="og:description" content="存储器的性能指标   MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^ 同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T     相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png">
 <meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png">
@@ -75,7 +75,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -207,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      1.6k 字
     </span>
   
 
@@ -216,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      14 分钟
     </span>
   
 
@@ -248,15 +248,17 @@
             <h1 style="display: none">05计算机的性能指标[大章]</h1>
             
             <div class="markdown-body">
-              <h1 id="存储器的性能指标"><a href="#存储器的性能指标" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h1><hr>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png" srcset="/img/loading.gif" lazyload></p>
+              <h1>存储器的性能指标</h1>
+<hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>MAR位数反映每个存储单元的大小数(最多支持多少个)</p>
 <p>MDR位数=存储字长=存储单元的个</p>
 <blockquote>
 <p>为什么MAR的位数为2^n^呢?</p>
 </blockquote>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png" srcset="/img/loading.gif" lazyload></p>
-<p>可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^<br>同时我们还需要知道几个比较常用的单位转换</p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^<br>
+同时我们还需要知道几个比较常用的单位转换</p>
 <table>
 <thead>
 <tr>
@@ -267,7 +269,8 @@
 <th>T</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>相当于多少二进制位</td>
 <td>2^10^</td>
 <td>2^20^</td>
@@ -288,61 +291,94 @@
 <td>1G = 1024MB</td>
 <td>1T = 1024G</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><br><br></p>
-<h1 id="CPU的性能指标"><a href="#CPU的性能指标" class="headerlink" title="CPU的性能指标"></a>CPU的性能指标</h1><hr>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330102854.png" srcset="/img/loading.gif" lazyload></p>
+<h1>CPU的性能指标</h1>
+<hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330102854.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>类似广播体操，我们计算机需要有一个人来喊口号，CPU的脉冲信号就是给这些命令带来节奏</p>
 <br>
-
-<h2 id="CLK"><a href="#CLK" class="headerlink" title="CLK"></a>CLK</h2><hr>
-<p>==CLK一个循环我们称之为CPU时钟周期==<br>单位是<strong>微秒，纳秒</strong><br>$$CPU主频(时钟频率) = \frac{1}{CPU时钟周期}$$</p>
+<h2 id="CLK">CLK</h2>
+<hr>
+<p>==CLK一个循环我们称之为CPU时钟周期==<br>
+单位是<strong>微秒，纳秒</strong><br>
+$$CPU主频(时钟频率) = \frac{1}{CPU时钟周期}$$</p>
 <p><em>10/Hz表示每秒有10个脉冲信号</em></p>
 <p><br><br></p>
-<h2 id="CPI"><a href="#CPI" class="headerlink" title="CPI"></a>CPI</h2><hr>
+<h2 id="CPI">CPI</h2>
+<hr>
 <p>CPU的性能除了和CPU主频相关之外，还和CPI有关</p>
 <p>CPI^[CPI全称:Clock cycle Per Instruction]:执行一条指令所需要的时钟周期数^[不同的指令，CPI不同，甚至相同的指令，CPI也可能有变化]</p>
-<p><em>公式:</em><br>$$执行一条指令的耗时 = CPI \times CPU时钟周期$$</p>
+<p><em>公式:</em><br>
+$$执行一条指令的耗时 = CPI \times CPU时钟周期$$</p>
 <blockquote>
 <p>一个例子</p>
 </blockquote>
 <p><em>某CPU主频为1000Hz,某程序包含100条指令，平均来看指令的CPI=3,该程序在该CPU上执行需要多久?</em></p>
-<p>$$<br>100 \times 3 \times \frac{1}{1000} = 0.3s<br>$$</p>
+<p>$$<br>
+100 \times 3 \times \frac{1}{1000} = 0.3s<br>
+$$</p>
 <p><em>公式</em></p>
-<p>$$<br>指令条数*CPI = CPU时钟周期数<br>$$</p>
-<p><em>整体公式</em><br>$$<br>CPU执行时间(整个程序的耗时)=\overbrace{\frac{CPU时钟周期数}{主频}=\frac{(指令条数*CPI)}{主频}}^\text {指令条数 * CPI = CPU时钟周期数}<br>$$</p>
+<p>$$<br>
+指令条数*CPI = CPU时钟周期数<br>
+$$</p>
+<p><em>整体公式</em><br>
+$$<br>
+CPU执行时间(整个程序的耗时)=\overbrace{\frac{CPU时钟周期数}{主频}=\frac{(指令条数*CPI)}{主频}}^\text {指令条数 * CPI = CPU时钟周期数}<br>
+$$</p>
 <p><br><br></p>
-<h2 id="IPS"><a href="#IPS" class="headerlink" title="IPS"></a>IPS</h2><p>IPS^[IPS全名Instructions Per Second]:每秒执行多少条指令</p>
-<p><em>IPS计算公式</em><br>$$<br>IPS = \frac{\overbrace{主频}^\text {每秒会有多少个时钟周期}}<br>{\underbrace{平均CPI}_\text{一条指令所需要的时钟周期}}<br>$$</p>
+<h2 id="IPS">IPS</h2>
+<p>IPS^[IPS全名Instructions Per Second]:每秒执行多少条指令</p>
+<p><em>IPS计算公式</em><br>
+$$<br>
+IPS = \frac{\overbrace{主频}^\text {每秒会有多少个时钟周期}}<br>
+{\underbrace{平均CPI}_\text{一条指令所需要的时钟周期}}<br>
+$$</p>
 <p><br><br></p>
-<h2 id="FLOPS"><a href="#FLOPS" class="headerlink" title="FLOPS"></a>FLOPS</h2><hr>
+<h2 id="FLOPS">FLOPS</h2>
+<hr>
 <p>FLOPS^[FLOPS全名:Floating-point Operations Per Second]:每秒可以执行多少次浮点运算</p>
 <p><em>(一般拿IPS和FLOPS来评测计算机的性能)</em></p>
 <p>因为计算机计算的能力非常强大，我们一般在形容的时候会给IPS和FLOPS带上前缀</p>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162158.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162219.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162158.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162219.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>比如<em>3TFLOPS</em>,表示一个计算机每秒可以进行3万亿次计算</p>
-<p>当我们描绘主频的时候说3GHz表示我们的计算机能进行30亿次每秒的计算<br>$$3GHz = 30亿/_{次每秒}$$</p>
+<p>当我们描绘主频的时候说3GHz表示我们的计算机能进行30亿次每秒的计算<br>
+$$3GHz = 30亿/_{次每秒}$$</p>
 <p><br><br></p>
-<h1 id="系统整体的性能指标"><a href="#系统整体的性能指标" class="headerlink" title="系统整体的性能指标"></a>系统整体的性能指标</h1><hr>
-<p>==数据通路带宽:数据总线一次所能并行传送信息的位数==<br><em>(各硬件部件通过数据总线传输数据)</em></p>
+<h1>系统整体的性能指标</h1>
+<hr>
+<p>==数据通路带宽:数据总线一次所能并行传送信息的位数==<br>
+<em>(各硬件部件通过数据总线传输数据)</em></p>
 <p>例如我们有16bit的数据等待读取，但是带宽只有8bit,所以我们需要用两次才能搬完全部的数据</p>
 <p>==吞吐量:指系统在单位时间内处理请求的数量==</p>
 <p>它取决于信息能多快地输入内存，CPU能多快地取指令，数据能多快地从内存取出或存入，以及所得结果能多快地从内存送给一台外部设备。这些步骤中的每一步都关系到主存，因此，<strong>系统吞吐量主要取决于主存的存取周期。</strong></p>
 <p>==响应时间:指从用户向计算机发送一个请求，到系统对该请求做出响应并获得它所需要的结果的等待时间。==</p>
 <p>通常包括CPU时间( 运行一个程序所花费的时间)与等待时间(用于磁盘访问、存储器访问、I/0操作、操作系统开销等时间)</p>
 <p><br><br></p>
-<h2 id="基准程序"><a href="#基准程序" class="headerlink" title="基准程序"></a>基准程序</h2><hr>
+<h2 id="基准程序">基准程序</h2>
+<hr>
 <p>==基准程序==是用来测量过算机处理速度的一种实用程序，以便于被测量的计算机性能可以与运行相同程字的其它计算机性能进行比较。</p>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163258.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163258.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><hr>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163433.png" srcset="/img/loading.gif" lazyload></p>
-<p>$$<br>\left{<br>    \begin{array}{c}<br>        A的计算能力 = \frac{主频}{平均CPI} = \frac{2}{10} = 0.2G \<br>        \<br>        B的计算能力 = \frac{主频}{平均CPI} = \frac{1}{1} = 1G \<br>    \end{array}<br>\right.<br>$$</p>
+<h1>思考</h1>
+<hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163433.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>$$<br>
+\left{<br>
+\begin{array}{c}<br>
+A的计算能力 = \frac{主频}{平均CPI} = \frac{2}{10} = 0.2G \<br>
+\<br>
+B的计算能力 = \frac{主频}{平均CPI} = \frac{1}{1} = 1G \<br>
+\end{array}<br>
+\right.<br>
+$$</p>
 <p>可以看到其实是B更快</p>
 <p><br><br></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
-<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330164645.png" srcset="/img/loading.gif" lazyload></p>
+<h1>总结</h1>
+<hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330164645.png" srcset="/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -527,9 +563,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

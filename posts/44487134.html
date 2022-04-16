@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原码的除法运算 手算除法 十进制的手算除法  $$\begin{align*}&amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\&amp;可知我们的除数&#x3D;被除数结果 + 余数\end{align}$$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止">
+    <meta name="description" content="原码的除法运算  手算除法  十进制的手算除法   $$ \begin{align*} &amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\ &amp;可知我们的除数&#x3D;被除数结果 + 余数 \end{align} $$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18原码的除法运算">
 <meta property="og:url" content="http://example.com/posts/44487134.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="原码的除法运算 手算除法 十进制的手算除法  $$\begin{align*}&amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\&amp;可知我们的除数&#x3D;被除数结果 + 余数\end{align}$$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止">
+<meta property="og:description" content="原码的除法运算  手算除法  十进制的手算除法   $$ \begin{align*} &amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\ &amp;可知我们的除数&#x3D;被除数结果 + 余数 \end{align} $$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/625923ff239250f7c59a18e0.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62592632239250f7c59de42d.png">
@@ -70,7 +70,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -202,7 +202,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      175 字
+      160 字
     </span>
   
 
@@ -243,11 +243,19 @@
             <h1 style="display: none">18原码的除法运算</h1>
             
             <div class="markdown-body">
-              <h1 id="原码的除法运算"><a href="#原码的除法运算" class="headerlink" title="原码的除法运算"></a>原码的除法运算</h1><p><img src="https://pic.imgdb.cn/item/625923ff239250f7c59a18e0.png" srcset="/img/loading.gif" lazyload alt="image-20220415153256563"></p>
-<h2 id="手算除法"><a href="#手算除法" class="headerlink" title="手算除法"></a>手算除法</h2><blockquote>
+              <h1>原码的除法运算</h1>
+<p><img src="https://pic.imgdb.cn/item/625923ff239250f7c59a18e0.png" srcset="/img/loading.gif" lazyload alt="image-20220415153256563"></p>
+<h2 id="手算除法">手算除法</h2>
+<blockquote>
 <p>十进制的手算除法</p>
 </blockquote>
-<p><img src="https://pic.imgdb.cn/item/62592632239250f7c59de42d.png" srcset="/img/loading.gif" lazyload alt="image-20220415160012334"><br>$$<br>\begin{align*}<br>&amp;x(除数) \div y(被除数) =a ……b \rightarrow x(除数) = a \times y + b\<br>&amp;可知我们的除数=被除数<em>结果 + 余数<br>\end{align</em>}<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/62592632239250f7c59de42d.png" srcset="/img/loading.gif" lazyload alt="image-20220415160012334"><br>
+$$<br>
+\begin{align*}<br>
+&amp;x(除数) \div y(被除数) =a ……b \rightarrow x(除数) = a \times y + b\<br>
+&amp;可知我们的除数=被除数<em>结果 + 余数<br>
+\end{align</em>}<br>
+$$</p>
 <blockquote>
 <p>二进制的手算除法</p>
 </blockquote>
@@ -437,9 +445,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

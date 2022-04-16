@@ -49,7 +49,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -195,15 +195,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/9f53aee2.html" target="_self">
-          12定点数的表示[超大章]
+        <a href="/posts/76310a42.html" target="_self">
+          11循环冗余校验码[中章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/9f53aee2.html" target="_self">
+        <a href="/posts/76310a42.html" target="_self">
           
-          定点数$$\left{\begin{array}{c}&amp;定点数:小数的位置固定 \&amp;比如996.007\\&amp;浮点数:小数的位置不固定\&amp;比如9.96007*10^2\\end{array}\right.$$ 总览 无符号数的表示无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$\begin{align}&amp;100111
+          循环冗余校验码 总览  循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想 数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码 例子: $$ 设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\ 求对应的CRC码 $$
         </a>
       </p>
 
@@ -235,15 +235,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/76310a42.html" target="_self">
-          11循环冗余校验码[中章]
+        <a href="/posts/9f53aee2.html" target="_self">
+          12定点数的表示[超大章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/76310a42.html" target="_self">
+        <a href="/posts/9f53aee2.html" target="_self">
           
-          循环冗余校验码总览 循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码例子:$$设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\求对应的CRC码$$
+          定点数 $$ \left{ \begin{array}{c} &amp;定点数:小数的位置固定 \ &amp;比如996.007\ \ &amp;浮点数:小数的位置不固定\ &amp;比如9.96007*10^2\ \end{array} \right. $$ 总览  无符号数的表示 无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$ \begin{ali
         </a>
       </p>
 
@@ -283,47 +283,7 @@
       <p class="index-excerpt">
         <a href="/posts/d278f11d.html" target="_self">
           
-          各种码的作用使用原码进行加减运算 加入这是一个无符号数正在进行加法运算，我们得到的数字是正确的，结果是156  但是如果我们使用原码再对这个进行运算,我们发现我们无法得到正确的答案,计算机无法实现正数+负数,所以我们需要手动转换成正数-负数  使用原码运算:加法–用加法器完成减法–用减法器完成 但是减法器会增加成本,我们能否使用加法来代替减法呢? 我们可以使用模运算,来让一个减法变成加法
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-16 12:15" pubdate>
-              2022-04-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/posts/bc94495e.html" target="_self">
-          15加减运算和溢出判断[中章]
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/posts/bc94495e.html" target="_self">
-          
-          加减运算和移除判断 我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]补和[A-B]补  $$\begin{align*}&amp; A&#x3D;+1111 \rightarrow \overbra
+          各种码的作用 使用原码进行加减运算  加入这是一个无符号数正在进行加法运算，我们得到的数字是正确的，结果是156  但是如果我们使用原码再对这个进行运算,我们发现我们无法得到正确的答案,计算机无法实现正数+负数,所以我们需要手动转换成正数-负数  使用原码运算: 加法–用加法器完成 减法–用减法器完成 但是减法器会增加成本,我们能否使用加法来代替减法呢? 我们可以使用模运算,来让一个减法变成加法
         </a>
       </p>
 
@@ -363,7 +323,47 @@
       <p class="index-excerpt">
         <a href="/posts/749ec134.html" target="_self">
           
-          移位运算知识总览定点数的表示和运算  移位运算  原码的算术移位 移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法 右移
+          移位运算 知识总览 定点数的表示和运算  移位运算  原码的算术移位  移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法 右移
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-16 12:15" pubdate>
+              2022-04-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/posts/bc94495e.html" target="_self">
+          15加减运算和溢出判断[中章]
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/posts/bc94495e.html" target="_self">
+          
+          加减运算和移除判断  我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算 使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]~补~和[A-B]~补~  $$ \begin{align*} &amp; A&#x3D;+1111 \rightarrow
         </a>
       </p>
 
@@ -403,7 +403,7 @@
       <p class="index-excerpt">
         <a href="/posts/1239baad.html" target="_self">
           
-          原码乘法运算看看我们的十进制乘法 为什么我们的进制要错位？最终还得回归我们的进制公式  $$0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3}$$ $$0.985&#x3D; 985 \times10^{-3}$$ $$0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\times10^{-5}
+          原码乘法运算 看看我们的十进制乘法  为什么我们的进制要错位？ 最终还得回归我们的进制公式  $$ 0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3} $$ $$ 0.985&#x3D; 985 \times10^{-3} $$ $$ 0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\time
         </a>
       </p>
 
@@ -443,7 +443,7 @@
       <p class="index-excerpt">
         <a href="/posts/ee2153eb.html" target="_self">
           
-          补码的乘法运算补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法:进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补   对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0  对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定  原码的符号位不参与运算(最后使用异或运算来判断)  补码的符号位参与运算
+          补码的乘法运算 补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法: 进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补    对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0   对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定   原码的符号位不参与运算(最后使用异或运算来判断)   补码的符
         </a>
       </p>
 
@@ -483,7 +483,7 @@
       <p class="index-excerpt">
         <a href="/posts/44487134.html" target="_self">
           
-          原码的除法运算 手算除法 十进制的手算除法  $$\begin{align*}&amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\&amp;可知我们的除数&#x3D;被除数结果 + 余数\end{align}$$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止
+          原码的除法运算  手算除法  十进制的手算除法   $$ \begin{align*} &amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\ &amp;可知我们的除数&#x3D;被除数结果 + 余数 \end{align} $$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止
         </a>
       </p>
 
@@ -523,7 +523,7 @@
       <p class="index-excerpt">
         <a href="/posts/77cd4175.html" target="_self">
           
-          Computer-composition-principle&#x3D;&#x3D;中文名：计算机组成原理&#x3D;&#x3D; 个人对于每章大小的说明：    章节\说明 字数 作用    小章 小于50行 一般是解释说明或者目录类   中章 大于50行但是小于100行 一般是课程的补充或者扩展   大章 大于100行但是小于200行 一般是正课的笔记   超大章 大于200行 一般多为成体系不可分割，或者重点难点    课程来源：
+          Computer-composition-principle &#x3D;&#x3D;中文名：计算机组成原理&#x3D;&#x3D; 个人对于每章大小的说明：    章节\说明 字数 作用     小章 小于50行 一般是解释说明或者目录类   中章 大于50行但是小于100行 一般是课程的补充或者扩展   大章 大于100行但是小于200行 一般是正课的笔记   超大章 大于200行 一般多为成体系不可分割，或者重点难点     课程
         </a>
       </p>
 

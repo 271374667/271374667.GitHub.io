@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="总览  BCD码 我们使用4个bit来代表一个十进制但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
+    <meta name="description" content="总览   BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="07BCD码[大章]">
 <meta property="og:url" content="http://example.com/posts/338e66cc.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="总览  BCD码 我们使用4个bit来代表一个十进制但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
+<meta property="og:description" content="总览   BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png">
@@ -76,7 +76,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      683 字
+      623 字
     </span>
   
 
@@ -249,41 +249,72 @@
             <h1 style="display: none">07BCD码[大章]</h1>
             
             <div class="markdown-body">
-              <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><p><img src="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png" srcset="/img/loading.gif" lazyload></p>
+              <h1>总览</h1>
+<p><img src="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h1 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h1><hr>
-<p>我们使用4个bit来代表一个十进制<br>但是这样的话我们就有2^4^=16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余</p>
+<h1>BCD码</h1>
+<hr>
+<p>我们使用4个bit来代表一个十进制<br>
+但是这样的话我们就有2^4^=16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余</p>
 <p><br><br></p>
-<h2 id="8421码"><a href="#8421码" class="headerlink" title="8421码"></a>8421码</h2><hr>
-<p><img src="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="8421码">8421码</h2>
+<hr>
+<p><img src="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看到，我们对应的权重</p>
-<p><img src="https://pic.imgdb.cn/item/62451c8d27f86abb2ab11e49.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic.imgdb.cn/item/62451c8d27f86abb2ab11e49.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>例子 保存数字985</p>
 </blockquote>
-<p>$$<br>\overbrace{1001}^\text {9},<br>\overbrace{1000}^\text {8},<br>\overbrace{0101}^\text {5}=985^{十进制}<br>$$</p>
+<p>$$<br>
+\overbrace{1001}^\text {9},<br>
+\overbrace{1000}^\text {8},<br>
+\overbrace{0101}^\text {5}=985^{十进制}<br>
+$$</p>
 <p><br><br></p>
-<h3 id="8421码的加法"><a href="#8421码的加法" class="headerlink" title="8421码的加法"></a>8421码的加法</h3><hr>
-<p><img src="https://pic.imgdb.cn/item/62451dff27f86abb2ab3b508.png" srcset="/img/loading.gif" lazyload></p>
-<p>$$<br>\left{<br>\begin{align*}<br>    &amp; 十进制:5 + 8 = 13\<br>    \<br>    &amp; 8421码:0101 + 1000 = 1101\<br>\end{align*}<br>\right.<br>$$</p>
+<h3 id="8421码的加法">8421码的加法</h3>
+<hr>
+<p><img src="https://pic.imgdb.cn/item/62451dff27f86abb2ab3b508.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>$$<br>
+\left{<br>
+\begin{align*}<br>
+&amp; 十进制:5 + 8 = 13\<br>
+\<br>
+&amp; 8421码:0101 + 1000 = 1101\<br>
+\end{align*}<br>
+\right.<br>
+$$</p>
 <p>二进制的加法之前有提到，可以去前面寻找</p>
 <p>(<code>07进位计数制度[大章]</code>)</p>
-<p><img src="https://pic.imgdb.cn/item/62451f5727f86abb2ab63961.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic.imgdb.cn/item/62451f5727f86abb2ab63961.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>此时我们计算出来的值为1101，但是在8421码中1010-1111(10-15)这部分没有定义</p>
 <p>==所以我们在这个范围里面的数字，我们统一加上一个6==</p>
-<p><img src="https://pic.imgdb.cn/item/62451fc027f86abb2ab6fa45.png" srcset="/img/loading.gif" lazyload></p>
-<p>$$<br>\begin{align*}<br>1101 + 0110^{(十进制里的6)} &amp;= 1;0011^{可以看到又符合8421码了}\<br>&amp;=0001 ; 0011<br>\end{align*}<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/62451fc027f86abb2ab6fa45.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>$$<br>
+\begin{align*}<br>
+1101 + 0110^{(十进制里的6)} &amp;= 1;0011^{可以看到又符合8421码了}\<br>
+&amp;=0001 ; 0011<br>
+\end{align*}<br>
+$$</p>
 <p><br><br></p>
-<h2 id="余3码"><a href="#余3码" class="headerlink" title="余3码"></a>余3码</h2><hr>
-<p><img src="https://pic.imgdb.cn/item/6245267127f86abb2ac33147.png" srcset="/img/loading.gif" lazyload></p>
-<p>我们余3码就是在8421码的基础上都+3(0011)变化而来的<br>但也因此，我们的余3码没有固定的权重</p>
+<h2 id="余3码">余3码</h2>
+<hr>
+<p><img src="https://pic.imgdb.cn/item/6245267127f86abb2ac33147.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>我们余3码就是在8421码的基础上都+3(0011)变化而来的<br>
+但也因此，我们的余3码没有固定的权重</p>
 <p><br><br></p>
-<h2 id="2421码-改变权值定义"><a href="#2421码-改变权值定义" class="headerlink" title="2421码 改变权值定义"></a>2421码 改变权值定义</h2><hr>
-<p><img src="https://pic.imgdb.cn/item/6245275827f86abb2ac4afb9.png" srcset="/img/loading.gif" lazyload></p>
-<p>和8421码一样，我们2421码改变了权值<br>比如5</p>
-<p>$$<br>1011 = 1<em>2 + 0</em>4 + 1<em>2 + 1</em>1 = 5<br>$$</p>
-<p>!!! note 注意<br>    0到4所有的开头都是0<br>    5到9所有的开头都是1</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://pic.imgdb.cn/item/62459fe327f86abb2ab7c99d.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2421码-改变权值定义">2421码 改变权值定义</h2>
+<hr>
+<p><img src="https://pic.imgdb.cn/item/6245275827f86abb2ac4afb9.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>和8421码一样，我们2421码改变了权值<br>
+比如5</p>
+<p>$$<br>
+1011 = 1<em>2 + 0</em>4 + 1<em>2 + 1</em>1 = 5<br>
+$$</p>
+<p>!!! note 注意<br>
+0到4所有的开头都是0<br>
+5到9所有的开头都是1</p>
+<h1>总结</h1>
+<p><img src="https://pic.imgdb.cn/item/62459fe327f86abb2ab7c99d.png" srcset="/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -311,9 +342,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/8fb785fe.html">
+                      <a href="/posts/77e40f07.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">06进位计数制度[超大章]</span>
+                        <span class="hidden-mobile">08字符与字符串[中章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -321,8 +352,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/9cee6847.html">
-                        <span class="hidden-mobile">03认识各个硬件部件[大章]</span>
+                      <a href="/posts/a7d32227.html">
+                        <span class="hidden-mobile">09奇偶校验码[中章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -468,9 +499,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

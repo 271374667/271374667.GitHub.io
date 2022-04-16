@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="循环冗余校验码总览 循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码例子:$$设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\求对应的CRC码$$">
+    <meta name="description" content="循环冗余校验码 总览  循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想 数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码 例子: $$ 设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\ 求对应的CRC码 $$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="11循环冗余校验码[中章]">
 <meta property="og:url" content="http://example.com/posts/76310a42.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="循环冗余校验码总览 循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码例子:$$设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\求对应的CRC码$$">
+<meta property="og:description" content="循环冗余校验码 总览  循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想 数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码 例子: $$ 设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\ 求对应的CRC码 $$">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/624bb10b239250f7c5dbc94a.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/624bb3e6239250f7c5e119a8.png">
@@ -74,7 +74,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -206,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      830 字
+      750 字
     </span>
   
 
@@ -247,23 +247,54 @@
             <h1 style="display: none">11循环冗余校验码[中章]</h1>
             
             <div class="markdown-body">
-              <h1 id="循环冗余校验码"><a href="#循环冗余校验码" class="headerlink" title="循环冗余校验码"></a>循环冗余校验码</h1><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p><img src="https://pic.imgdb.cn/item/624bb10b239250f7c5dbc94a.png" srcset="/img/loading.gif" lazyload alt="本章学习总览图"></p>
+              <h1>循环冗余校验码</h1>
+<h2 id="总览-2">总览</h2>
+<p><img src="https://pic.imgdb.cn/item/624bb10b239250f7c5dbc94a.png" srcset="/img/loading.gif" lazyload alt="本章学习总览图"></p>
 <p>循环冗余校验(Cyclic Redundancy Check，CRC)</p>
-<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了</p>
+<h2 id="基本思想">基本思想</h2>
+<p>数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了</p>
 <p><img src="https://pic.imgdb.cn/item/624bb3e6239250f7c5e119a8.png" srcset="/img/loading.gif" lazyload alt="图解基本实现"></p>
 <p>我们在后面加上一些校验位,来确保数据被除后余数为零</p>
-<h2 id="循环校验码"><a href="#循环校验码" class="headerlink" title="循环校验码"></a>循环校验码</h2><p>例子:<br>$$<br>设多项式为 G(x)=x^3+x^2+1 ,信息码为101001\<br>求对应的CRC码<br>$$</p>
+<h2 id="循环校验码">循环校验码</h2>
+<p>例子:<br>
+$$<br>
+设多项式为 G(x)=x^3+x^2+1 ,信息码为101001\<br>
+求对应的CRC码<br>
+$$</p>
 <p>我们可以把$G(x)=x^3+x^2+1$换一种写法</p>
-<p>$$<br>\begin{align*}<br>x^3+x^2+1 &amp;= 1<em>x^3 + 1</em>x^2 + 1*x^0\<br>&amp;=\underbrace{1}*x^3 + \underbrace{1}*x^2 + \underbrace{0}*x^1 + \underbrace{1}<em>x^0<br>\end{align</em>}<br>$$</p>
+<p>$$<br>
+\begin{align*}<br>
+x^3+x^2+1 &amp;= 1<em>x^3 + 1</em>x^2 + 1*x^0\<br>
+&amp;=\underbrace{1}*x^3 + \underbrace{1}*x^2 + \underbrace{0}*x^1 + \underbrace{1}<em>x^0<br>
+\end{align</em>}<br>
+$$</p>
 <p>此时我们把他们前面的系数提取出来就得出一个数字 $1101$</p>
 <p>开始计算</p>
 <ol>
-<li><p>确定一共有多少R(校验位)<br>K = 信息码的长度 = 6<br>R = 多项式最高次幂 = 3(x^3^)<br>所以我们一共有3个校验位，于是我们现在需要传输的数据除了原本的信息位，现在还需要传输校验位<br>$$<br>\begin{align*}<br>生成的&amp;CRC码用N表示\<br>N &amp;= K + R \<br>&amp;= 6 + 3\<br>&amp;= 9<br>\end{align*}<br>$$</p>
+<li>
+<p>确定一共有多少R(校验位)<br>
+K = 信息码的长度 = 6<br>
+R = 多项式最高次幂 = 3(x^3^)<br>
+所以我们一共有3个校验位，于是我们现在需要传输的数据除了原本的信息位，现在还需要传输校验位<br>
+$$<br>
+\begin{align*}<br>
+生成的&amp;CRC码用N表示\<br>
+N &amp;= K + R \<br>
+&amp;= 6 + 3\<br>
+&amp;= 9<br>
+\end{align*}<br>
+$$</p>
 </li>
-<li><p>移位<br>信息码左移R位，地位补0<br>$$<br>101001 = 01001\color{yellow},{000}<br>$$</p>
+<li>
+<p>移位<br>
+信息码左移R位，地位补0<br>
+$$<br>
+101001 = 01001\color{yellow},{000}<br>
+$$</p>
 </li>
 </ol>
-<h3 id="模二除"><a href="#模二除" class="headerlink" title="模二除"></a>模二除</h3><ol start="3">
+<h3 id="模二除">模二除</h3>
+<ol start="3">
 <li>相除</li>
 </ol>
 <p>对移位后的信息码，用生成多项式进行==模2除法==，产生余数</p>
@@ -276,9 +307,14 @@
 <p><img src="https://pic.imgdb.cn/item/624bc032239250f7c5f9e7be.png" srcset="/img/loading.gif" lazyload alt="检验是否出现错误"></p>
 <p><img src="https://pic.imgdb.cn/item/624bc0c3239250f7c5faf700.png" srcset="/img/loading.gif" lazyload alt="错误列表"></p>
 <p>CRC码有纠错能力，但是非常弱，只能纠正一位错误</p>
-<p>$$<br>当我们的数据满足下列关系式可以纠错\<br>2^R \geq K + R + 1\<br>但是一般情况下，CRC还是用作校验而非纠错<br>$$</p>
+<p>$$<br>
+当我们的数据满足下列关系式可以纠错\<br>
+2^R \geq K + R + 1\<br>
+但是一般情况下，CRC还是用作校验而非纠错<br>
+$$</p>
 <p><img src="https://pic.imgdb.cn/item/624bc219239250f7c5fd7fa5.png" srcset="/img/loading.gif" lazyload alt="CRC纠错能力"></p>
-<h2 id="回顾和总览"><a href="#回顾和总览" class="headerlink" title="回顾和总览"></a>回顾和总览</h2><p><img src="https://pic.imgdb.cn/item/624bc2c1239250f7c5feb59f.png" srcset="/img/loading.gif" lazyload alt="回顾和总览"></p>
+<h2 id="回顾和总览">回顾和总览</h2>
+<p><img src="https://pic.imgdb.cn/item/624bc2c1239250f7c5feb59f.png" srcset="/img/loading.gif" lazyload alt="回顾和总览"></p>
 
             </div>
             <hr>
@@ -306,9 +342,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/9f53aee2.html">
+                      <a href="/posts/4c294f2e.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">12定点数的表示[超大章]</span>
+                        <span class="hidden-mobile">10海明码校验码[中章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -316,8 +352,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/d278f11d.html">
-                        <span class="hidden-mobile">13各种码的作用[小章]</span>
+                      <a href="/posts/9f53aee2.html">
+                        <span class="hidden-mobile">12定点数的表示[超大章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -463,9 +499,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="加减运算和移除判断 我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]补和[A-B]补  $$\begin{align*}&amp; A&#x3D;+1111 \rightarrow \overbra">
+    <meta name="description" content="加减运算和移除判断  我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算 使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]~补~和[A-B]~补~  $$ \begin{align*} &amp; A&#x3D;+1111 \rightarrow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="15加减运算和溢出判断[中章]">
 <meta property="og:url" content="http://example.com/posts/bc94495e.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="加减运算和移除判断 我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]补和[A-B]补  $$\begin{align*}&amp; A&#x3D;+1111 \rightarrow \overbra">
+<meta property="og:description" content="加减运算和移除判断  我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算 使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]~补~和[A-B]~补~  $$ \begin{align*} &amp; A&#x3D;+1111 \rightarrow">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6252a1e8239250f7c5c050e1.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6252d8d0239250f7c537adb6.png">
@@ -73,7 +73,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      931 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      8 分钟
     </span>
   
 
@@ -246,18 +246,35 @@
             <h1 style="display: none">15加减运算和溢出判断[中章]</h1>
             
             <div class="markdown-body">
-              <h1 id="加减运算和移除判断"><a href="#加减运算和移除判断" class="headerlink" title="加减运算和移除判断"></a>加减运算和移除判断</h1><p><img src="https://pic.imgdb.cn/item/6252a1e8239250f7c5c050e1.png" srcset="/img/loading.gif" lazyload alt="加减运算和移除判断"></p>
+              <h1>加减运算和移除判断</h1>
+<p><img src="https://pic.imgdb.cn/item/6252a1e8239250f7c5c050e1.png" srcset="/img/loading.gif" lazyload alt="加减运算和移除判断"></p>
 <p>我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们<strong>一般不使用原码进行运算</strong>,==计算机中通常采用补码进行算术运算==</p>
-<h2 id="使用补码进行运算"><a href="#使用补码进行运算" class="headerlink" title="使用补码进行运算"></a>使用补码进行运算</h2><p>使用补码进行运算，符号位一样参与运算</p>
+<h2 id="使用补码进行运算">使用补码进行运算</h2>
+<p>使用补码进行运算，符号位一样参与运算</p>
 <blockquote>
-<p>设机器字长为8位(含1位符号位)，A=15, B=-24,求[A+B]<del>补</del>和[A-B]<del>补</del></p>
+<p>设机器字长为8位(含1位符号位)，A=15, B=-24,求[A+B]~补~和[A-B]~补~</p>
 </blockquote>
-<p>$$<br>\begin{align*}<br>&amp; A=+1111 \rightarrow \overbrace{0,0001111}^\text{原码}\rightarrow \overbrace{0,0001111}^\text{补码}\<br>&amp; B=-11000 \rightarrow 1,0011000 \rightarrow 11101000\<br>\end{align*}<br>$$</p>
+<p>$$<br>
+\begin{align*}<br>
+&amp; A=+1111 \rightarrow \overbrace{0,0001111}^\text{原码}\rightarrow \overbrace{0,0001111}^\text{补码}\<br>
+&amp; B=-11000 \rightarrow 1,0011000 \rightarrow 11101000\<br>
+\end{align*}<br>
+$$</p>
 <p>计算公式</p>
-<p>$$<br>\begin{align*}<br>&amp;[A+B]_补\<br>&amp;= [A]_补+[B]_补 \<br>&amp;=0,0001111+1,1101000\<br>&amp;=1,1110111\<br>\end{align*}<br>$$</p>
+<p>$$<br>
+\begin{align*}<br>
+&amp;[A+B]_补\<br>
+&amp;= [A]_补+[B]_补 \<br>
+&amp;=0,0001111+1,1101000\<br>
+&amp;=1,1110111\<br>
+\end{align*}<br>
+$$</p>
 <p>把最终结果转换成原码,然后转换成真值</p>
-<p>$$<br>10001001^\text{原码} = -9^\text{真值}<br>$$</p>
-<h3 id="对于补码快速转原码的一个方式"><a href="#对于补码快速转原码的一个方式" class="headerlink" title="对于补码快速转原码的一个方式"></a>对于补码快速转原码的一个方式</h3><p>由之前所学的知识可知，负数补码移位的时候</p>
+<p>$$<br>
+10001001^\text{原码} = -9^\text{真值}<br>
+$$</p>
+<h3 id="对于补码快速转原码的一个方式">对于补码快速转原码的一个方式</h3>
+<p>由之前所学的知识可知，负数补码移位的时候</p>
 <ul>
 <li>最左边到最右边的1和反码一样</li>
 <li>最右边的1到最后边和原码一样</li>
@@ -267,11 +284,17 @@
 <li>我们来数最右边的1，然后最右边的1到最右边原封不动</li>
 <li>然后最右边的1到最左边全部取反</li>
 </ol>
-<p>比如<br>$$1,111011\underline{1} = 1,00010\underline{1}$$</p>
-<p>$$<br>1,110\underline{1}000[补码] = 0,001\underline{1}000[原码]<br>$$</p>
-<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><p><img src="https://pic.imgdb.cn/item/6252d8d0239250f7c537adb6.png" srcset="/img/loading.gif" lazyload alt="溢出"></p>
+<p>比如<br>
+$$1,111011\underline{1} = 1,00010\underline{1}$$</p>
+<p>$$<br>
+1,110\underline{1}000[补码] = 0,001\underline{1}000[原码]<br>
+$$</p>
+<h2 id="溢出">溢出</h2>
+<p><img src="https://pic.imgdb.cn/item/6252d8d0239250f7c537adb6.png" srcset="/img/loading.gif" lazyload alt="溢出"></p>
 <p>可以看到，我们的A+C本来应该等于139,但是现在却等于-117,这就是数值发生了溢出</p>
-<h3 id="溢出判断"><a href="#溢出判断" class="headerlink" title="溢出判断"></a>溢出判断</h3><p>只有“正数+正数”才会上溢–正+正=负<br>只有“负数+负数”才会下溢–负+负=正</p>
+<h3 id="溢出判断">溢出判断</h3>
+<p>只有“正数+正数”才会上溢–正+正=负<br>
+只有“负数+负数”才会下溢–负+负=正</p>
 <p>因为正数-负数的绝对值一定小于这两个数</p>
 <p>计算机的溢出分为两种,</p>
 <ul>
@@ -282,9 +305,11 @@
 <p>最常用的判断溢出方法(双符号位)</p>
 <p><img src="https://pic.imgdb.cn/item/6252dbf3239250f7c53ec9ff.png" srcset="/img/loading.gif" lazyload alt="双符号位"></p>
 <p>如果两个符号位相同表示没有溢出，如果不同则表示溢出</p>
-<h2 id="符号扩展-int-gt-long"><a href="#符号扩展-int-gt-long" class="headerlink" title="符号扩展(int->long)"></a>符号扩展(int-&gt;long)</h2><p>防止溢出的方法就是把短数据变成长数据</p>
+<h2 id="符号扩展-int-long">符号扩展(int-&gt;long)</h2>
+<p>防止溢出的方法就是把短数据变成长数据</p>
 <p><img src="https://pic.imgdb.cn/item/6252dca2239250f7c5406634.png" srcset="/img/loading.gif" lazyload alt="符号扩展"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/6252dcde239250f7c540e2b4.png" srcset="/img/loading.gif" lazyload alt="总结"></p>
+<h2 id="总结-4">总结</h2>
+<p><img src="https://pic.imgdb.cn/item/6252dcde239250f7c540e2b4.png" srcset="/img/loading.gif" lazyload alt="总结"></p>
 
             </div>
             <hr>
@@ -312,9 +337,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/d278f11d.html">
+                      <a href="/posts/749ec134.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">13各种码的作用[小章]</span>
+                        <span class="hidden-mobile">14移位运算[大章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -322,8 +347,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/749ec134.html">
-                        <span class="hidden-mobile">14移位运算[大章]</span>
+                      <a href="/posts/1239baad.html">
+                        <span class="hidden-mobile">16原码的乘法运算[大章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -469,9 +494,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

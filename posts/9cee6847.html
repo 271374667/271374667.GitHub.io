@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="主机内部是如何协调工作的？主存储  存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
+    <meta name="description" content="主机内部是如何协调工作的？ 主存储   存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="03认识各个硬件部件[大章]">
 <meta property="og:url" content="http://example.com/posts/9cee6847.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="主机内部是如何协调工作的？主存储  存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
+<meta property="og:description" content="主机内部是如何协调工作的？ 主存储   存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png">
 <meta property="og:image" content="https://s2.loli.net/2022/03/29/GkD8FNgTedA5M3p.png">
@@ -85,7 +85,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -217,7 +217,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.4k 字
     </span>
   
 
@@ -226,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      12 分钟
     </span>
   
 
@@ -258,102 +258,119 @@
             <h1 style="display: none">03认识各个硬件部件[大章]</h1>
             
             <div class="markdown-body">
-              <h1 id="主机内部是如何协调工作的？"><a href="#主机内部是如何协调工作的？" class="headerlink" title="主机内部是如何协调工作的？"></a>主机内部是如何协调工作的？</h1><h2 id="主存储"><a href="#主存储" class="headerlink" title="主存储"></a>主存储</h2><hr>
-<p><img src="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png" srcset="/img/loading.gif" lazyload></p>
+              <h1>主机内部是如何协调工作的？</h1>
+<h2 id="主存储">主存储</h2>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>存储体：可以寄存0和1</p>
 <p>MAR:存储地址寄存器^[MAR全名:Memory Address Register]</p>
 <p>MDR:存储数据寄存器^[MDR全名:Memory Data Register]</p>
 <p><br><br></p>
-<h3 id="MAR与MDR是如何工作的"><a href="#MAR与MDR是如何工作的" class="headerlink" title="MAR与MDR是如何工作的?"></a>MAR与MDR是如何工作的?</h3><hr>
+<h3 id="MAR与MDR是如何工作的">MAR与MDR是如何工作的?</h3>
+<hr>
 <blockquote>
 <p>类比菜鸟驿站</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/GkD8FNgTedA5M3p.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/GkD8FNgTedA5M3p.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我告诉店员取件号，然后店员就回去货架拿数据，然后把数据给柜台，然后给我</p>
 <p>类比，我们是告诉MAR地址，然后内存交给MDR，最后我们从MDR拿走数据</p>
 <p><br><br></p>
-<h3 id="存储体是怎么工作的？"><a href="#存储体是怎么工作的？" class="headerlink" title="存储体是怎么工作的？"></a>存储体是怎么工作的？</h3><hr>
+<h3 id="存储体是怎么工作的？">存储体是怎么工作的？</h3>
+<hr>
 <p>数据按照地址存放在存储体中</p>
-<p><img src="https://s2.loli.net/2022/03/29/gC1dx36ynP2OuI4.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/gC1dx36ynP2OuI4.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>一般存储字长的数量是8的整数倍(8bit,16bit,32bit,64bit)</p>
-<p>其中<br>==MAR位数反应了存储单元的个数==<br>==MDR的位数=存储字长==</p>
-<p><img src="https://s2.loli.net/2022/03/29/iL6l9VDrxj7muaH.png" srcset="/img/loading.gif" lazyload></p>
-<p>!!! note 注意，一个字节和一个字是不一样的<br>    一个字节固定8bit,但是一个字不一定是16bit,需要看计算器MDR的位数</p>
-<p>!!! note 关于B和b<br>    1B表示1个字节\1b=1个bit,所以1B=8b</p>
+<p>其中<br>
+==MAR位数反应了存储单元的个数==<br>
+==MDR的位数=存储字长==</p>
+<p><img src="https://s2.loli.net/2022/03/29/iL6l9VDrxj7muaH.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>!!! note 注意，一个字节和一个字是不一样的<br>
+一个字节固定8bit,但是一个字不一定是16bit,需要看计算器MDR的位数</p>
+<p>!!! note 关于B和b<br>
+1B表示1个字节\1b=1个bit,所以1B=8b</p>
 <blockquote>
 <p>思考:运营商的100Mbps实际上只有10M+，为什么呢？</p>
 </blockquote>
-<p>因为运营商这里用的是小b,所以我们下载的时候最大真实速度需要除以8<br>100Mbps实际上只有12.5MBps</p>
-<h2 id="运算器的基本组成"><a href="#运算器的基本组成" class="headerlink" title="运算器的基本组成"></a>运算器的基本组成</h2><hr>
-<p><img src="https://s2.loli.net/2022/03/29/zobuJQiGj2ly1RK.png" srcset="/img/loading.gif" lazyload></p>
+<p>因为运营商这里用的是小b,所以我们下载的时候最大真实速度需要除以8<br>
+100Mbps实际上只有12.5MBps</p>
+<h2 id="运算器的基本组成">运算器的基本组成</h2>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/zobuJQiGj2ly1RK.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>运算器：用于实现算术运算(如加减乘除),逻辑运算(如:与或非)</p>
-<p>ACC:累加器，用于存放操作数，或运算结果。<br>MQ:乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。<br>通用的操作数寄存器，用于存放操作数<br>X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于存放操作数</p>
+<p>ACC:累加器，用于存放操作数，或运算结果。<br>
+MQ:乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。<br>
+通用的操作数寄存器，用于存放操作数<br>
+X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于存放操作数</p>
 <p>==ACC,MQ,X统统属于寄存器(不可或缺)==</p>
 <p>==ALU(制造成本最高，最复杂的原件)==:算术逻辑单元，通过内部复杂的电路实现算术运算和逻辑运算</p>
 <p><br><br></p>
-<h2 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h2><hr>
-<p><img src="https://s2.loli.net/2022/03/29/FlrtkUugXmxbShR.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="控制器的基本组成">控制器的基本组成</h2>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/FlrtkUugXmxbShR.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>==CU(核心空间)==:控制单元，分析指令，给出控制信号</p>
 <p>IR:指令寄存器，存放当前执行的指令</p>
-<p>PC:程序计数器，存放下一条指令地址,<br>有自动加1功能</p>
+<p>PC:程序计数器，存放下一条指令地址,<br>
+有自动加1功能</p>
 <blockquote>
 <p>完成一条指令(从上往下执行)</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/B7IYxuLR6HGJvz1.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/B7IYxuLR6HGJvz1.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>==其中PC和IR称为取指阶段，CU为执行阶段==</p>
 <blockquote>
 <p>最后的统合图</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h1 id="计算机的工作过程"><a href="#计算机的工作过程" class="headerlink" title="计算机的工作过程"></a>计算机的工作过程</h1><hr>
-<p><img src="https://s2.loli.net/2022/03/29/ptiKsSMxlr3LCYW.png" srcset="/img/loading.gif" lazyload></p>
+<h1>计算机的工作过程</h1>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/ptiKsSMxlr3LCYW.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>前面0-4是机器指令</p>
 <blockquote>
 <p>分析具体的案例</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>右边<strong>所有的机器码全部都存储在存储体中</strong></li>
 <li>控制器中的PC初始化为0，并且指向第一条指令的存储地址</li>
 <li>PC取出的内容，通过地址总线传递到主存储器的MAR中,令MAR=0</li>
 <li>MAR去存储体中读取地址，并且放数据到MDR，令MDR=000001 000000101</li>
 <li>MDR通过数据总线传递数据到控制器的IR中，并且赋值给IR</li>
-<li>其中传递到IR的<strong>操作码</strong>会被传递给CU,CU分析后得知，这是”取数字”指令</li>
+<li>其中传递到IR的<strong>操作码</strong>会被传递给CU,CU分析后得知，这是"取数字"指令</li>
 <li>于是控制器的IR传递地址码到MAR，令MAR=5,此时5号地址对应的是令a=2</li>
 <li>于是存储体给数据给MDR，MDR被赋值为2</li>
 <li>MDR在控制单元的指挥下,MDR的数据会被传送到ACC中，ACC被赋值为2</li>
 </ol>
 <p><em>老师的简化版</em></p>
-<p><img src="https://s2.loli.net/2022/03/29/syfSBD4zunR3Vmo.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/syfSBD4zunR3Vmo.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>上一条指令取指之后PC自动+1，(PC)=1,执行后，(ACC)=2</p>
 <blockquote>
 <p>第二条指令</p>
 </blockquote>
 <p>重复之前的步骤</p>
-<p><img src="https://s2.loli.net/2022/03/29/tIo93MgmRTr1yZa.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/tIo93MgmRTr1yZa.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <ol>
 <li>当我们的第二个数字到了ACC，我们的ACC就会先把前一个数字传送到(x)通用寄存器里</li>
 <li>然后把被乘数存入(MQ),最后通过CU控制单元，我们的ALU开始工作，</li>
 <li>计算2X3得出结果6返回给(ACC)^当存储数字过大^^[如果乘积太大需要MQ辅助存储]</li>
 </ol>
 <p><em>执行结束的图</em></p>
-<p><img src="https://s2.loli.net/2022/03/29/HFoiVTpsYI9zUrQ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/HFoiVTpsYI9zUrQ.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>第三条指令</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/vTiBSRVqWNO2xZj.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/vTiBSRVqWNO2xZj.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>第四条指令</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/638crJ5DCQ9Hwid.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/638crJ5DCQ9Hwid.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>第五条指令</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/FdjrQ4gfb6o2wLK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/FdjrQ4gfb6o2wLK.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://s2.loli.net/2022/03/29/rOUKEACgWBvxztQ.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://s2.loli.net/2022/03/29/vkoZrMjD2ULYHEx.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="总结">总结</h2>
+<p><img src="https://s2.loli.net/2022/03/29/rOUKEACgWBvxztQ.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/03/29/vkoZrMjD2ULYHEx.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>注意：现代计算机通常把MAR与MDR也集成在CPU中</p>
 
             </div>
@@ -382,9 +399,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/338e66cc.html">
+                      <a href="/posts/198f00af.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">07BCD码[大章]</span>
+                        <span class="hidden-mobile">02计算机硬件的基本组成[中章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +409,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/77e40f07.html">
-                        <span class="hidden-mobile">08字符与字符串[中章]</span>
+                      <a href="/posts/a91d72e7.html">
+                        <span class="hidden-mobile">01计算机概念和发展历程[中章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -539,9 +556,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 

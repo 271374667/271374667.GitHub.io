@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="冯诺依曼机 早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)这导致浪费了很多时间，于是冯诺依曼提出了 &#x3D;&#x3D;储存程序&#x3D;&#x3D;  “存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器  然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直 至程序执行结束。   按照传递的顺序进行说明：  输入设备:将信息转换成机器能识别的形式  运算">
+    <meta name="description" content="冯诺依曼机  早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么) 这导致浪费了很多时间，于是冯诺依曼提出了 &#x3D;&#x3D;储存程序&#x3D;&#x3D; “存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器  然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直 至程序执行结束。   按照传递的顺序进行说明：   输入设备:将信息转换成机器能识别的形式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="02计算机硬件的基本组成[中章]">
 <meta property="og:url" content="http://example.com/posts/198f00af.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="冯诺依曼机 早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)这导致浪费了很多时间，于是冯诺依曼提出了 &#x3D;&#x3D;储存程序&#x3D;&#x3D;  “存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器  然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直 至程序执行结束。   按照传递的顺序进行说明：  输入设备:将信息转换成机器能识别的形式  运算">
+<meta property="og:description" content="冯诺依曼机  早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么) 这导致浪费了很多时间，于是冯诺依曼提出了 &#x3D;&#x3D;储存程序&#x3D;&#x3D; “存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器  然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直 至程序执行结束。   按照传递的顺序进行说明：   输入设备:将信息转换成机器能识别的形式">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png">
 <meta property="og:image" content="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png">
@@ -74,7 +74,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":true},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -206,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      961 字
+      850 字
     </span>
   
 
@@ -215,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      8 分钟
     </span>
   
 
@@ -247,49 +247,60 @@
             <h1 style="display: none">02计算机硬件的基本组成[中章]</h1>
             
             <div class="markdown-body">
-              <h1 id="冯诺依曼机"><a href="#冯诺依曼机" class="headerlink" title="冯诺依曼机"></a>冯诺依曼机</h1><hr>
-<p>早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)<br>这导致浪费了很多时间，于是冯诺依曼提出了</p>
-<p>==储存程序== </p>
+              <h1>冯诺依曼机</h1>
+<hr>
+<p>早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)<br>
+这导致浪费了很多时间，于是冯诺依曼提出了</p>
+<p>==储存程序==</p>
 <div class="code-wrapper"><pre><code class="hljs">“存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器
 
 然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直
 至程序执行结束。
 </code></pre></div>
-<p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>按照传递的顺序进行说明：</p>
 <ol>
-<li><p>输入设备:将信息转换成机器能识别的形式</p>
+<li>
+<p>输入设备:将信息转换成机器能识别的形式</p>
 </li>
-<li><p>运算器：中转到储存器</p>
+<li>
+<p>运算器：中转到储存器</p>
 </li>
-<li><p>存储器：存储数据和程序</p>
+<li>
+<p>存储器：存储数据和程序</p>
 </li>
-<li><p>数据流回运算器：进行算术运算和逻辑运算</p>
+<li>
+<p>数据流回运算器：进行算术运算和逻辑运算</p>
 </li>
-<li><p>输出设备：把结果转换成人能看得懂的数据</p>
+<li>
+<p>输出设备：把结果转换成人能看得懂的数据</p>
 </li>
 </ol>
-<p>单独的一条：<br>控制器：指挥程序运行(涉及到每一步)，程序指令的解析</p>
+<p>单独的一条：<br>
+控制器：指挥程序运行(涉及到每一步)，程序指令的解析</p>
 <p>==在计算机系统中，软件和硬件在逻辑上是等效的==</p>
 <p><br><br></p>
-<h2 id="冯诺依曼计算机的特点"><a href="#冯诺依曼计算机的特点" class="headerlink" title="冯诺依曼计算机的特点"></a>冯诺依曼计算机的特点</h2><hr>
+<h2 id="冯诺依曼计算机的特点">冯诺依曼计算机的特点</h2>
+<hr>
 <ol>
 <li>计算机有五大部件组成(统称为I/O设备，输入输出设备)</li>
 <li>指令和数据以同等地位存于存储器，可按地址寻访</li>
 <li>指令和数据用二进制表示</li>
-<li>指令由操作码(<del>加减乘除</del>)和地址码(<del>我们要操作的数据存储在内存的什么地址中</del>)组成</li>
+<li>指令由操作码(~加减乘除~)和地址码(~我们要操作的数据存储在内存的什么地址中~)组成</li>
 <li>存储程序</li>
-<li>==以运算器为中心==(输入/输出设备与存储器之间<br>的数据传送通过运算器完成)</li>
+<li>==以运算器为中心==(输入/输出设备与存储器之间<br>
+的数据传送通过运算器完成)</li>
 </ol>
 <blockquote>
 <p>一个类比</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://s2.loli.net/2022/03/29/7o9t3u4XlY2pjgR.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://s2.loli.net/2022/03/29/7o9t3u4XlY2pjgR.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看到，这种方案是低效的，每一步都需要经过我们的运算器(生产加工部门)</p>
 <p>找到了缺点，就有办法改进，于是我们就有了现代计算机结构</p>
-<h1 id="现代计算机结构"><a href="#现代计算机结构" class="headerlink" title="现代计算机结构"></a>现代计算机结构</h1><hr>
-<p><img src="https://s2.loli.net/2022/03/29/8p3MLVHCk1cyE6m.png" srcset="/img/loading.gif" lazyload></p>
+<h1>现代计算机结构</h1>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/8p3MLVHCk1cyE6m.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>以往的设备都是由运算器作为核心，如今的计算机以存储器作为核心，<strong>这样可以空出更多的空间，来让运算器做出更多的运算</strong></p>
 <p>==现代计算机:以存储器为中心==</p>
 <p>其中<strong>运算器和控制器通常在制成芯片的时候会集成在一起</strong>,整合了这两个功能的芯片我们就叫CPU</p>
@@ -297,7 +308,7 @@
 <blockquote>
 <p>简化后的图解</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/zyBeVj1N8mAJLdQ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/zyBeVj1N8mAJLdQ.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <blockquote>
 <p>控制器</p>
 </blockquote>
@@ -318,12 +329,13 @@
 <blockquote>
 <p>图解</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/03/29/wNKET7XMFQrBO61.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://s2.loli.net/2022/03/29/wNKET7XMFQrBO61.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>主存(内存)和辅存(机械硬盘，固态硬盘)都可以统称为存储器</p>
 <p>注意，只有内存才能算主机，机械硬盘属于IO设备</p>
 <p><br><br></p>
-<h1 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h1><hr>
-<p><img src="https://s2.loli.net/2022/03/29/Ugx5TmBYijIKeL4.png" srcset="/img/loading.gif" lazyload></p>
+<h1>知识点回顾</h1>
+<hr>
+<p><img src="https://s2.loli.net/2022/03/29/Ugx5TmBYijIKeL4.png" srcset="/img/loading.gif" lazyload alt=""></p>
 
             </div>
             <hr>
@@ -355,8 +367,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/a91d72e7.html">
-                        <span class="hidden-mobile">01计算机概念和发展历程[中章]</span>
+                      <a href="/posts/9cee6847.html">
+                        <span class="hidden-mobile">03认识各个硬件部件[大章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -502,9 +514,58 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
 
 
 
