@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="存储器的性能指标  MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T    相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB 10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05计算机的性能指标[大章]">
+<meta property="og:url" content="http://example.com/posts/dd8cec3a.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="存储器的性能指标  MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T    相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB 10">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330102854.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162158.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162219.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163258.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163433.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330164645.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.214Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png">
+  
+  
+  <title>05计算机的性能指标[大章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="05计算机的性能指标[大章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">05计算机的性能指标[大章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="存储器的性能指标"><a href="#存储器的性能指标" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png" srcset="/img/loading.gif" lazyload></p>
+<p>MAR位数反映每个存储单元的大小数(最多支持多少个)</p>
+<p>MDR位数=存储字长=存储单元的个</p>
+<blockquote>
+<p>为什么MAR的位数为2^n^呢?</p>
+</blockquote>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^<br>同时我们还需要知道几个比较常用的单位转换</p>
+<table>
+<thead>
+<tr>
+<th>说明\单位</th>
+<th>K</th>
+<th>M</th>
+<th>G</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相当于多少二进制位</td>
+<td>2^10^</td>
+<td>2^20^</td>
+<td>2^30^</td>
+<td>2^40^</td>
+</tr>
+<tr>
+<td>代表的大小</td>
+<td>1KB</td>
+<td>1024KB</td>
+<td>1024M</td>
+<td>1024G</td>
+</tr>
+<tr>
+<td>进制的转化</td>
+<td>1KB=1024B=8bit</td>
+<td>1M = 1MB = 1024KB</td>
+<td>1G = 1024MB</td>
+<td>1T = 1024G</td>
+</tr>
+</tbody></table>
+<p><br><br></p>
+<h1 id="CPU的性能指标"><a href="#CPU的性能指标" class="headerlink" title="CPU的性能指标"></a>CPU的性能指标</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330102854.png" srcset="/img/loading.gif" lazyload></p>
+<p>类似广播体操，我们计算机需要有一个人来喊口号，CPU的脉冲信号就是给这些命令带来节奏</p>
+<br>
+
+<h2 id="CLK"><a href="#CLK" class="headerlink" title="CLK"></a>CLK</h2><hr>
+<p>==CLK一个循环我们称之为CPU时钟周期==<br>单位是<strong>微秒，纳秒</strong><br>$$CPU主频(时钟频率) = \frac{1}{CPU时钟周期}$$</p>
+<p><em>10/Hz表示每秒有10个脉冲信号</em></p>
+<p><br><br></p>
+<h2 id="CPI"><a href="#CPI" class="headerlink" title="CPI"></a>CPI</h2><hr>
+<p>CPU的性能除了和CPU主频相关之外，还和CPI有关</p>
+<p>CPI^[CPI全称:Clock cycle Per Instruction]:执行一条指令所需要的时钟周期数^[不同的指令，CPI不同，甚至相同的指令，CPI也可能有变化]</p>
+<p><em>公式:</em><br>$$执行一条指令的耗时 = CPI \times CPU时钟周期$$</p>
+<blockquote>
+<p>一个例子</p>
+</blockquote>
+<p><em>某CPU主频为1000Hz,某程序包含100条指令，平均来看指令的CPI=3,该程序在该CPU上执行需要多久?</em></p>
+<p>$$<br>100 \times 3 \times \frac{1}{1000} = 0.3s<br>$$</p>
+<p><em>公式</em></p>
+<p>$$<br>指令条数*CPI = CPU时钟周期数<br>$$</p>
+<p><em>整体公式</em><br>$$<br>CPU执行时间(整个程序的耗时)=\overbrace{\frac{CPU时钟周期数}{主频}=\frac{(指令条数*CPI)}{主频}}^\text {指令条数 * CPI = CPU时钟周期数}<br>$$</p>
+<p><br><br></p>
+<h2 id="IPS"><a href="#IPS" class="headerlink" title="IPS"></a>IPS</h2><p>IPS^[IPS全名Instructions Per Second]:每秒执行多少条指令</p>
+<p><em>IPS计算公式</em><br>$$<br>IPS = \frac{\overbrace{主频}^\text {每秒会有多少个时钟周期}}<br>{\underbrace{平均CPI}_\text{一条指令所需要的时钟周期}}<br>$$</p>
+<p><br><br></p>
+<h2 id="FLOPS"><a href="#FLOPS" class="headerlink" title="FLOPS"></a>FLOPS</h2><hr>
+<p>FLOPS^[FLOPS全名:Floating-point Operations Per Second]:每秒可以执行多少次浮点运算</p>
+<p><em>(一般拿IPS和FLOPS来评测计算机的性能)</em></p>
+<p>因为计算机计算的能力非常强大，我们一般在形容的时候会给IPS和FLOPS带上前缀</p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162158.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162219.png" srcset="/img/loading.gif" lazyload></p>
+<p>比如<em>3TFLOPS</em>,表示一个计算机每秒可以进行3万亿次计算</p>
+<p>当我们描绘主频的时候说3GHz表示我们的计算机能进行30亿次每秒的计算<br>$$3GHz = 30亿/_{次每秒}$$</p>
+<p><br><br></p>
+<h1 id="系统整体的性能指标"><a href="#系统整体的性能指标" class="headerlink" title="系统整体的性能指标"></a>系统整体的性能指标</h1><hr>
+<p>==数据通路带宽:数据总线一次所能并行传送信息的位数==<br><em>(各硬件部件通过数据总线传输数据)</em></p>
+<p>例如我们有16bit的数据等待读取，但是带宽只有8bit,所以我们需要用两次才能搬完全部的数据</p>
+<p>==吞吐量:指系统在单位时间内处理请求的数量==</p>
+<p>它取决于信息能多快地输入内存，CPU能多快地取指令，数据能多快地从内存取出或存入，以及所得结果能多快地从内存送给一台外部设备。这些步骤中的每一步都关系到主存，因此，<strong>系统吞吐量主要取决于主存的存取周期。</strong></p>
+<p>==响应时间:指从用户向计算机发送一个请求，到系统对该请求做出响应并获得它所需要的结果的等待时间。==</p>
+<p>通常包括CPU时间( 运行一个程序所花费的时间)与等待时间(用于磁盘访问、存储器访问、I/0操作、操作系统开销等时间)</p>
+<p><br><br></p>
+<h2 id="基准程序"><a href="#基准程序" class="headerlink" title="基准程序"></a>基准程序</h2><hr>
+<p>==基准程序==是用来测量过算机处理速度的一种实用程序，以便于被测量的计算机性能可以与运行相同程字的其它计算机性能进行比较。</p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163258.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163433.png" srcset="/img/loading.gif" lazyload></p>
+<p>$$<br>\left{<br>    \begin{array}{c}<br>        A的计算能力 = \frac{主频}{平均CPI} = \frac{2}{10} = 0.2G \<br>        \<br>        B的计算能力 = \frac{主频}{平均CPI} = \frac{1}{1} = 1G \<br>    \end{array}<br>\right.<br>$$</p>
+<p>可以看到其实是B更快</p>
+<p><br><br></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330164645.png" srcset="/img/loading.gif" lazyload></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/873816c.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">04计算机的层次结构[小章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/9cee6847.html">
+                        <span class="hidden-mobile">03认识各个硬件部件[大章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

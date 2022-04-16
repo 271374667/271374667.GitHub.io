@@ -16,20 +16,30 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关于我我暂时还没想好要说什么，先空着吧，反正也没人看我的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="补码的乘法运算补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法:进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补   对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0  对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定  原码的符号位不参与运算(最后使用异或运算来判断)  补码的符号位参与运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17补码的乘法运算[中章]">
+<meta property="og:url" content="http://example.com/posts/ee2153eb.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="关于我我暂时还没想好要说什么，先空着吧，反正也没人看我的博客">
+<meta property="og:description" content="补码的乘法运算补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法:进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补   对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0  对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定  原码的符号位不参与运算(最后使用异或运算来判断)  补码的符号位参与运算">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-16T03:17:22.000Z">
-<meta property="article:modified_time" content="2022-04-16T03:19:27.398Z">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c3f9239250f7c5b5d164.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c40c239250f7c5b5ef7b.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c4bb239250f7c5b70caf.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c5f8239250f7c5b90f3a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c928239250f7c5be597d.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257c9cc239250f7c5bf686e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257ca2f239250f7c5bff847.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257ca88239250f7c5c0887e.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.233Z">
 <meta property="article:author" content="Bemake">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png">
   
   
-  <title>关于 - 互联网的角落</title>
+  <title>17补码的乘法运算[中章] - 互联网的角落</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -76,7 +86,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -177,9 +187,43 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="关于">
+            <span class="h2" id="subtitle" title="17补码的乘法运算[中章]">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      954 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -192,82 +236,135 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-            <div class="about-avatar">
-              <img src="/img/avatar.png" srcset="/img/loading.gif" lazyload
-                   class="img-fluid" alt="avatar">
-            </div>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center">
-  <div class="about-info">
-    <div class="about-name">Fluid</div>
-    <div class="about-intro">An elegant theme for Hexo</div>
-    <div class="about-icons">
-      
-        
-        
-        
-        <a href=https://github.com class="
-           hint--bottom hint--rounded"
-           aria-label=GitHub
-           target="_blank"
-        >
-          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a href=https://douban.com class="
-           hint--bottom hint--rounded"
-           aria-label=豆瓣
-           target="_blank"
-        >
-          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
-          
-        </a>
-      
-        
-        
-        
-        <a  class="qr-trigger
-           "
-           
-           target="_self"
-        >
-          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
-          
-            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="qrcode" />
-          
-        </a>
-      
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">17补码的乘法运算[中章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="补码的乘法运算"><a href="#补码的乘法运算" class="headerlink" title="补码的乘法运算"></a>补码的乘法运算</h1><p>补码的运算和原码的乘法运算非常相似，但是又有不同</p>
+<p>补码一位乘法:<br>进行n轮加法、移位，最后再多来一次加法</p>
+<p>每次加法可能+0、+[x]补、+[-x]补</p>
+<p><img src="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png" srcset="/img/loading.gif" lazyload alt="image-20220414144425038"></p>
+<ul>
+<li><p>对于原码的移码(我们进行的是==逻辑右移==)高位补0</p>
+</li>
+<li><p>对于补码的移码(我们进行的是==算术右移==),此时我们补的个数需要根据<strong>MQ中的最低位和辅助位</strong>来确定</p>
+</li>
+<li><p>原码的符号位不参与运算(最后使用异或运算来判断)</p>
+</li>
+<li><p>补码的符号位参与运算</p>
+</li>
+</ul>
+<h2 id="在机器内的流程"><a href="#在机器内的流程" class="headerlink" title="在机器内的流程"></a>在机器内的流程</h2><p><img src="https://pic.imgdb.cn/item/6257c3f9239250f7c5b5d164.png" srcset="/img/loading.gif" lazyload alt="image-20220414144852783"></p>
+<h3 id="辅助位"><a href="#辅助位" class="headerlink" title="辅助位"></a>辅助位</h3><p><img src="https://pic.imgdb.cn/item/6257c40c239250f7c5b5ef7b.png" srcset="/img/loading.gif" lazyload alt="image-20220414144911605"></p>
+<p>我们的辅助位是在<strong>MQ的最右边加上了一个额外的位</strong>(<em>理论上这个才是MQ的最低位</em>),因为我们的MQ加了一位，所以我们<strong>其他的单元也相应的加了一个位</strong></p>
+<p><img src="https://pic.imgdb.cn/item/6257c4bb239250f7c5b70caf.png" srcset="/img/loading.gif" lazyload alt="image-20220414145206543"></p>
+<h2 id="补码的一位乘法-手算模拟"><a href="#补码的一位乘法-手算模拟" class="headerlink" title="补码的一位乘法(手算模拟)"></a>补码的一位乘法(手算模拟)</h2><p><img src="https://pic.imgdb.cn/item/6257c5f8239250f7c5b90f3a.png" srcset="/img/loading.gif" lazyload alt="image-20220414145722668"></p>
+<p>看起来好像很复杂，我们一点一点来说</p>
+<ol>
+<li><p>首先我们判断应该加什么,我们看到我们的辅助位是0，MQ的最低位是1</p>
+<p>根据算式$0(辅助位)-1(MQ最低位)=-1$,所以我们应该在这里加($+[-x]_补$)</p>
+</li>
+</ol>
+<p>$$<br>00.0000(ACC) + 00.1101([-x]_补)=00.1101(新的ACC)<br>$$</p>
+<blockquote>
+<p>关于[-x<del>补</del>]怎么求</p>
+<p><strong>对任意的<code>x</code>,若已知<code>[x]补</code>,则把<code>[x]补</code>连同符号位的每一位都取反再<code>加1</code>即可得到<code>[-x]补</code></strong></p>
+<p>当x为正数时，设[x]补 = 01010</p>
+<p>∵ [x]补 = 01010<br>∴ [x]原 = 01010<br>∴ [-x]原 = 11010<br>∴ [-x]补 = 10110</p>
+<p>当x为负数时，设[x]补 = 11011</p>
+<p>∵ [x]补 = 11011<br>∴ [x]原 = 10101<br>∴ [-x]原 = 00101<br>∴ [-x]补 = 00101</p>
+<p>来源:<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44685584/article/details/120205351">https://blog.csdn.net/qq_44685584/article/details/120205351</a></p>
+</blockquote>
+<p>我们加法操作结束之后就会进行一次<strong>算术右移</strong>(<em>符号位不动，新增的位我们用和符号位相同的数来填补</em>)<br>比如符号位是1，我们右移就补1，符号位是0,我们右移就补0</p>
+<p><img src="https://pic.imgdb.cn/item/6257c928239250f7c5be597d.png" srcset="/img/loading.gif" lazyload alt="image-20220414151059477"></p>
+<ol start="2">
+<li>此时我们的辅助位是1，MQ的最低位也是1,$1(辅助位)-1(MQ最低位)=0$,所以我们的补码就+0,然后再进行一次算术右移</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/6257c9cc239250f7c5bf686e.png" srcset="/img/loading.gif" lazyload alt="image-20220414151344071"></p>
+<ol start="3">
+<li><p>根据上面的步骤一路算到最后</p>
+<p><img src="https://pic.imgdb.cn/item/6257ca2f239250f7c5bff847.png" srcset="/img/loading.gif" lazyload alt="image-20220414151522433"></p>
+</li>
+</ol>
+<p>在最后我们还需要再进行最后一次加法(<strong>这一次只有加法没有移位</strong>)</p>
+<p><img src="https://pic.imgdb.cn/item/6257ca88239250f7c5c0887e.png" srcset="/img/loading.gif" lazyload alt="image-20220414151651381"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/1239baad.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">16原码的乘法运算[大章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/44487134.html">
+                        <span class="hidden-mobile">18原码的除法运算</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
   </div>
 </div>
 
-<article class="about-content page-content mt-5">
-  <div class="markdown-body">
-    <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1><p>我暂时还没想好要说什么，先空着吧，反正也没人看我的博客</p>
+<!-- Custom -->
 
-  </div>
 
-  
-</article>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     
 
     

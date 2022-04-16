@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="海明校验码海明码同时还会出现在计算机网络这门课程当中，所以需要要求掌握 设计思想海明码设计思路:将信息位分组进行偶校验 –&gt; 多个校验位-&gt;多个校验位标志错误的位置 多个校验位就可以携带多种状态信息(对还是错，错在哪) 需要多少校验码呢? 图解:我们假设现在有n个信息位,k个校验位 我们k个校验位一共可以表达出2^k^次方种状态，而需要表达的内容包裹$信息位置+校验位+正确的状态$我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10海明码校验码[中章]">
+<meta property="og:url" content="http://example.com/posts/4c294f2e.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="海明校验码海明码同时还会出现在计算机网络这门课程当中，所以需要要求掌握 设计思想海明码设计思路:将信息位分组进行偶校验 –&gt; 多个校验位-&gt;多个校验位标志错误的位置 多个校验位就可以携带多种状态信息(对还是错，错在哪) 需要多少校验码呢? 图解:我们假设现在有n个信息位,k个校验位 我们k个校验位一共可以表达出2^k^次方种状态，而需要表达的内容包裹$信息位置+校验位+正确的状态$我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ad534239250f7c580859e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ad628239250f7c582a2f8.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ae797239250f7c5aaf801.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ba9ac239250f7c5ce2c31.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624baaa7239250f7c5cff82b.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624bab77239250f7c5d18cd5.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624babeb239250f7c5d26582.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624baf44239250f7c5d8411e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624baf7f239250f7c5d8ae35.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624bafc6239250f7c5d93194.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.223Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/624ad534239250f7c580859e.png">
+  
+  
+  <title>10海明码校验码[中章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="10海明码校验码[中章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">10海明码校验码[中章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="海明校验码"><a href="#海明校验码" class="headerlink" title="海明校验码"></a>海明校验码</h1><p>海明码同时还会出现在计算机网络这门课程当中，所以需要要求掌握</p>
+<h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><p>海明码设计思路:将信息位分组进行偶校验 –&gt; 多个校验位-&gt;多个校验位标志错误的位置</p>
+<p>多个校验位就可以携带多种状态信息(对还是错，错在哪)</p>
+<h3 id="需要多少校验码呢"><a href="#需要多少校验码呢" class="headerlink" title="需要多少校验码呢?"></a>需要多少校验码呢?</h3><p><img src="https://pic.imgdb.cn/item/624ad534239250f7c580859e.png" srcset="/img/loading.gif" lazyload alt="需要多少位"></p>
+<p>图解:<br>我们假设现在有n个信息位,k个校验位</p>
+<p>我们k个校验位一共可以表达出2^k^次方种状态，而需要表达的内容包裹$信息位置+校验位+正确的状态$<br>我们需要用2^k^来表达n+k+1</p>
+<p>$$ 2^k \geq n + k + 1 $$</p>
+<p>根据这个算式我们可以得出</p>
+<p><img src="https://pic.imgdb.cn/item/624ad628239250f7c582a2f8.png" srcset="/img/loading.gif" lazyload alt="使用校验码算式"></p>
+<p>$$<br>\left{<br>\begin{array}{c}<br>假设有10位: \ &amp;2^k - k\geq 11 \therefore k \leq 4\<br>\<br>假设有15位: \ &amp;2^k - k \geq 16 \therefore k \leq 5\<br>\end{array}<br>\right.<br>$$</p>
+<h3 id="海明码求解步骤"><a href="#海明码求解步骤" class="headerlink" title="海明码求解步骤"></a>海明码求解步骤</h3><p>假设我们的信息位: 1010</p>
+<h4 id="确定海明码的位数"><a href="#确定海明码的位数" class="headerlink" title="确定海明码的位数"></a>确定海明码的位数</h4><p>我们这里有4位需要传递的信息，所以我们根据算式$ 2^k \geq n + k + 1 $可以得知，我们需要3个校验位</p>
+<p>我们对这些位数进行定义</p>
+<ul>
+<li>信息位就是<strong>大写字母D</strong>表示,比如D<del>1</del>D<del>2</del>D<del>3</del></li>
+<li>校验位用<strong>大写字母P</strong>表示，比如P<del>1</del>P<del>2</del>P<del>3</del></li>
+<li>所有的位数就用<strong>大写字母H</strong>表示,比如H<del>1</del>H<del>2</del>H<del>3</del></li>
+</ul>
+<h4 id="确定校验位"><a href="#确定校验位" class="headerlink" title="确定校验位"></a>确定校验位</h4><p><img src="https://pic.imgdb.cn/item/624ae797239250f7c5aaf801.png" srcset="/img/loading.gif" lazyload alt="校验位分布"></p>
+<p>我们规定校验位应该放在$2^{i-1}$的位置上<br>如果现在有4个校验位，那么他们不应该连在一起放置，而且是需要按照这个公式进行放置</p>
+<p>$$<br>p_1 \rightarrow 1号位置\<br>p_2 \rightarrow 2号位置\<br>p_3 \rightarrow 4号位置\<br>p_4 \rightarrow 8号位置\<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/624ba9ac239250f7c5ce2c31.png" srcset="/img/loading.gif" lazyload alt="校验位分布"></p>
+<h4 id="确定校验位的值"><a href="#确定校验位的值" class="headerlink" title="确定校验位的值"></a>确定校验位的值</h4><p>上面我们已经知道，校验位要放在什么地方，现在我们要用==奇偶校验中的偶校验==来求校验位的值^[使用异或运算求偶校验码]</p>
+<p><img src="https://pic.imgdb.cn/item/624baaa7239250f7c5cff82b.png" srcset="/img/loading.gif" lazyload alt="求校验位的值"></p>
+<p>这个时候我们就拥有了纠错能力，如果我们的数据没有错误,我们最终三个校验位的值都会是0</p>
+<p><img src="https://pic.imgdb.cn/item/624bab77239250f7c5d18cd5.png" srcset="/img/loading.gif" lazyload alt="海明码纠错"></p>
+<p>假如数据发生错误，我们的结果就会是奇数,同时我们就可以根据值来判断是第几个位出错了</p>
+<p><img src="https://pic.imgdb.cn/item/624babeb239250f7c5d26582.png" srcset="/img/loading.gif" lazyload alt="我们的S2出错了"></p>
+<p>010位出错，转换为十进制就是 $$ 010 ,B = 2 ,D $$<br>此时就说明我们的H<del>2</del>的位置上出错了</p>
+<p>&amp;nbsp;</p>
+<p>假如我们现在出错的位置是110 $$110 ,B = 6 ,D $$<br>此时就说明我们的H<del>6</del>的位置上发生了错误</p>
+<p>但是此时我们现在还是有一个麻烦，如果有多个位置发生了错误,那么我们就不知道到底是哪里发生了错误,<strong>于是我们还需要一个全局校验位，对整体进行偶校验</strong></p>
+<p><img src="https://pic.imgdb.cn/item/624baf44239250f7c5d8411e.png" srcset="/img/loading.gif" lazyload alt="全校验位"></p>
+<p><img src="https://pic.imgdb.cn/item/624baf7f239250f7c5d8ae35.png" srcset="/img/loading.gif" lazyload alt="全校验位发生错误"></p>
+<h2 id="总览和回顾"><a href="#总览和回顾" class="headerlink" title="总览和回顾"></a>总览和回顾</h2><p><img src="https://pic.imgdb.cn/item/624bafc6239250f7c5d93194.png" srcset="/img/loading.gif" lazyload alt="知识总览"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/77e40f07.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">08字符与字符串[中章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/76310a42.html">
+                        <span class="hidden-mobile">11循环冗余校验码[中章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

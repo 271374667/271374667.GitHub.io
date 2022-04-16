@@ -4,11 +4,372 @@
   
   
   <entry>
-    <title>Hello World</title>
-    <link href="/2022/04/16/hello-world/"/>
-    <url>/2022/04/16/hello-world/</url>
+    <title>01计算机概念和发展历程[中章]</title>
+    <link href="/posts/a91d72e7.html"/>
+    <url>/posts/a91d72e7.html</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<ul><li><a href="#%E5%AF%BC%E8%AF%BB">导读</a></li><li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E5%A6%82%E4%BD%95%E8%AF%86%E5%88%AB%E7%94%B5%E5%9E%8B%E5%8F%B7%E7%9A%84">计算机是如何识别电型号的？</a></li><li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95">计算机的发展</a><ul><li><a href="#%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95">硬件的发展</a></li><li><a href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%91%E5%B1%95">软件的发展</a></li></ul></li><li><a href="#%E8%AF%BE%E7%A8%8B%E5%9B%9E%E9%A1%BE">课程回顾</a></li></ul><!-- /code_chunk_output --><h1 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h1><p>我们的计算机是如何处理信息的呢？<br>通过学习，我们都会一点点的弄明白</p><p><img src="https://s2.loli.net/2022/03/28/pPhvNQdblW7Zqif.png"></p><h1 id="计算机是如何识别电型号的？"><a href="#计算机是如何识别电型号的？" class="headerlink" title="计算机是如何识别电型号的？"></a>计算机是如何识别电型号的？</h1><hr><p>通过电脑的电流有两种，一个为<strong>高电频</strong>，一个为<strong>低电频</strong>，根据电流的强弱，计算机就可以区分出0和1之间的区别</p><p><img src="https://s2.loli.net/2022/03/28/e7Quhv1dWYNmqoK.png"></p><p>可以看到卡的脚上面有很多金色的条，这些就是来接受电信号的接口，通过改变高低电频，我们的硬件就可以接受不同的讯息</p><p>==其中每个二进制数位我们成为1 bit(比特)==</p><p><br><br><br></p><h1 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h1><p>==计算机系统= 硬件 + 软件==<br>硬件:我们看得见摸得着的东西，比如主机，外设<br>软件：我们看得见但是摸不着的东西，比如操作系统</p><p><strong>硬件是计算机的物理基础</strong>，决定了计算机的天花板和瓶颈</p><p>软件决定了我们能把硬件发挥到什么样的程度</p><p>计算机性能的好坏取决于”软”,”硬”功能的综合</p><p><br><br></p><h2 id="硬件的发展"><a href="#硬件的发展" class="headerlink" title="硬件的发展"></a>硬件的发展</h2><div class="code-wrapper"><pre><code class="hljs">第一台**电子数字**计算机:ENIAC(1946)占地170㎡耗电量150千瓦，运行速度：5000次加法/秒设计者：冯诺依曼逻辑元件：电子管</code></pre></div><p><em>第一代</em><br><img src="https://s2.loli.net/2022/03/28/IfHYmcoGazQRWKg.png"><br>    如果有小虫子死在纸带机上，会导致程序出现错误，被我们成为bug</p><p><em>第二代</em><br><img src="https://s2.loli.net/2022/03/28/Uhetr8mLwFMpOkD.png"><br>    出现了面向过程的程序设计语言<br>    有了操作系统的雏形</p><p><em>第三代</em><br><img src="https://s2.loli.net/2022/03/28/7ZGuQfkClVo1Wb6.png"></p><p><em>第四代(当前)</em><br><img src="https://s2.loli.net/2022/03/28/3BgTQd8vk9uZaLs.png"></p><blockquote><p>微处理器的发展</p></blockquote><p><img src="https://s2.loli.net/2022/03/28/W5bLHaEgX6D14YC.png"></p><h2 id="软件的发展"><a href="#软件的发展" class="headerlink" title="软件的发展"></a>软件的发展</h2><p><img src="https://s2.loli.net/2022/03/28/rEfJuzLRdQaT9Ag.png"></p><p><img src="https://s2.loli.net/2022/03/28/nW4Cca9LlJYGTOo.png"></p><blockquote><p>目前计算机的发展趋势</p></blockquote><p>特点：两极化<br><img src="https://s2.loli.net/2022/03/28/FraGIvo6NLJwSs2.png"></p><p><br><br></p><h1 id="课程回顾"><a href="#课程回顾" class="headerlink" title="课程回顾"></a>课程回顾</h1><p><img src="https://s2.loli.net/2022/03/28/1X4odUL7Pe9MRWu.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>02计算机硬件的基本组成[中章]</title>
+    <link href="/posts/198f00af.html"/>
+    <url>/posts/198f00af.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="冯诺依曼机"><a href="#冯诺依曼机" class="headerlink" title="冯诺依曼机"></a>冯诺依曼机</h1><hr><p>早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)<br>这导致浪费了很多时间，于是冯诺依曼提出了</p><p>==储存程序== </p><div class="code-wrapper"><pre><code class="hljs">“存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直至程序执行结束。</code></pre></div><p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png"></p><p>按照传递的顺序进行说明：</p><ol><li><p>输入设备:将信息转换成机器能识别的形式</p></li><li><p>运算器：中转到储存器</p></li><li><p>存储器：存储数据和程序</p></li><li><p>数据流回运算器：进行算术运算和逻辑运算</p></li><li><p>输出设备：把结果转换成人能看得懂的数据</p></li></ol><p>单独的一条：<br>控制器：指挥程序运行(涉及到每一步)，程序指令的解析</p><p>==在计算机系统中，软件和硬件在逻辑上是等效的==</p><p><br><br></p><h2 id="冯诺依曼计算机的特点"><a href="#冯诺依曼计算机的特点" class="headerlink" title="冯诺依曼计算机的特点"></a>冯诺依曼计算机的特点</h2><hr><ol><li>计算机有五大部件组成(统称为I/O设备，输入输出设备)</li><li>指令和数据以同等地位存于存储器，可按地址寻访</li><li>指令和数据用二进制表示</li><li>指令由操作码(<del>加减乘除</del>)和地址码(<del>我们要操作的数据存储在内存的什么地址中</del>)组成</li><li>存储程序</li><li>==以运算器为中心==(输入/输出设备与存储器之间<br>的数据传送通过运算器完成)</li></ol><blockquote><p>一个类比</p></blockquote><p><img src="https://s2.loli.net/2022/03/28/P6zxk4gUuRiETos.png"></p><p><img src="https://s2.loli.net/2022/03/29/7o9t3u4XlY2pjgR.png"></p><p>可以看到，这种方案是低效的，每一步都需要经过我们的运算器(生产加工部门)</p><p>找到了缺点，就有办法改进，于是我们就有了现代计算机结构</p><h1 id="现代计算机结构"><a href="#现代计算机结构" class="headerlink" title="现代计算机结构"></a>现代计算机结构</h1><hr><p><img src="https://s2.loli.net/2022/03/29/8p3MLVHCk1cyE6m.png"></p><p>以往的设备都是由运算器作为核心，如今的计算机以存储器作为核心，<strong>这样可以空出更多的空间，来让运算器做出更多的运算</strong></p><p>==现代计算机:以存储器为中心==</p><p>其中<strong>运算器和控制器通常在制成芯片的时候会集成在一起</strong>,整合了这两个功能的芯片我们就叫CPU</p><p>==CPU=运算器+控制器==</p><blockquote><p>简化后的图解</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/zyBeVj1N8mAJLdQ.png"></p><blockquote><p>控制器</p></blockquote><ul><li><strong>CPU包括控制器和运算器</strong></li><li>控制器通过控制线告诉运算器需要进行什么样的运算</li><li>同时控制器告诉主存储器进行读写</li><li>控制器控制输入输出设备的启动和停止</li></ul><blockquote><p>主存储器</p></blockquote><ul><li>主存储器与CPU之间进行数据的交换</li><li>IO设备会直接和主存储器进行交换操作</li></ul><p>其中主存储器和CPU在一起叫主机</p><blockquote><p>图解</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/wNKET7XMFQrBO61.png"></p><p>主存(内存)和辅存(机械硬盘，固态硬盘)都可以统称为存储器</p><p>注意，只有内存才能算主机，机械硬盘属于IO设备</p><p><br><br></p><h1 id="知识点回顾"><a href="#知识点回顾" class="headerlink" title="知识点回顾"></a>知识点回顾</h1><hr><p><img src="https://s2.loli.net/2022/03/29/Ugx5TmBYijIKeL4.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>04计算机的层次结构[小章]</title>
+    <link href="/posts/873816c.html"/>
+    <url>/posts/873816c.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="层级结构图"><a href="#层级结构图" class="headerlink" title="层级结构图"></a>层级结构图</h1><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220329183414.png"></p><p>==下层是上层的基础，上层是下层的扩展==</p><blockquote><p>三种级别的语言</p></blockquote><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220329183746.png"></p><p>编译程序一次编译，之后就可以直接执行，不需要再次编译</p><p>解释程序每次执行都需要再次翻译</p><p>!!! note 注意<br>    编译，汇编，解释程序统称为”翻译程序”</p><p><br><br></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220329184130.png"></p><p><br><br></p><h1 id="计算机体系结构-与-计算机组成原理的关系"><a href="#计算机体系结构-与-计算机组成原理的关系" class="headerlink" title="计算机体系结构 与 计算机组成原理的关系"></a>计算机体系结构 与 计算机组成原理的关系</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220329184355.png"></p><p>体系结构讲究的是：设计硬件软件之间的交互的接口</p><p>组成原理：如何使用硬件实现相应的接口</p><p>==我们在计算机里面，说某物透明，说明，这个东西我们看不见==</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>05计算机的性能指标[大章]</title>
+    <link href="/posts/dd8cec3a.html"/>
+    <url>/posts/dd8cec3a.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="存储器的性能指标"><a href="#存储器的性能指标" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101300.png"></p><p>MAR位数反映每个存储单元的大小数(最多支持多少个)</p><p>MDR位数=存储字长=存储单元的个</p><blockquote><p>为什么MAR的位数为2^n^呢?</p></blockquote><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330101706.png"></p><p>可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^<br>同时我们还需要知道几个比较常用的单位转换</p><table><thead><tr><th>说明\单位</th><th>K</th><th>M</th><th>G</th><th>T</th></tr></thead><tbody><tr><td>相当于多少二进制位</td><td>2^10^</td><td>2^20^</td><td>2^30^</td><td>2^40^</td></tr><tr><td>代表的大小</td><td>1KB</td><td>1024KB</td><td>1024M</td><td>1024G</td></tr><tr><td>进制的转化</td><td>1KB=1024B=8bit</td><td>1M = 1MB = 1024KB</td><td>1G = 1024MB</td><td>1T = 1024G</td></tr></tbody></table><p><br><br></p><h1 id="CPU的性能指标"><a href="#CPU的性能指标" class="headerlink" title="CPU的性能指标"></a>CPU的性能指标</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330102854.png"></p><p>类似广播体操，我们计算机需要有一个人来喊口号，CPU的脉冲信号就是给这些命令带来节奏</p><br><h2 id="CLK"><a href="#CLK" class="headerlink" title="CLK"></a>CLK</h2><hr><p>==CLK一个循环我们称之为CPU时钟周期==<br>单位是<strong>微秒，纳秒</strong><br>$$CPU主频(时钟频率) = \frac{1}{CPU时钟周期}$$</p><p><em>10/Hz表示每秒有10个脉冲信号</em></p><p><br><br></p><h2 id="CPI"><a href="#CPI" class="headerlink" title="CPI"></a>CPI</h2><hr><p>CPU的性能除了和CPU主频相关之外，还和CPI有关</p><p>CPI^[CPI全称:Clock cycle Per Instruction]:执行一条指令所需要的时钟周期数^[不同的指令，CPI不同，甚至相同的指令，CPI也可能有变化]</p><p><em>公式:</em><br>$$执行一条指令的耗时 = CPI \times CPU时钟周期$$</p><blockquote><p>一个例子</p></blockquote><p><em>某CPU主频为1000Hz,某程序包含100条指令，平均来看指令的CPI=3,该程序在该CPU上执行需要多久?</em></p><p>$$<br>100 \times 3 \times \frac{1}{1000} = 0.3s<br>$$</p><p><em>公式</em></p><p>$$<br>指令条数*CPI = CPU时钟周期数<br>$$</p><p><em>整体公式</em><br>$$<br>CPU执行时间(整个程序的耗时)=\overbrace{\frac{CPU时钟周期数}{主频}=\frac{(指令条数*CPI)}{主频}}^\text {指令条数 * CPI = CPU时钟周期数}<br>$$</p><p><br><br></p><h2 id="IPS"><a href="#IPS" class="headerlink" title="IPS"></a>IPS</h2><p>IPS^[IPS全名Instructions Per Second]:每秒执行多少条指令</p><p><em>IPS计算公式</em><br>$$<br>IPS = \frac{\overbrace{主频}^\text {每秒会有多少个时钟周期}}<br>{\underbrace{平均CPI}_\text{一条指令所需要的时钟周期}}<br>$$</p><p><br><br></p><h2 id="FLOPS"><a href="#FLOPS" class="headerlink" title="FLOPS"></a>FLOPS</h2><hr><p>FLOPS^[FLOPS全名:Floating-point Operations Per Second]:每秒可以执行多少次浮点运算</p><p><em>(一般拿IPS和FLOPS来评测计算机的性能)</em></p><p>因为计算机计算的能力非常强大，我们一般在形容的时候会给IPS和FLOPS带上前缀</p><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162158.png"></p><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330162219.png"></p><p>比如<em>3TFLOPS</em>,表示一个计算机每秒可以进行3万亿次计算</p><p>当我们描绘主频的时候说3GHz表示我们的计算机能进行30亿次每秒的计算<br>$$3GHz = 30亿/_{次每秒}$$</p><p><br><br></p><h1 id="系统整体的性能指标"><a href="#系统整体的性能指标" class="headerlink" title="系统整体的性能指标"></a>系统整体的性能指标</h1><hr><p>==数据通路带宽:数据总线一次所能并行传送信息的位数==<br><em>(各硬件部件通过数据总线传输数据)</em></p><p>例如我们有16bit的数据等待读取，但是带宽只有8bit,所以我们需要用两次才能搬完全部的数据</p><p>==吞吐量:指系统在单位时间内处理请求的数量==</p><p>它取决于信息能多快地输入内存，CPU能多快地取指令，数据能多快地从内存取出或存入，以及所得结果能多快地从内存送给一台外部设备。这些步骤中的每一步都关系到主存，因此，<strong>系统吞吐量主要取决于主存的存取周期。</strong></p><p>==响应时间:指从用户向计算机发送一个请求，到系统对该请求做出响应并获得它所需要的结果的等待时间。==</p><p>通常包括CPU时间( 运行一个程序所花费的时间)与等待时间(用于磁盘访问、存储器访问、I/0操作、操作系统开销等时间)</p><p><br><br></p><h2 id="基准程序"><a href="#基准程序" class="headerlink" title="基准程序"></a>基准程序</h2><hr><p>==基准程序==是用来测量过算机处理速度的一种实用程序，以便于被测量的计算机性能可以与运行相同程字的其它计算机性能进行比较。</p><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163258.png"></p><p><br><br></p><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330163433.png"></p><p>$$<br>\left{<br>    \begin{array}{c}<br>        A的计算能力 = \frac{主频}{平均CPI} = \frac{2}{10} = 0.2G \<br>        \<br>        B的计算能力 = \frac{主频}{平均CPI} = \frac{1}{1} = 1G \<br>    \end{array}<br>\right.<br>$$</p><p>可以看到其实是B更快</p><p><br><br></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330164645.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>03认识各个硬件部件[大章]</title>
+    <link href="/posts/9cee6847.html"/>
+    <url>/posts/9cee6847.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="主机内部是如何协调工作的？"><a href="#主机内部是如何协调工作的？" class="headerlink" title="主机内部是如何协调工作的？"></a>主机内部是如何协调工作的？</h1><h2 id="主存储"><a href="#主存储" class="headerlink" title="主存储"></a>主存储</h2><hr><p><img src="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png"></p><p>存储体：可以寄存0和1</p><p>MAR:存储地址寄存器^[MAR全名:Memory Address Register]</p><p>MDR:存储数据寄存器^[MDR全名:Memory Data Register]</p><p><br><br></p><h3 id="MAR与MDR是如何工作的"><a href="#MAR与MDR是如何工作的" class="headerlink" title="MAR与MDR是如何工作的?"></a>MAR与MDR是如何工作的?</h3><hr><blockquote><p>类比菜鸟驿站</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/GkD8FNgTedA5M3p.png"></p><p>我告诉店员取件号，然后店员就回去货架拿数据，然后把数据给柜台，然后给我</p><p>类比，我们是告诉MAR地址，然后内存交给MDR，最后我们从MDR拿走数据</p><p><br><br></p><h3 id="存储体是怎么工作的？"><a href="#存储体是怎么工作的？" class="headerlink" title="存储体是怎么工作的？"></a>存储体是怎么工作的？</h3><hr><p>数据按照地址存放在存储体中</p><p><img src="https://s2.loli.net/2022/03/29/gC1dx36ynP2OuI4.png"></p><p>一般存储字长的数量是8的整数倍(8bit,16bit,32bit,64bit)</p><p>其中<br>==MAR位数反应了存储单元的个数==<br>==MDR的位数=存储字长==</p><p><img src="https://s2.loli.net/2022/03/29/iL6l9VDrxj7muaH.png"></p><p>!!! note 注意，一个字节和一个字是不一样的<br>    一个字节固定8bit,但是一个字不一定是16bit,需要看计算器MDR的位数</p><p>!!! note 关于B和b<br>    1B表示1个字节\1b=1个bit,所以1B=8b</p><blockquote><p>思考:运营商的100Mbps实际上只有10M+，为什么呢？</p></blockquote><p>因为运营商这里用的是小b,所以我们下载的时候最大真实速度需要除以8<br>100Mbps实际上只有12.5MBps</p><h2 id="运算器的基本组成"><a href="#运算器的基本组成" class="headerlink" title="运算器的基本组成"></a>运算器的基本组成</h2><hr><p><img src="https://s2.loli.net/2022/03/29/zobuJQiGj2ly1RK.png"></p><p>运算器：用于实现算术运算(如加减乘除),逻辑运算(如:与或非)</p><p>ACC:累加器，用于存放操作数，或运算结果。<br>MQ:乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。<br>通用的操作数寄存器，用于存放操作数<br>X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于存放操作数</p><p>==ACC,MQ,X统统属于寄存器(不可或缺)==</p><p>==ALU(制造成本最高，最复杂的原件)==:算术逻辑单元，通过内部复杂的电路实现算术运算和逻辑运算</p><p><br><br></p><h2 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h2><hr><p><img src="https://s2.loli.net/2022/03/29/FlrtkUugXmxbShR.png"></p><p>==CU(核心空间)==:控制单元，分析指令，给出控制信号</p><p>IR:指令寄存器，存放当前执行的指令</p><p>PC:程序计数器，存放下一条指令地址,<br>有自动加1功能</p><blockquote><p>完成一条指令(从上往下执行)</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/B7IYxuLR6HGJvz1.png"></p><p>==其中PC和IR称为取指阶段，CU为执行阶段==</p><blockquote><p>最后的统合图</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png"></p><p><br><br></p><h1 id="计算机的工作过程"><a href="#计算机的工作过程" class="headerlink" title="计算机的工作过程"></a>计算机的工作过程</h1><hr><p><img src="https://s2.loli.net/2022/03/29/ptiKsSMxlr3LCYW.png"></p><p>前面0-4是机器指令</p><blockquote><p>分析具体的案例</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png"></p><ol><li>右边<strong>所有的机器码全部都存储在存储体中</strong></li><li>控制器中的PC初始化为0，并且指向第一条指令的存储地址</li><li>PC取出的内容，通过地址总线传递到主存储器的MAR中,令MAR=0</li><li>MAR去存储体中读取地址，并且放数据到MDR，令MDR=000001 000000101</li><li>MDR通过数据总线传递数据到控制器的IR中，并且赋值给IR</li><li>其中传递到IR的<strong>操作码</strong>会被传递给CU,CU分析后得知，这是”取数字”指令</li><li>于是控制器的IR传递地址码到MAR，令MAR=5,此时5号地址对应的是令a=2</li><li>于是存储体给数据给MDR，MDR被赋值为2</li><li>MDR在控制单元的指挥下,MDR的数据会被传送到ACC中，ACC被赋值为2</li></ol><p><em>老师的简化版</em></p><p><img src="https://s2.loli.net/2022/03/29/syfSBD4zunR3Vmo.png"></p><p>上一条指令取指之后PC自动+1，(PC)=1,执行后，(ACC)=2</p><blockquote><p>第二条指令</p></blockquote><p>重复之前的步骤</p><p><img src="https://s2.loli.net/2022/03/29/tIo93MgmRTr1yZa.png"></p><ol><li>当我们的第二个数字到了ACC，我们的ACC就会先把前一个数字传送到(x)通用寄存器里</li><li>然后把被乘数存入(MQ),最后通过CU控制单元，我们的ALU开始工作，</li><li>计算2X3得出结果6返回给(ACC)^当存储数字过大^^[如果乘积太大需要MQ辅助存储]</li></ol><p><em>执行结束的图</em></p><p><img src="https://s2.loli.net/2022/03/29/HFoiVTpsYI9zUrQ.png"></p><blockquote><p>第三条指令</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/vTiBSRVqWNO2xZj.png"></p><blockquote><p>第四条指令</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/638crJ5DCQ9Hwid.png"></p><blockquote><p>第五条指令</p></blockquote><p><img src="https://s2.loli.net/2022/03/29/FdjrQ4gfb6o2wLK.png"></p><p><br><br></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://s2.loli.net/2022/03/29/rOUKEACgWBvxztQ.png"></p><p><img src="https://s2.loli.net/2022/03/29/vkoZrMjD2ULYHEx.png"></p><p>注意：现代计算机通常把MAR与MDR也集成在CPU中</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>06进位计数制度[超大章]</title>
+    <link href="/posts/8fb785fe.html"/>
+    <url>/posts/8fb785fe.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174103.png"></p><p><br><br></p><h1 id="古老的计数方法"><a href="#古老的计数方法" class="headerlink" title="古老的计数方法"></a>古老的计数方法</h1><hr><p>一一对应的计数<br><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174216.png"></p><blockquote><p>稍微高级一点的权重计数</p></blockquote><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174252.png"></p><blockquote><p>罗马数字</p></blockquote><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174333.png"></p><p>这些都是基于”加法”思想的计数方法，很难计算大数字</p><p><br><br></p><h1 id="阿拉伯数字"><a href="#阿拉伯数字" class="headerlink" title="阿拉伯数字"></a>阿拉伯数字</h1><hr><blockquote><p>十进制</p></blockquote><p>eg: 975</p><p>$$<br>\left{<br>\begin{array}{c}<br>    9 \times 100 + 7 \times 10+ 5 \times 1=975\<br>    9\times 10^2 + 7\times 10^1 + 5 \times 10^0 = 975\<br>\end{array}<br>\right.<br>$$</p><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174937.png"></p><p><br><br></p><h1 id="r进制计数法"><a href="#r进制计数法" class="headerlink" title="r进制计数法"></a>r进制计数法</h1><hr><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330175034.png"></p><p><img src="https://pic.imgdb.cn/item/6244293927f86abb2a309287.png"></p><p><img src="https://pic.imgdb.cn/item/62442b9127f86abb2a34fc5b.png"></p><p>十六进制里A代表10</p><table><thead><tr><th>数字</th><th>代表</th></tr></thead><tbody><tr><td>A</td><td>10</td></tr><tr><td>B</td><td>11</td></tr><tr><td>C</td><td>12</td></tr><tr><td>D</td><td>13</td></tr><tr><td>E</td><td>14</td></tr><tr><td>F</td><td>15</td></tr></tbody></table><p>为什么没有G呢？因为16进制包过0，算上0就是16位了</p><blockquote><p>进制的转换</p></blockquote><p><img src="https://pic.imgdb.cn/item/62442d0827f86abb2a37d291.png"></p><p>可以看到我们每一位上都是怎么来的</p><blockquote><p>八进制加法例题</p></blockquote><p>$$5.4+1.4 = ?$$</p><p><img src="https://pic.imgdb.cn/item/62442e9527f86abb2a3acaab.gif"></p><blockquote><p>十六进制例题</p></blockquote><p>$$5.8 + 0.9 = ?$$<br><img src="https://pic.imgdb.cn/item/62442f5827f86abb2a3c4819.gif"></p><p><br><br></p><h1 id="其他进制转换成十进制"><a href="#其他进制转换成十进制" class="headerlink" title="其他进制转换成十进制"></a>其他进制转换成十进制</h1><hr><p><img src="https://pic.imgdb.cn/item/6244313627f86abb2a3fbaed.png"></p><p><br><br></p><h1 id="二进制与八进制和十六进制之间的转换"><a href="#二进制与八进制和十六进制之间的转换" class="headerlink" title="二进制与八进制和十六进制之间的转换"></a>二进制与八进制和十六进制之间的转换</h1><hr><blockquote><p>二进制 -&gt; 八进制</p></blockquote><p>==规律:3位一组，每组转换成对应的八进制符号==</p><p><img src="https://pic.imgdb.cn/item/62443a9927f86abb2a539953.png"></p><p>可以看到我们</p><p>$$<br>111 = 1<em>2^2 + 1</em>2^1 + 1*2^0 = 7(八进制)<br>$$</p><p>如果前面的位数不够就补上0，比如001</p><br><blockquote><p>八进制转换成二进制</p></blockquote><p>每一位八进制对应3位二进制</p><p>$$<br>251.5^{八进制} = 010,101,001.101^{二进制}<br>$$</p><p><br><br></p><blockquote><p>二进制 -&gt; 十六进制</p></blockquote><p>==规律:4位一组，每组兑换成对应的十六进制==</p><p><img src="https://pic.imgdb.cn/item/62443bbc27f86abb2a55cb69.png"></p><p><br><br></p><blockquote><p>十六进制 - &gt; 二进制</p></blockquote><p>$$<br>AE86.1^{十六进制} = 1010,1110,0110.0001^{二进制}<br>$$</p><p><br><br></p><h1 id="十进制转换成任意进制"><a href="#十进制转换成任意进制" class="headerlink" title="十进制转换成任意进制"></a>十进制转换成任意进制</h1><hr><p><img src="https://pic.imgdb.cn/item/624446ae27f86abb2a6cb484.png"></p><p>使用短除法，用前面的商作为一下次的被除数，余数成为我们的取值</p><blockquote><p>十进制转换成二进制(整数部分)</p></blockquote><p>==除积取余法==</p><p><img src="https://pic.imgdb.cn/item/624447e227f86abb2a6f4083.png"></p><blockquote><p>十进制转换成二进制(小数部分)</p></blockquote><p>==乘积取整法==</p><p><img src="https://pic.imgdb.cn/item/624448e027f86abb2a715621.png"></p><blockquote><p>拼凑法</p></blockquote><p><em>例子:</em><br>$$<br>260.74=2^8 + 2^2 + 2^{-1} + 2^{-2}=100000100.11<br>$$</p><p>$$<br>533.125=2^9 + 2^4 + 2^2 +2^0 + 2^{-3}=1000010101.001<br>$$</p><blockquote><p>十进制转换成二进制再转换成八进制</p></blockquote><p>$$<br>\underbrace{001}_\text{1},<br>\underbrace{000}_\text{0},<br>\underbrace{010}_\text{2},<br>\underbrace{101}_\text{5},<br>\underbrace{001}_\text{1}=1025.1^{八进制}<br>$$</p><p><br><br></p><h1 id="各种进制常见的书写方式"><a href="#各种进制常见的书写方式" class="headerlink" title="各种进制常见的书写方式"></a>各种进制常见的书写方式</h1><hr><p><img src="https://pic.imgdb.cn/item/62443e8327f86abb2a5b5e11.png"></p><table><thead><tr><th>进制名</th><th>特征</th><th>例子</th></tr></thead><tbody><tr><td>二进制</td><td>后缀为B</td><td>010B</td></tr><tr><td>八进制</td><td>后缀为8(用得不多)</td><td>1652<del>8</del></td></tr><tr><td>十进制</td><td>后缀为D或者无后缀</td><td>1625D</td></tr><tr><td>十六进制</td><td>后缀为H或者前缀为0x</td><td>1652H或者0x1652</td></tr></tbody></table><p><br><br></p><h1 id="真值和机器数-仅供了解"><a href="#真值和机器数-仅供了解" class="headerlink" title="真值和机器数(仅供了解)"></a>真值和机器数(仅供了解)</h1><hr><p><img src="https://pic.imgdb.cn/item/62444bd727f86abb2a77929f.png"></p><p><br><br></p><h1 id="知识点的回顾"><a href="#知识点的回顾" class="headerlink" title="知识点的回顾"></a>知识点的回顾</h1><hr><p><img src="https://pic.imgdb.cn/item/62444c6427f86abb2a78b53c.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>07BCD码[大章]</title>
+    <link href="/posts/338e66cc.html"/>
+    <url>/posts/338e66cc.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><p><img src="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png"></p><p><br><br></p><h1 id="BCD码"><a href="#BCD码" class="headerlink" title="BCD码"></a>BCD码</h1><hr><p>我们使用4个bit来代表一个十进制<br>但是这样的话我们就有2^4^=16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余</p><p><br><br></p><h2 id="8421码"><a href="#8421码" class="headerlink" title="8421码"></a>8421码</h2><hr><p><img src="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png"></p><p>可以看到，我们对应的权重</p><p><img src="https://pic.imgdb.cn/item/62451c8d27f86abb2ab11e49.png"></p><blockquote><p>例子 保存数字985</p></blockquote><p>$$<br>\overbrace{1001}^\text {9},<br>\overbrace{1000}^\text {8},<br>\overbrace{0101}^\text {5}=985^{十进制}<br>$$</p><p><br><br></p><h3 id="8421码的加法"><a href="#8421码的加法" class="headerlink" title="8421码的加法"></a>8421码的加法</h3><hr><p><img src="https://pic.imgdb.cn/item/62451dff27f86abb2ab3b508.png"></p><p>$$<br>\left{<br>\begin{align*}<br>    &amp; 十进制:5 + 8 = 13\<br>    \<br>    &amp; 8421码:0101 + 1000 = 1101\<br>\end{align*}<br>\right.<br>$$</p><p>二进制的加法之前有提到，可以去前面寻找</p><p>(<code>07进位计数制度[大章]</code>)</p><p><img src="https://pic.imgdb.cn/item/62451f5727f86abb2ab63961.png"></p><p>此时我们计算出来的值为1101，但是在8421码中1010-1111(10-15)这部分没有定义</p><p>==所以我们在这个范围里面的数字，我们统一加上一个6==</p><p><img src="https://pic.imgdb.cn/item/62451fc027f86abb2ab6fa45.png"></p><p>$$<br>\begin{align*}<br>1101 + 0110^{(十进制里的6)} &amp;= 1;0011^{可以看到又符合8421码了}\<br>&amp;=0001 ; 0011<br>\end{align*}<br>$$</p><p><br><br></p><h2 id="余3码"><a href="#余3码" class="headerlink" title="余3码"></a>余3码</h2><hr><p><img src="https://pic.imgdb.cn/item/6245267127f86abb2ac33147.png"></p><p>我们余3码就是在8421码的基础上都+3(0011)变化而来的<br>但也因此，我们的余3码没有固定的权重</p><p><br><br></p><h2 id="2421码-改变权值定义"><a href="#2421码-改变权值定义" class="headerlink" title="2421码 改变权值定义"></a>2421码 改变权值定义</h2><hr><p><img src="https://pic.imgdb.cn/item/6245275827f86abb2ac4afb9.png"></p><p>和8421码一样，我们2421码改变了权值<br>比如5</p><p>$$<br>1011 = 1<em>2 + 0</em>4 + 1<em>2 + 1</em>1 = 5<br>$$</p><p>!!! note 注意<br>    0到4所有的开头都是0<br>    5到9所有的开头都是1</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://pic.imgdb.cn/item/62459fe327f86abb2ab7c99d.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>09奇偶校验码[中章]</title>
+    <link href="/posts/a7d32227.html"/>
+    <url>/posts/a7d32227.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="数据的校验-奇偶校验码"><a href="#数据的校验-奇偶校验码" class="headerlink" title="数据的校验(奇偶校验码)"></a>数据的校验(奇偶校验码)</h1><p>在计算机的传递和处理的过程中，由于计算机元件有可能会发生故障，或者由于环境会干扰，所以我们需要一个办法校验数据</p><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p><img src="https://pic.imgdb.cn/item/624916c427f86abb2a6a122b.png" alt="总览图"></p><h2 id="校验原理简介"><a href="#校验原理简介" class="headerlink" title="校验原理简介"></a>校验原理简介</h2><p>我们增加一个额外的位，作为校验码的位</p><p><img src="https://pic.imgdb.cn/item/6249176b27f86abb2a6b4791.png" alt="校验图"></p><p>如果发生了错误，我么传递去了一个B(01),但是发生了错误，变成了A(00)，我们就需要有个位来判断我们是否发生了错误</p><p>可以看到，我们的校验和我们的<strong>码距</strong>有分不开的关系，码距越大，我们的信息越安全</p><p>==当码距大于3的时候，如果设计合理，可能具有纠错的能力(海明码)==</p><h3 id="奇偶校验码"><a href="#奇偶校验码" class="headerlink" title="奇偶校验码"></a>奇偶校验码</h3><p><img src="https://pic.imgdb.cn/item/6249261a27f86abb2a8814f1.png" alt="奇偶校验码"></p><p>数1的个数，如果1的个数不够偶数或者奇数就在前面补零</p><p><img src="https://pic.imgdb.cn/item/6249267a27f86abb2a88fe84.png" alt="局限性"></p><p>如果有偶数个位发生错误，那么偶数校验码无法检测出来，奇数校验码同理，这是校验码的局限性</p><h4 id="硬件是如何实现奇偶校验码的"><a href="#硬件是如何实现奇偶校验码的" class="headerlink" title="硬件是如何实现奇偶校验码的"></a>硬件是如何实现奇偶校验码的</h4><p>这里用偶数校验码举例子</p><p>我们使用异或运</p><p><img src="https://pic.imgdb.cn/item/6249271227f86abb2a8a782e.png" alt="异或"></p><p><img src="https://pic.imgdb.cn/item/6249272227f86abb2a8a9c44.png" alt="题目"></p><p>$$<br>\begin{align}<br>1 \bigoplus 0 \bigoplus 0 \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 1 &amp;=<br>\underline{1 \bigoplus 0} \bigoplus 1 \bigoplus 1 \bigoplus 0 \bigoplus 1  \<br>&amp;= \underline{1 \bigoplus 1} \bigoplus 1 \bigoplus 0 \bigoplus 1 \<br>&amp;= \underline{0 \bigoplus 1} \bigoplus 0 \bigoplus 1 \<br>&amp;= \underline{1 \bigoplus 0} \bigoplus 1 \<br>&amp;= \underline{1 \bigoplus 1} \<br>&amp;= 0 \<br>\end{align}<br>$$</p><p>最终结果为偶数，计算结束</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/62492b2c27f86abb2a92bfaf.png" alt="总结图"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>08字符与字符串[中章]</title>
+    <link href="/posts/77e40f07.html"/>
+    <url>/posts/77e40f07.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><p><img src="https://pic.imgdb.cn/item/6246727c27f86abb2af38ba5.png" alt="章节目录"></p><h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>我们需要制定一个规则，来表达计算机常用的字符</p><p>目前我们常用的字符只有128个，我们可以用7位二进制编码进行存储</p><p>$$<br>2^7=128<br>$$</p><p>但是为了存入计算机^[计算机通常是以8bit进行处理数据],我们会在高位补充一个0，成为8位数，方便计算机计算</p><p><img src="https://pic.imgdb.cn/item/6246733727f86abb2af4f6ba.png" alt="ASCII表"></p><p>==可印刷字符</p><p>我们可以观察到，数字0-9分别对应48-57</p><p>我们把48和57转换成2进制</p><p>$$<br>\overbrace{48}^\text{0011;0000} 到 \overbrace{51}^\text{0011;1001}<br>$$</p><p>可以看到我们数字前面4位统一为0011<br>而后四位则代表了8421码</p><p>字母的关系(不用记忆，仅作为了解)</p><p><img src="https://pic.imgdb.cn/item/624676d627f86abb2afb7832.png" alt="字母ASCII规则"></p><blockquote><p>例题</p></blockquote><p><img src="https://pic.imgdb.cn/item/6246791c27f86abb2aff6cdd.png" alt="ASCII码转换示例"></p><h2 id="汉字编码"><a href="#汉字编码" class="headerlink" title="汉字编码"></a>汉字编码</h2><h3 id="GB2312-80编码格式"><a href="#GB2312-80编码格式" class="headerlink" title="GB2312-80编码格式"></a>GB2312-80编码格式</h3><p>使用区位码(一个94X94的表格)的形式进行编码，类似坐标一样</p><p><img src="https://pic.imgdb.cn/item/624680be27f86abb2a0ee86f.png" alt="区位码"></p><p><img src="https://pic.imgdb.cn/item/624681b327f86abb2a10a220.png" alt="转换规则"></p><p>为了使GB格式与ASCII编码格式区分，我们统一加上80H，这样我们二进制编码后GB的第一位是1，而ASCII码的第一位永远是0，这样就可以区分编码</p><p><img src="https://pic.imgdb.cn/item/6246822727f86abb2a117e51.png" alt="区分"></p><p>输入法的原理<br>首先是把英文交给国标码，然后处理成汉字内码</p><p><img src="https://pic.imgdb.cn/item/6246829f27f86abb2a1257d4.png" alt="输入法图解"></p><h3 id="字符串是如何在计算机中储存的"><a href="#字符串是如何在计算机中储存的" class="headerlink" title="字符串是如何在计算机中储存的"></a>字符串是如何在计算机中储存的</h3><p><img src="https://pic.imgdb.cn/item/6246ab6927f86abb2a61a875.png" alt="1"></p><p>按字节编制:每个地址对应1B</p><p>字符串从低地址向高地址依次存放</p><p><img src="https://pic.imgdb.cn/item/6246aba327f86abb2a62118d.png" alt="存放图解"></p><p>很多语言中,<code>\0</code>作为字符串的结尾标志，同样也需要存入</p><p><img src="https://pic.imgdb.cn/item/6246abdb27f86abb2a627e2f.png" alt="存放\0"></p><h4 id="存放中文"><a href="#存放中文" class="headerlink" title="存放中文"></a>存放中文</h4><p><img src="https://pic.imgdb.cn/item/6246ac0a27f86abb2a62df96.png" alt="存中文"></p><p>在所有计算机中，多字节数据都被存放在连续的字节序列中。根据数据中各字节的排列顺序不同，可能<br>有</p><ul><li>“大端模式”、</li><li>“小端模式”</li></ul><h2 id="知识点以及回顾"><a href="#知识点以及回顾" class="headerlink" title="知识点以及回顾"></a>知识点以及回顾</h2><p><img src="https://pic.imgdb.cn/item/6246ac7527f86abb2a63be31.png" alt="总结"></p><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:2" class="footnote-text"><span>32~126,其余为控制，通讯字符==<br><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>可以在电脑上表示出来，或者打印出来的字符<br><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section><p></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>10海明码校验码[中章]</title>
+    <link href="/posts/4c294f2e.html"/>
+    <url>/posts/4c294f2e.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="海明校验码"><a href="#海明校验码" class="headerlink" title="海明校验码"></a>海明校验码</h1><p>海明码同时还会出现在计算机网络这门课程当中，所以需要要求掌握</p><h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><p>海明码设计思路:将信息位分组进行偶校验 –&gt; 多个校验位-&gt;多个校验位标志错误的位置</p><p>多个校验位就可以携带多种状态信息(对还是错，错在哪)</p><h3 id="需要多少校验码呢"><a href="#需要多少校验码呢" class="headerlink" title="需要多少校验码呢?"></a>需要多少校验码呢?</h3><p><img src="https://pic.imgdb.cn/item/624ad534239250f7c580859e.png" alt="需要多少位"></p><p>图解:<br>我们假设现在有n个信息位,k个校验位</p><p>我们k个校验位一共可以表达出2^k^次方种状态，而需要表达的内容包裹$信息位置+校验位+正确的状态$<br>我们需要用2^k^来表达n+k+1</p><p>$$ 2^k \geq n + k + 1 $$</p><p>根据这个算式我们可以得出</p><p><img src="https://pic.imgdb.cn/item/624ad628239250f7c582a2f8.png" alt="使用校验码算式"></p><p>$$<br>\left{<br>\begin{array}{c}<br>假设有10位: \ &amp;2^k - k\geq 11 \therefore k \leq 4\<br>\<br>假设有15位: \ &amp;2^k - k \geq 16 \therefore k \leq 5\<br>\end{array}<br>\right.<br>$$</p><h3 id="海明码求解步骤"><a href="#海明码求解步骤" class="headerlink" title="海明码求解步骤"></a>海明码求解步骤</h3><p>假设我们的信息位: 1010</p><h4 id="确定海明码的位数"><a href="#确定海明码的位数" class="headerlink" title="确定海明码的位数"></a>确定海明码的位数</h4><p>我们这里有4位需要传递的信息，所以我们根据算式$ 2^k \geq n + k + 1 $可以得知，我们需要3个校验位</p><p>我们对这些位数进行定义</p><ul><li>信息位就是<strong>大写字母D</strong>表示,比如D<del>1</del>D<del>2</del>D<del>3</del></li><li>校验位用<strong>大写字母P</strong>表示，比如P<del>1</del>P<del>2</del>P<del>3</del></li><li>所有的位数就用<strong>大写字母H</strong>表示,比如H<del>1</del>H<del>2</del>H<del>3</del></li></ul><h4 id="确定校验位"><a href="#确定校验位" class="headerlink" title="确定校验位"></a>确定校验位</h4><p><img src="https://pic.imgdb.cn/item/624ae797239250f7c5aaf801.png" alt="校验位分布"></p><p>我们规定校验位应该放在$2^{i-1}$的位置上<br>如果现在有4个校验位，那么他们不应该连在一起放置，而且是需要按照这个公式进行放置</p><p>$$<br>p_1 \rightarrow 1号位置\<br>p_2 \rightarrow 2号位置\<br>p_3 \rightarrow 4号位置\<br>p_4 \rightarrow 8号位置\<br>$$</p><p><img src="https://pic.imgdb.cn/item/624ba9ac239250f7c5ce2c31.png" alt="校验位分布"></p><h4 id="确定校验位的值"><a href="#确定校验位的值" class="headerlink" title="确定校验位的值"></a>确定校验位的值</h4><p>上面我们已经知道，校验位要放在什么地方，现在我们要用==奇偶校验中的偶校验==来求校验位的值^[使用异或运算求偶校验码]</p><p><img src="https://pic.imgdb.cn/item/624baaa7239250f7c5cff82b.png" alt="求校验位的值"></p><p>这个时候我们就拥有了纠错能力，如果我们的数据没有错误,我们最终三个校验位的值都会是0</p><p><img src="https://pic.imgdb.cn/item/624bab77239250f7c5d18cd5.png" alt="海明码纠错"></p><p>假如数据发生错误，我们的结果就会是奇数,同时我们就可以根据值来判断是第几个位出错了</p><p><img src="https://pic.imgdb.cn/item/624babeb239250f7c5d26582.png" alt="我们的S2出错了"></p><p>010位出错，转换为十进制就是 $$ 010 ,B = 2 ,D $$<br>此时就说明我们的H<del>2</del>的位置上出错了</p><p>&amp;nbsp;</p><p>假如我们现在出错的位置是110 $$110 ,B = 6 ,D $$<br>此时就说明我们的H<del>6</del>的位置上发生了错误</p><p>但是此时我们现在还是有一个麻烦，如果有多个位置发生了错误,那么我们就不知道到底是哪里发生了错误,<strong>于是我们还需要一个全局校验位，对整体进行偶校验</strong></p><p><img src="https://pic.imgdb.cn/item/624baf44239250f7c5d8411e.png" alt="全校验位"></p><p><img src="https://pic.imgdb.cn/item/624baf7f239250f7c5d8ae35.png" alt="全校验位发生错误"></p><h2 id="总览和回顾"><a href="#总览和回顾" class="headerlink" title="总览和回顾"></a>总览和回顾</h2><p><img src="https://pic.imgdb.cn/item/624bafc6239250f7c5d93194.png" alt="知识总览"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>11循环冗余校验码[中章]</title>
+    <link href="/posts/76310a42.html"/>
+    <url>/posts/76310a42.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="循环冗余校验码"><a href="#循环冗余校验码" class="headerlink" title="循环冗余校验码"></a>循环冗余校验码</h1><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p><img src="https://pic.imgdb.cn/item/624bb10b239250f7c5dbc94a.png" alt="本章学习总览图"></p><p>循环冗余校验(Cyclic Redundancy Check，CRC)</p><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了</p><p><img src="https://pic.imgdb.cn/item/624bb3e6239250f7c5e119a8.png" alt="图解基本实现"></p><p>我们在后面加上一些校验位,来确保数据被除后余数为零</p><h2 id="循环校验码"><a href="#循环校验码" class="headerlink" title="循环校验码"></a>循环校验码</h2><p>例子:<br>$$<br>设多项式为 G(x)=x^3+x^2+1 ,信息码为101001\<br>求对应的CRC码<br>$$</p><p>我们可以把$G(x)=x^3+x^2+1$换一种写法</p><p>$$<br>\begin{align*}<br>x^3+x^2+1 &amp;= 1<em>x^3 + 1</em>x^2 + 1*x^0\<br>&amp;=\underbrace{1}*x^3 + \underbrace{1}*x^2 + \underbrace{0}*x^1 + \underbrace{1}<em>x^0<br>\end{align</em>}<br>$$</p><p>此时我们把他们前面的系数提取出来就得出一个数字 $1101$</p><p>开始计算</p><ol><li><p>确定一共有多少R(校验位)<br>K = 信息码的长度 = 6<br>R = 多项式最高次幂 = 3(x^3^)<br>所以我们一共有3个校验位，于是我们现在需要传输的数据除了原本的信息位，现在还需要传输校验位<br>$$<br>\begin{align*}<br>生成的&amp;CRC码用N表示\<br>N &amp;= K + R \<br>&amp;= 6 + 3\<br>&amp;= 9<br>\end{align*}<br>$$</p></li><li><p>移位<br>信息码左移R位，地位补0<br>$$<br>101001 = 01001\color{yellow},{000}<br>$$</p></li></ol><h3 id="模二除"><a href="#模二除" class="headerlink" title="模二除"></a>模二除</h3><ol start="3"><li>相除</li></ol><p>对移位后的信息码，用生成多项式进行==模2除法==，产生余数</p><p><img src="https://pic.imgdb.cn/item/624bbd9d239250f7c5f4c2eb.gif" alt="计算GIF"></p><p>最终我们得到了我们的CRC校验码:$$101001,001$$</p><hr><ol start="4"><li>检验错误和纠错</li></ol><p><img src="https://pic.imgdb.cn/item/624bc032239250f7c5f9e7be.png" alt="检验是否出现错误"></p><p><img src="https://pic.imgdb.cn/item/624bc0c3239250f7c5faf700.png" alt="错误列表"></p><p>CRC码有纠错能力，但是非常弱，只能纠正一位错误</p><p>$$<br>当我们的数据满足下列关系式可以纠错\<br>2^R \geq K + R + 1\<br>但是一般情况下，CRC还是用作校验而非纠错<br>$$</p><p><img src="https://pic.imgdb.cn/item/624bc219239250f7c5fd7fa5.png" alt="CRC纠错能力"></p><h2 id="回顾和总览"><a href="#回顾和总览" class="headerlink" title="回顾和总览"></a>回顾和总览</h2><p><img src="https://pic.imgdb.cn/item/624bc2c1239250f7c5feb59f.png" alt="回顾和总览"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>12定点数的表示[超大章]</title>
+    <link href="/posts/9f53aee2.html"/>
+    <url>/posts/9f53aee2.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h1><p>$$<br>\left{<br>\begin{array}{c}<br>&amp;定点数:小数的位置固定 \<br>&amp;比如996.007\<br>\<br>&amp;浮点数:小数的位置不固定\<br>&amp;比如9.96007*10^2\<br>\end{array}<br>\right.<br>$$</p><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p><img src="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png" alt="总览"></p><h2 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h2><p>无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如：</p><p>$$<br>\begin{align}<br>&amp;10011100B\<br>&amp;=1<em>2^7 +0</em>2^6+0<em>2^5+1</em>2^4+1<em>2^3+1</em>2^2+0<em>2^1+0</em>2^0\<br>&amp;=156D<br>\end{align}<br>$$</p><p><img src="https://pic.imgdb.cn/item/624d619c239250f7c5bb2ba1.png" alt="2的次方数"></p><p>一个8位数的二进制数能够表达出2^8^种不同的状态<br>即<code>1~256</code>，但是我们计算机是从0开始计数，于是我们表示为<code>0~255</code></p><p>n位的无符号数==表示范围==为:$[0,2^n-1]^\text{集合}$</p><h2 id="有符号数的定点表示"><a href="#有符号数的定点表示" class="headerlink" title="有符号数的定点表示"></a>有符号数的定点表示</h2><p><img src="https://pic.imgdb.cn/item/624d66c4239250f7c5c4025e.png" alt="图解"></p><p>符号位通常0为正,1为负</p><p>注:可用原码、反码、补码三种方式来表示定<br>点整数和定点小数。还可用移码表示定点整数。</p><p>若真值为x,则用[x]<del>原</del>、[x]<del>反</del>、[x]<del>补</del>、[x]<del>移</del>分别<br>表示真值所对应的原码、反码、补码、移码</p><h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><p><img src="https://pic.imgdb.cn/item/624d6995239250f7c5ca031e.png" alt="总图"></p><p>比如我们现在需要表示的19和-19<br>$$19D = 10011B $$<br>如果要算上符号位的话,就可以写成<code>010011B</code><br>除了正常的表示之外，其实在2^0^之后还隐藏了小数位置,他们是2^-1^,2^-2^等等</p><p><img src="https://pic.imgdb.cn/item/624d6aef239250f7c5cce45b.png" alt="小数和整数运算"></p><p>如果机器字长<code>n+1</code>位,那么==原码整数==的表示范围为<br>$$<br>-(2^n-1) \leq x \leq 2^n-1<br>$$</p><p>如果机器字长<code>n+1</code>位,那么==原码小数==的表示范围为</p><p>$$<br>-(1-2^{-n}) \leq x \leq 1 - 2^{-n}<br>$$</p><h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><p>==如果符号位为0,则反码与原码相同==<br>==如果符号位为1,则数值位全部取反==</p><p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220406183405.png"></p><p>实际上反码并没有什么用，==反码只是”源码”变成”补码”的中间状态==</p><p><img src="https://pic.imgdb.cn/item/624ea36e239250f7c5c67412.png" alt="反码用法"></p><h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><p>==正数的补码 = 原码==<br>==负数的补码 = 反码末位 + 1(要考虑进位)==</p><p><img src="https://pic.imgdb.cn/item/624ea4f0239250f7c5c98f79.png" alt="补码"></p><h3 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h3><p>==在补码的基础上将符号位取反(移码只能用于表示整数)==</p><p>==移码和补码是一一对应的关系==所以移码能表示的范围和补码一样</p><p>如果机器字长n+1位,==移码整数==的表示范围:<br>$$<br>-2^n \leq x \leq 2^n-1<br>$$</p><h3 id="用几种码来表示定点整数"><a href="#用几种码来表示定点整数" class="headerlink" title="用几种码来表示定点整数"></a>用几种码来表示定点整数</h3><p><img src="https://pic.imgdb.cn/item/625107b3239250f7c58eeb2c.png" alt="用几种码来表示定点整数"></p><h3 id="真值转换成其他码练习"><a href="#真值转换成其他码练习" class="headerlink" title="真值转换成其他码练习"></a>真值转换成其他码练习</h3><blockquote><p>定点整数x=50,用8位原码、反码、补码、移码表示</p></blockquote><p>$$<br>50D =  110010B<br>$$</p><p>因为只有7位，所以我们在最高位带上一个0</p><p>$$110010B \rightarrow 0110010B$$</p><p>然后在最高位还要再加上一个符号位</p><p>$$0110010B \rightarrow 00110010B$$</p><p>因为这是一个正数,所以原码补码反码的格式相同</p><p><img src="https://pic.imgdb.cn/item/62510887239250f7c59145c1.png" alt="原码补码反码"></p><p>移码是在符号位上取反</p><p>$$[x]_补= 00110010B \rightarrow [x]_移=10110010B$$</p><blockquote><p>定点整数x=-100,用八位数原码、反码、补码、移码表示</p></blockquote><p>$$<br>100D =  [x]_原1100100B<br>$$</p><ol><li>因为这是一个负数,所以我们的符号位为1</li></ol><p>$$[x]_原1100100B \rightarrow [x]_原11100100B$$</p><ol start="2"><li>反码就是除了符号位其他全部取反</li></ol><p>$$[x]_原1100100B \rightarrow [x]_反10011011B$$</p><ol start="3"><li>补码就是在反码的基础上末位+1</li></ol><p>$$[x]_反10011011B \rightarrow [x]_补10011100$$</p><ol start="4"><li>最后移码把符号位取反,最开头的一位变成0</li></ol><p>$$[x]_补10011100 \rightarrow [x]_移00011100$$</p><p><img src="https://pic.imgdb.cn/item/62510a3f239250f7c5967e67.png" alt="-100的各种码"></p><p>流程分析:</p><p>$$十进制整数 \rightarrow 二进制数 \rightarrow 确认位数 \rightarrow 根据正负补上符号位$$</p><p>$$如果为负数 \rightarrow 反码 \rightarrow 补码 \rightarrow 移码$$</p><p>$$如果为正数 \rightarrow 反码补码和原码一样 \rightarrow 移码$$</p><h3 id="其他码转换成真值"><a href="#其他码转换成真值" class="headerlink" title="其他码转换成真值"></a>其他码转换成真值</h3><p>$$<br>\begin{align*}<br>[x]_原=10001101\<br>[x]_反=10001101\<br>[x]_补=10001101\<br>[x]_移=10001101\<br>\end{align*}<br>$$</p><ol><li>原码转真值<br>掐去符号位，然后其他的位数正常二进制转十进制即可</li></ol><p>$$<br>0001101B = 13D<br>$$</p><p>最后加上符号位1(表示负数)，于是这个数是-13</p><p>$$[x]_原=10001101=-13$$</p><ol start="2"><li>反码转真值<br>除去符号位,其他位全部取反</li></ol><p>$$<br>[x]_反=10001101 = [x]_原11110010<br>$$</p><p>正常的原码转换成真值</p><p>$$<br>[x]_原11110010 = -114<br>$$</p><ol start="3"><li>补码转换成真值</li></ol><p><strong>补码转换成原码的方式和原码转换成补码的方式相同</strong>,都是==把除了符号位的其他位取反，然后在末位加一==</p><p>$$[x]_补10001101 = [x]_反11110010$$</p><p>然后在反码的基础上加一</p><p>$$ [x]_反11110010 + 1 = [x]_原11110011 $$</p><p>此时我们就可以得知,他的真值是</p><p>$$[x]_原11110011 = -115$$</p><ol start="4"><li>移码转换成真值</li></ol><p>符号位取反</p><p>$$[x]_移=10001101 = 00001101$$</p><p>可知这个是一个正数，正数的补码和原码是相同的(如果不相同则按补码继续进行操作)</p><p>$$00001101B = 13D$$</p><blockquote><p>其他练习<br><img src="https://pic.imgdb.cn/item/6251116d239250f7c5ac2221.png" alt="更多练习"></p></blockquote><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/625111f1239250f7c5ad9977.png" alt="总结"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>13各种码的作用[小章]</title>
+    <link href="/posts/d278f11d.html"/>
+    <url>/posts/d278f11d.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="各种码的作用"><a href="#各种码的作用" class="headerlink" title="各种码的作用"></a>各种码的作用</h1><h2 id="使用原码进行加减运算"><a href="#使用原码进行加减运算" class="headerlink" title="使用原码进行加减运算"></a>使用原码进行加减运算</h2><p><img src="https://pic.imgdb.cn/item/62514db9239250f7c54530cc.png" alt="无符号数"></p><p>加入这是一个无符号数正在进行加法运算，我们得到的数字是正确的，结果是156</p><p><img src="https://pic.imgdb.cn/item/62514de3239250f7c545a378.png" alt="原码"></p><p>但是如果我们使用原码再对这个进行运算,我们发现我们无法得到正确的答案,计算机无法实现<code>正数+负数</code>,所以我们需要手动转换成<code>正数-负数</code></p><p><img src="https://pic.imgdb.cn/item/62514e3e239250f7c546a15c.png" alt="正数-负数"></p><p>使用原码运算:<br>加法–用加法器完成<br>减法–用减法器完成</p><p>但是减法器会增加成本,我们能否使用加法来代替减法呢?</p><p>我们可以使用模运算,来让一个减法变成加法</p><p><img src="https://pic.imgdb.cn/item/62514ffd239250f7c54b57f2.png" alt="模运算"></p><p>$$模 - a的绝对值 = a的补数$$</p><p>刚好，假如我们计算机的字节为8bit,超出8bit范围的内容都不会被保存</p><p>于是我们可认为我们的计算机每一次都在进行取模的操作(mode 2^8^)</p><p><img src="https://pic.imgdb.cn/item/625150ae239250f7c54d1c68.png" alt="取模的操作"></p><blockquote><p>补码让减法操作转变为加法操作，节省硬件成本</p></blockquote><p><img src="https://pic.imgdb.cn/item/625150cf239250f7c54d610a.png" alt="最终结果"></p><h2 id="补码的作用"><a href="#补码的作用" class="headerlink" title="补码的作用"></a>补码的作用</h2><p><img src="https://pic.imgdb.cn/item/625151c7239250f7c54f63ee.png" alt="补码的作用"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>14移位运算[大章]</title>
+    <link href="/posts/749ec134.html"/>
+    <url>/posts/749ec134.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h1><h2 id="知识总览"><a href="#知识总览" class="headerlink" title="知识总览"></a>知识总览</h2><p>定点数的表示和运算</p><p><img src="https://pic.imgdb.cn/item/625163db239250f7c5745c6e.png" alt="定点数的表示和运算"></p><p>移位运算</p><p><img src="https://pic.imgdb.cn/item/625163fb239250f7c5749a1d.png" alt="移位运算"></p><h2 id="原码的算术移位"><a href="#原码的算术移位" class="headerlink" title="原码的算术移位"></a>原码的算术移位</h2><p><img src="https://pic.imgdb.cn/item/62516437239250f7c5751045.png" alt="算术移位"></p><p>移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法</p><h3 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h3><p>==算术的右移(除法)如果舍弃的位不等于0那么就会丢失精度==</p><p>原码的算数移位:符号位保持不变，仅对数值位进行移位。</p><p>右移:高位补0，低位舍弃。若弃的位=0，则相当于:2;若弃的位#0，则会丢失精度</p><p><img src="https://pic.imgdb.cn/item/625164c8239250f7c5762333.png" alt="右移"></p><h3 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h3><p>左移:低位补0，高位舍弃,若舍弃的位=0,则相当于X2;若舍弃的位≠0，则会出现==严重误差==</p><p><img src="https://pic.imgdb.cn/item/625165e1239250f7c57869f4.png" alt="左移"></p><h2 id="反码的算术移位"><a href="#反码的算术移位" class="headerlink" title="反码的算术移位"></a>反码的算术移位</h2><p>如果是正数，那么反码的算术移位和原码相同</p><p>如果是负数,那么反码数值位与原码相反,==因此负数反码如果出现了空白位那么需要补的不是0而是1==</p><p><img src="https://pic.imgdb.cn/item/6251665c239250f7c5795dc5.png" alt="图解"></p><h2 id="补码的算术移位"><a href="#补码的算术移位" class="headerlink" title="补码的算术移位"></a>补码的算术移位</h2><p>正数的补码和原码相同,==因此正数的补码移位运算也和原码相同==</p><ul><li>右移:高位补0， 低位舍弃</li><li>左移:低位补0，高位舍弃</li></ul><p>反码的算术移位比较复杂<br>因为负数的补码=反码末位+1,导致反码最右边几个连续的1都因进位而变为0，直到进位碰到第一个0为止</p><p>$$<br>\begin{align*}<br>&amp;x[原]10010100\<br>&amp;x[反]11101\underline{0}11 \<br>&amp;x[补]11101100 ,左边为我们在反码的基础上末位+1后\<br>\end{align*}<br>$$</p><p><img src="https://pic.imgdb.cn/item/62529981239250f7c5b01804.png" alt="补码移位"></p><p>可以看到因为负数补码的特殊性，所以当我们在对补码补数的时候应该遵循:</p><ul><li>右移(同反码) :高位补1，低位舍弃。</li><li>左移(同原码) :低位补0，高位舍弃。</li></ul><p><img src="https://pic.imgdb.cn/item/62529a11239250f7c5b14417.png" alt="规律总结"></p><h3 id="算术移位的应用举例"><a href="#算术移位的应用举例" class="headerlink" title="算术移位的应用举例"></a>算术移位的应用举例</h3><p><img src="https://pic.imgdb.cn/item/62529a7b239250f7c5b21736.png" alt="算术移位的应用举例"></p><p>$$7D = 111B = 2^0+2^1+2^2$$<br>此时我们的×2就可以使用算术移位和加法来进行运算</p><h2 id="逻辑移位"><a href="#逻辑移位" class="headerlink" title="逻辑移位"></a>逻辑移位</h2><p><img src="https://pic.imgdb.cn/item/62529bde239250f7c5b4a5e7.png" alt="逻辑移位"></p><p>逻辑右移:高位补0，低位舍弃。<br>逻辑左移:低位补0，高位舍弃。</p><p>和原码的移位一样</p><h3 id="逻辑移位的应用"><a href="#逻辑移位的应用" class="headerlink" title="逻辑移位的应用"></a>逻辑移位的应用</h3><p><img src="https://pic.imgdb.cn/item/62529c63239250f7c5b5966e.png" alt="RGB"></p><p>我们使用RGB如何把他们拼接在一起？<br>这个时候我们就需要逻辑移位,让他们<strong>先移动到自己应该在的地方</strong>，然后再把他们相加就可以了</p><h2 id="循环移位"><a href="#循环移位" class="headerlink" title="循环移位"></a>循环移位</h2><blockquote><p>循环移位<br><img src="https://pic.imgdb.cn/item/62529d04239250f7c5b6fe52.gif" alt="循环移位GIF"></p></blockquote><blockquote><p>带进位的循环左移<br><img src="https://pic.imgdb.cn/item/62529de5239250f7c5b8a42e.gif" alt="带进位的循环左移"></p></blockquote><blockquote><p>循环移位图片说明<br><img src="https://pic.imgdb.cn/item/62529d62239250f7c5b7b6a1.png" alt="循环移位"></p></blockquote><p>使用循环移位就可以把一组数据倒换(reversed)</p><h2 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h2><p><img src="https://pic.imgdb.cn/item/62529e6b239250f7c5b998bf.png" alt="知识总结"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>15加减运算和溢出判断[中章]</title>
+    <link href="/posts/bc94495e.html"/>
+    <url>/posts/bc94495e.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="加减运算和移除判断"><a href="#加减运算和移除判断" class="headerlink" title="加减运算和移除判断"></a>加减运算和移除判断</h1><p><img src="https://pic.imgdb.cn/item/6252a1e8239250f7c5c050e1.png" alt="加减运算和移除判断"></p><p>我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们<strong>一般不使用原码进行运算</strong>,==计算机中通常采用补码进行算术运算==</p><h2 id="使用补码进行运算"><a href="#使用补码进行运算" class="headerlink" title="使用补码进行运算"></a>使用补码进行运算</h2><p>使用补码进行运算，符号位一样参与运算</p><blockquote><p>设机器字长为8位(含1位符号位)，A=15, B=-24,求[A+B]<del>补</del>和[A-B]<del>补</del></p></blockquote><p>$$<br>\begin{align*}<br>&amp; A=+1111 \rightarrow \overbrace{0,0001111}^\text{原码}\rightarrow \overbrace{0,0001111}^\text{补码}\<br>&amp; B=-11000 \rightarrow 1,0011000 \rightarrow 11101000\<br>\end{align*}<br>$$</p><p>计算公式</p><p>$$<br>\begin{align*}<br>&amp;[A+B]_补\<br>&amp;= [A]_补+[B]_补 \<br>&amp;=0,0001111+1,1101000\<br>&amp;=1,1110111\<br>\end{align*}<br>$$</p><p>把最终结果转换成原码,然后转换成真值</p><p>$$<br>10001001^\text{原码} = -9^\text{真值}<br>$$</p><h3 id="对于补码快速转原码的一个方式"><a href="#对于补码快速转原码的一个方式" class="headerlink" title="对于补码快速转原码的一个方式"></a>对于补码快速转原码的一个方式</h3><p>由之前所学的知识可知，负数补码移位的时候</p><ul><li>最左边到最右边的1和反码一样</li><li>最右边的1到最后边和原码一样</li></ul><p>所以我们可以有一个更快的方法来把负数补码转换成原码</p><ol><li>我们来数最右边的1，然后最右边的1到最右边原封不动</li><li>然后最右边的1到最左边全部取反</li></ol><p>比如<br>$$1,111011\underline{1} = 1,00010\underline{1}$$</p><p>$$<br>1,110\underline{1}000[补码] = 0,001\underline{1}000[原码]<br>$$</p><h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><p><img src="https://pic.imgdb.cn/item/6252d8d0239250f7c537adb6.png" alt="溢出"></p><p>可以看到，我们的A+C本来应该等于139,但是现在却等于-117,这就是数值发生了溢出</p><h3 id="溢出判断"><a href="#溢出判断" class="headerlink" title="溢出判断"></a>溢出判断</h3><p>只有“正数+正数”才会上溢–正+正=负<br>只有“负数+负数”才会下溢–负+负=正</p><p>因为正数-负数的绝对值一定小于这两个数</p><p>计算机的溢出分为两种,</p><ul><li>一种为==上溢==</li><li>一种为==下溢==</li></ul><p><img src="https://pic.imgdb.cn/item/6252d9d1239250f7c539ff9f.png" alt="上溢and下溢"></p><p>最常用的判断溢出方法(双符号位)</p><p><img src="https://pic.imgdb.cn/item/6252dbf3239250f7c53ec9ff.png" alt="双符号位"></p><p>如果两个符号位相同表示没有溢出，如果不同则表示溢出</p><h2 id="符号扩展-int-gt-long"><a href="#符号扩展-int-gt-long" class="headerlink" title="符号扩展(int->long)"></a>符号扩展(int-&gt;long)</h2><p>防止溢出的方法就是把短数据变成长数据</p><p><img src="https://pic.imgdb.cn/item/6252dca2239250f7c5406634.png" alt="符号扩展"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/6252dcde239250f7c540e2b4.png" alt="总结"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>16原码的乘法运算[大章]</title>
+    <link href="/posts/1239baad.html"/>
+    <url>/posts/1239baad.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="原码乘法运算"><a href="#原码乘法运算" class="headerlink" title="原码乘法运算"></a>原码乘法运算</h1><h2 id="看看我们的十进制乘法"><a href="#看看我们的十进制乘法" class="headerlink" title="看看我们的十进制乘法"></a>看看我们的十进制乘法</h2><p><img src="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png" alt="十进制乘法"></p><p>为什么我们的进制要错位？<br>最终还得回归我们的进制公式</p><p><img src="https://pic.imgdb.cn/item/6256b7f2239250f7c56c9c14.png" alt="进制公式"></p><p>$$<br>0.211=2\times10^{-1}+1\times10^{-2}+1\times10^{-3}<br>$$</p><p>$$<br>0.985= 985 \times10^{-3}<br>$$</p><p>$$<br>0.985\times0.211= (985\times1\times10^{-6})+ (985\times 1\times10^{-5})+ (985\times2\times10^{-4})<br>$$</p><p><img src="https://pic.imgdb.cn/item/6256b8c6239250f7c56df65b.png" alt="算式"></p><p>我们将小数点算上，最终我的乘法看起来应该是长城这个样子<br><img src="https://pic.imgdb.cn/item/6256b944239250f7c56ebbdd.png" alt="扩展后"><br>所以我们需要将每一位的位基移位</p><h3 id="扩展我们的手算到二进制上"><a href="#扩展我们的手算到二进制上" class="headerlink" title="扩展我们的手算到二进制上"></a>扩展我们的手算到二进制上</h3><p><img src="https://pic.imgdb.cn/item/6256baa4239250f7c570efa7.png" alt="二进制"></p><p><img src="https://pic.imgdb.cn/item/6256bf01239250f7c5785f56.png" alt="二进制乘法"></p><p>我们二进制的乘法实现起来非常简单，如果被乘数是0就直接取全零，如果被乘数是1那就照抄乘数</p><p>同时我们对于$(1101\times1\times2^{-8})$这样的2^-8^实现起来也非常方便，只需要把我们所有的位全部向右移动8位即可</p><p>考虑如何用机器实现:</p><ul><li>实际数字有正负，符号位如何处理?</li><li>乘积的位数扩大-倍，如何处理?</li><li>4个位积都要保存下来最后统一相加?</li></ul><h3 id="原码一位的乘法"><a href="#原码一位的乘法" class="headerlink" title="原码一位的乘法"></a>原码一位的乘法</h3><p>符号单独处理:$符号位= x_5 \bigoplus y_5$<br>数值位取绝对值进行乘法计算</p><p>$[ |x| ]原=0.1101$<br>$[ |y| ]原=0.1011$</p><h2 id="在机器中实现乘法"><a href="#在机器中实现乘法" class="headerlink" title="在机器中实现乘法"></a>在机器中实现乘法</h2><p><img src="https://pic.imgdb.cn/item/62579a5f239250f7c5751b73.png" alt="寄存器"></p><blockquote><p>开始在运算器中进行演示</p></blockquote><p><img src="https://pic.imgdb.cn/item/62579ace239250f7c575ce70.png" alt="最开始的图"></p><ol><li><img src="https://pic.imgdb.cn/item/62579bbf239250f7c5773c92.png" alt="image-20220414115714087"></li></ol><p>注:</p><ul><li><p>在每一次开始计算的时候，我们都需要<strong>把ACC清零</strong></p></li><li><p>被我们涂上<strong>灰色的1</strong>表示当前参与乘法运算的位</p></li></ul><p>当前位=1，则ACC加上被乘数<br>当前位=0，则ACC加上0</p><ol start="2"><li><img src="https://pic.imgdb.cn/item/62579ce9239250f7c579310c.png" alt="image-20220414120208568"></li></ol><p>可以看到，此时我们参与运算的值是1，所以==我们让ACC+被乘数==,这个过程由ALU(算术逻辑单元的加法遍历)实现<br>$$<br>00000(ACC) + 01101(X) = 01101(ACC)<br>$$<br><img src="https://pic.imgdb.cn/item/62579f96239250f7c57d8b2f.png" alt="image-20220414121337687"></p><p>==图中我们红色的部分叫部分积==</p><p>现在我们有了两个麻烦</p><ul><li>如何舍弃MQ里面已经参与运算的位</li><li>乘积高位不够用了，而且我们之后需要让他能够向高位进1</li></ul><p>此时我们的解决方法也很简单，把我们的ACC和MQ统一右移，高位补零，ACC多余的值移动进MQ内</p><p><img src="https://pic.imgdb.cn/item/6257a741239250f7c58948d4.png" alt="image-20220414124620768"><img src="https://pic.imgdb.cn/item/6257a761239250f7c5896ff6.png" alt="image-20220414124653185"></p><ol start="3"><li>此时我们的运算位又是1，让我们的X+ACC<br>$$<br>00110(ACC)+01101(X)=10011(ACC)<br>$$</li></ol><p><img src="https://pic.imgdb.cn/item/6257a882239250f7c58acbc7.png" alt="image-20220414125141792"></p><p>然后我们现在进行逻辑右移,右移的结果如图：</p><p><img src="https://pic.imgdb.cn/item/6257aa87239250f7c58dbef6.png" alt="image-20220414130018198"></p><ol start="4"><li>此时我们发现我们的下一位是0，于是我们什么都不需要动，只需要直接右移即可</li></ol><p>$$<br>(ACC) + 0 \rightarrow ACC<br>$$</p><p><img src="https://pic.imgdb.cn/item/6257aad8239250f7c58e3ad2.png" alt="image-20220414130139490"></p><ol start="5"><li>此时我们发现我们的这一项又是1,于是重复之前的操作</li></ol><p>$$<br>00100(ACC)+01101(X)=10001(ACC)<br>$$</p><p><img src="https://pic.imgdb.cn/item/6257ab55239250f7c58ee824.png" alt="image-20220414130344110"></p><p>紧接着我们进行逻辑右移</p><p><img src="https://pic.imgdb.cn/item/6257ab6c239250f7c58f03bc.png" alt="image-20220414130407759"></p><p>此时我们就剩下最后一个位了，但是这个位我们不需要让他参与运算，因为这个位实际上是符号位</p><p><img src="https://pic.imgdb.cn/item/6257aba9239250f7c58f524a.png" alt="image-20220414130508463"></p><p>此时我们把所有红色的部分加起来就是我们最终的结果<br>$$<br>0.10001111<br>$$</p><ol start="6"><li>最后我们来判断符号位要填0还是1</li></ol><p>因为符号位要单独处理($符号位=x_5 \bigoplus y_5$)<br>$$<br>\begin{align*}<br>[x]_原=\underline{1}.1101\<br>[y]_原=\underline{0}.1011\<br>0 \bigoplus 1 = 1\<br>\therefore 最终我们的符号&amp;位为1<br>\end{align*}<br>$$<br><img src="https://pic.imgdb.cn/item/6257adf8239250f7c59297e1.png" alt="image-20220414131459062"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/6257aeb5239250f7c593a986.png" alt="image-20220414131808717"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>17补码的乘法运算[中章]</title>
+    <link href="/posts/ee2153eb.html"/>
+    <url>/posts/ee2153eb.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="补码的乘法运算"><a href="#补码的乘法运算" class="headerlink" title="补码的乘法运算"></a>补码的乘法运算</h1><p>补码的运算和原码的乘法运算非常相似，但是又有不同</p><p>补码一位乘法:<br>进行n轮加法、移位，最后再多来一次加法</p><p>每次加法可能+0、+[x]补、+[-x]补</p><p><img src="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png" alt="image-20220414144425038"></p><ul><li><p>对于原码的移码(我们进行的是==逻辑右移==)高位补0</p></li><li><p>对于补码的移码(我们进行的是==算术右移==),此时我们补的个数需要根据<strong>MQ中的最低位和辅助位</strong>来确定</p></li><li><p>原码的符号位不参与运算(最后使用异或运算来判断)</p></li><li><p>补码的符号位参与运算</p></li></ul><h2 id="在机器内的流程"><a href="#在机器内的流程" class="headerlink" title="在机器内的流程"></a>在机器内的流程</h2><p><img src="https://pic.imgdb.cn/item/6257c3f9239250f7c5b5d164.png" alt="image-20220414144852783"></p><h3 id="辅助位"><a href="#辅助位" class="headerlink" title="辅助位"></a>辅助位</h3><p><img src="https://pic.imgdb.cn/item/6257c40c239250f7c5b5ef7b.png" alt="image-20220414144911605"></p><p>我们的辅助位是在<strong>MQ的最右边加上了一个额外的位</strong>(<em>理论上这个才是MQ的最低位</em>),因为我们的MQ加了一位，所以我们<strong>其他的单元也相应的加了一个位</strong></p><p><img src="https://pic.imgdb.cn/item/6257c4bb239250f7c5b70caf.png" alt="image-20220414145206543"></p><h2 id="补码的一位乘法-手算模拟"><a href="#补码的一位乘法-手算模拟" class="headerlink" title="补码的一位乘法(手算模拟)"></a>补码的一位乘法(手算模拟)</h2><p><img src="https://pic.imgdb.cn/item/6257c5f8239250f7c5b90f3a.png" alt="image-20220414145722668"></p><p>看起来好像很复杂，我们一点一点来说</p><ol><li><p>首先我们判断应该加什么,我们看到我们的辅助位是0，MQ的最低位是1</p><p>根据算式$0(辅助位)-1(MQ最低位)=-1$,所以我们应该在这里加($+[-x]_补$)</p></li></ol><p>$$<br>00.0000(ACC) + 00.1101([-x]_补)=00.1101(新的ACC)<br>$$</p><blockquote><p>关于[-x<del>补</del>]怎么求</p><p><strong>对任意的<code>x</code>,若已知<code>[x]补</code>,则把<code>[x]补</code>连同符号位的每一位都取反再<code>加1</code>即可得到<code>[-x]补</code></strong></p><p>当x为正数时，设[x]补 = 01010</p><p>∵ [x]补 = 01010<br>∴ [x]原 = 01010<br>∴ [-x]原 = 11010<br>∴ [-x]补 = 10110</p><p>当x为负数时，设[x]补 = 11011</p><p>∵ [x]补 = 11011<br>∴ [x]原 = 10101<br>∴ [-x]原 = 00101<br>∴ [-x]补 = 00101</p><p>来源:<a href="https://blog.csdn.net/qq_44685584/article/details/120205351">https://blog.csdn.net/qq_44685584/article/details/120205351</a></p></blockquote><p>我们加法操作结束之后就会进行一次<strong>算术右移</strong>(<em>符号位不动，新增的位我们用和符号位相同的数来填补</em>)<br>比如符号位是1，我们右移就补1，符号位是0,我们右移就补0</p><p><img src="https://pic.imgdb.cn/item/6257c928239250f7c5be597d.png" alt="image-20220414151059477"></p><ol start="2"><li>此时我们的辅助位是1，MQ的最低位也是1,$1(辅助位)-1(MQ最低位)=0$,所以我们的补码就+0,然后再进行一次算术右移</li></ol><p><img src="https://pic.imgdb.cn/item/6257c9cc239250f7c5bf686e.png" alt="image-20220414151344071"></p><ol start="3"><li><p>根据上面的步骤一路算到最后</p><p><img src="https://pic.imgdb.cn/item/6257ca2f239250f7c5bff847.png" alt="image-20220414151522433"></p></li></ol><p>在最后我们还需要再进行最后一次加法(<strong>这一次只有加法没有移位</strong>)</p><p><img src="https://pic.imgdb.cn/item/6257ca88239250f7c5c0887e.png" alt="image-20220414151651381"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>18原码的除法运算</title>
+    <link href="/posts/44487134.html"/>
+    <url>/posts/44487134.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="原码的除法运算"><a href="#原码的除法运算" class="headerlink" title="原码的除法运算"></a>原码的除法运算</h1><p><img src="https://pic.imgdb.cn/item/625923ff239250f7c59a18e0.png" alt="image-20220415153256563"></p><h2 id="手算除法"><a href="#手算除法" class="headerlink" title="手算除法"></a>手算除法</h2><blockquote><p>十进制的手算除法</p></blockquote><p><img src="https://pic.imgdb.cn/item/62592632239250f7c59de42d.png" alt="image-20220415160012334"><br>$$<br>\begin{align*}<br>&amp;x(除数) \div y(被除数) =a ……b \rightarrow x(除数) = a \times y + b\<br>&amp;可知我们的除数=被除数<em>结果 + 余数<br>\end{align</em>}<br>$$</p><blockquote><p>二进制的手算除法</p></blockquote><p><img src="https://pic.imgdb.cn/item/62592730239250f7c59f86ae.png" alt="image-20220415160426575"></p><p>因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>README</title>
+    <link href="/posts/77cd4175.html"/>
+    <url>/posts/77cd4175.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="Computer-composition-principle"><a href="#Computer-composition-principle" class="headerlink" title="Computer-composition-principle"></a>Computer-composition-principle</h1><p>==中文名：计算机组成原理==</p><p>个人对于每章大小的说明：</p><table><thead><tr><th align="left">章节\说明</th><th align="center">字数</th><th>作用</th></tr></thead><tbody><tr><td align="left">小章</td><td align="center">小于50行</td><td>一般是解释说明或者目录类</td></tr><tr><td align="left">中章</td><td align="center">大于50行但是小于100行</td><td>一般是课程的补充或者扩展</td></tr><tr><td align="left">大章</td><td align="center">大于100行但是小于200行</td><td>一般是正课的笔记</td></tr><tr><td align="left">超大章</td><td align="center">大于200行</td><td>一般多为成体系不可分割，或者重点难点</td></tr></tbody></table><p><br><br><br></p><p>课程来源：<a href="https://www.bilibili.com/video/BV1BE411D7ii">https://www.bilibili.com/video/BV1BE411D7ii</a></p><p>仅供个人学习与参考</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机组成原理</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/posts/4a17b156.html"/>
+    <url>/posts/4a17b156.html</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
     

@@ -19,7 +19,7 @@
     <meta name="description" content="非常无聊于是想着要搭建一个博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="互联网的角落">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="互联网的角落">
 <meta property="og:description" content="非常无聊于是想着要搭建一个博客">
 <meta property="og:locale" content="zh_CN">
@@ -195,15 +195,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/a91d72e7.html" target="_self">
-          01计算机概念和发展历程[中章]
+        <a href="/posts/76310a42.html" target="_self">
+          11循环冗余校验码[中章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/a91d72e7.html" target="_self">
+        <a href="/posts/76310a42.html" target="_self">
           
-          导读 计算机是如何识别电型号的？ 计算机的发展 硬件的发展 软件的发展   课程回顾    导读我们的计算机是如何处理信息的呢？通过学习，我们都会一点点的弄明白  计算机是如何识别电型号的？ 通过电脑的电流有两种，一个为高电频，一个为低电频，根据电流的强弱，计算机就可以区分出0和1之间的区别  可以看到卡的脚上面有很多金色的条，这些就是来接受电信号的接口，通过改变高低电频，我们的硬件就可以接受不
+          循环冗余校验码总览 循环冗余校验(Cyclic Redundancy Check，CRC) 基本思想数据传输的时候,数据的双方约定一个除数,然后最终如果结果的余数相同的话那说明我们的数据没有出错，如果余数不同说明数据出错了  我们在后面加上一些校验位,来确保数据被除后余数为零 循环校验码例子:$$设多项式为 G(x)&#x3D;x^3+x^2+1 ,信息码为101001\求对应的CRC码$$
         </a>
       </p>
 
@@ -235,15 +235,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/198f00af.html" target="_self">
-          02计算机硬件的基本组成[中章]
+        <a href="/posts/9f53aee2.html" target="_self">
+          12定点数的表示[超大章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/198f00af.html" target="_self">
+        <a href="/posts/9f53aee2.html" target="_self">
           
-          冯诺依曼机 早期的计算机需要手动接线(程序员一步一步告诉计算机下一步要做什么)这导致浪费了很多时间，于是冯诺依曼提出了 &#x3D;&#x3D;储存程序&#x3D;&#x3D;  “存储程序”的概念是指将指令以二进制代码的形式事先输入计算机的主存储器  然后按其在存储器中的首地址执行程序的第一条指令，以后就按该程序的规定顺序执行其他指令，直 至程序执行结束。   按照传递的顺序进行说明：  输入设备:将信息转换成机器能识别的形式  运算
+          定点数$$\left{\begin{array}{c}&amp;定点数:小数的位置固定 \&amp;比如996.007\\&amp;浮点数:小数的位置不固定\&amp;比如9.96007*10^2\\end{array}\right.$$ 总览 无符号数的表示无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$\begin{align}&amp;100111
         </a>
       </p>
 
@@ -275,15 +275,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/873816c.html" target="_self">
-          04计算机的层次结构[小章]
+        <a href="/posts/d278f11d.html" target="_self">
+          13各种码的作用[小章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/873816c.html" target="_self">
+        <a href="/posts/d278f11d.html" target="_self">
           
-          层级结构图 &#x3D;&#x3D;下层是上层的基础，上层是下层的扩展&#x3D;&#x3D;  三种级别的语言   编译程序一次编译，之后就可以直接执行，不需要再次编译 解释程序每次执行都需要再次翻译 !!! note 注意    编译，汇编，解释程序统称为”翻译程序”  总结
+          各种码的作用使用原码进行加减运算 加入这是一个无符号数正在进行加法运算，我们得到的数字是正确的，结果是156  但是如果我们使用原码再对这个进行运算,我们发现我们无法得到正确的答案,计算机无法实现正数+负数,所以我们需要手动转换成正数-负数  使用原码运算:加法–用加法器完成减法–用减法器完成 但是减法器会增加成本,我们能否使用加法来代替减法呢? 我们可以使用模运算,来让一个减法变成加法
         </a>
       </p>
 
@@ -315,15 +315,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/dd8cec3a.html" target="_self">
-          05计算机的性能指标[大章]
+        <a href="/posts/749ec134.html" target="_self">
+          14移位运算[大章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/dd8cec3a.html" target="_self">
+        <a href="/posts/749ec134.html" target="_self">
           
-          存储器的性能指标  MAR位数反映每个存储单元的大小数(最多支持多少个) MDR位数&#x3D;存储字长&#x3D;存储单元的个  为什么MAR的位数为2^n^呢?   可以看到，按照规律，1个二进制位能表达的内容是有限的，规律正好是2^n^同时我们还需要知道几个比较常用的单位转换    说明\单位 K M G T    相当于多少二进制位 2^10^ 2^20^ 2^30^ 2^40^   代表的大小 1KB 10
+          移位运算知识总览定点数的表示和运算  移位运算  原码的算术移位 移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法 右移
         </a>
       </p>
 
@@ -355,15 +355,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/9cee6847.html" target="_self">
-          03认识各个硬件部件[大章]
+        <a href="/posts/bc94495e.html" target="_self">
+          15加减运算和溢出判断[中章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/9cee6847.html" target="_self">
+        <a href="/posts/bc94495e.html" target="_self">
           
-          主机内部是如何协调工作的？主存储  存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?
+          加减运算和移除判断 我们使用加法器直接使用原码进行运算对于硬件逻辑的要求太高了，所以我们一般不使用原码进行运算,&#x3D;&#x3D;计算机中通常采用补码进行算术运算&#x3D;&#x3D; 使用补码进行运算使用补码进行运算，符号位一样参与运算  设机器字长为8位(含1位符号位)，A&#x3D;15, B&#x3D;-24,求[A+B]补和[A-B]补  $$\begin{align*}&amp; A&#x3D;+1111 \rightarrow \overbra
         </a>
       </p>
 
@@ -395,15 +395,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/8fb785fe.html" target="_self">
-          06进位计数制度[超大章]
+        <a href="/posts/1239baad.html" target="_self">
+          16原码的乘法运算[大章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/8fb785fe.html" target="_self">
+        <a href="/posts/1239baad.html" target="_self">
           
-          总览   古老的计数方法 一一对应的计数  稍微高级一点的权重计数    罗马数字
+          原码乘法运算看看我们的十进制乘法 为什么我们的进制要错位？最终还得回归我们的进制公式  $$0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3}$$ $$0.985&#x3D; 985 \times10^{-3}$$ $$0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\times10^{-5}
         </a>
       </p>
 
@@ -435,15 +435,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/338e66cc.html" target="_self">
-          07BCD码[大章]
+        <a href="/posts/ee2153eb.html" target="_self">
+          17补码的乘法运算[中章]
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/338e66cc.html" target="_self">
+        <a href="/posts/ee2153eb.html" target="_self">
           
-          总览  BCD码 我们使用4个bit来代表一个十进制但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码
+          补码的乘法运算补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法:进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补   对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0  对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定  原码的符号位不参与运算(最后使用异或运算来判断)  补码的符号位参与运算
         </a>
       </p>
 
@@ -475,15 +475,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/a7d32227.html" target="_self">
-          09奇偶校验码[中章]
+        <a href="/posts/44487134.html" target="_self">
+          18原码的除法运算
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/a7d32227.html" target="_self">
+        <a href="/posts/44487134.html" target="_self">
           
-          数据的校验(奇偶校验码)在计算机的传递和处理的过程中，由于计算机元件有可能会发生故障，或者由于环境会干扰，所以我们需要一个办法校验数据 总览 校验原理简介我们增加一个额外的位，作为校验码的位  如果发生了错误，我么传递去了一个B(01),但是发生了错误，变成了A(00)，我们就需要有个位来判断我们是否发生了错误 可以看到，我们的校验和我们的码距有分不开的关系，码距越大，我们的信息越安全 &#x3D;&#x3D;当码距
+          原码的除法运算 手算除法 十进制的手算除法  $$\begin{align*}&amp;x(除数) \div y(被除数) &#x3D;a ……b \rightarrow x(除数) &#x3D; a \times y + b\&amp;可知我们的除数&#x3D;被除数结果 + 余数\end{align}$$  二进制的手算除法   因为我们的机器字长是5位，所以我们在得到了5个位商就可以停止
         </a>
       </p>
 
@@ -515,15 +515,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/77e40f07.html" target="_self">
-          08字符与字符串[中章]
+        <a href="/posts/77cd4175.html" target="_self">
+          README
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/77e40f07.html" target="_self">
+        <a href="/posts/77cd4175.html" target="_self">
           
-          总览 ASCII码我们需要制定一个规则，来表达计算机常用的字符 目前我们常用的字符只有128个，我们可以用7位二进制编码进行存储 $$2^7&#x3D;128$$ 但是为了存入计算机^[计算机通常是以8bit进行处理数据],我们会在高位补充一个0，成为8位数，方便计算机计算  &#x3D;&#x3D;可印刷字符 我们可以观察到，数字0-9分别对应48-57
+          Computer-composition-principle&#x3D;&#x3D;中文名：计算机组成原理&#x3D;&#x3D; 个人对于每章大小的说明：    章节\说明 字数 作用    小章 小于50行 一般是解释说明或者目录类   中章 大于50行但是小于100行 一般是课程的补充或者扩展   大章 大于100行但是小于200行 一般是正课的笔记   超大章 大于200行 一般多为成体系不可分割，或者重点难点    课程来源：
         </a>
       </p>
 
@@ -555,15 +555,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/posts/4c294f2e.html" target="_self">
-          10海明码校验码[中章]
+        <a href="/posts/4a17b156.html" target="_self">
+          Hello World
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/posts/4c294f2e.html" target="_self">
+        <a href="/posts/4a17b156.html" target="_self">
           
-          海明校验码海明码同时还会出现在计算机网络这门课程当中，所以需要要求掌握 设计思想海明码设计思路:将信息位分组进行偶校验 –&gt; 多个校验位-&gt;多个校验位标志错误的位置 多个校验位就可以携带多种状态信息(对还是错，错在哪) 需要多少校验码呢? 图解:我们假设现在有n个信息位,k个校验位 我们k个校验位一共可以表达出2^k^次方种状态，而需要表达的内容包裹$信息位置+校验位+正确的状态$我们
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
         </a>
       </p>
 
@@ -571,18 +571,11 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-16 12:15" pubdate>
+            <time datetime="2022-04-16 10:59" pubdate>
               2022-04-16
             </time>
           </div>
         
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
-          </div>
         
         
       </div>
@@ -593,7 +586,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </span>
   </nav>
 

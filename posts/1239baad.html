@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="原码乘法运算看看我们的十进制乘法 为什么我们的进制要错位？最终还得回归我们的进制公式  $$0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3}$$ $$0.985&#x3D; 985 \times10^{-3}$$ $$0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\times10^{-5}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16原码的乘法运算[大章]">
+<meta property="og:url" content="http://example.com/posts/1239baad.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="原码乘法运算看看我们的十进制乘法 为什么我们的进制要错位？最终还得回归我们的进制公式  $$0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3}$$ $$0.985&#x3D; 985 \times10^{-3}$$ $$0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\times10^{-5}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256b7f2239250f7c56c9c14.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256b8c6239250f7c56df65b.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256b944239250f7c56ebbdd.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256baa4239250f7c570efa7.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6256bf01239250f7c5785f56.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62579a5f239250f7c5751b73.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62579ace239250f7c575ce70.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62579bbf239250f7c5773c92.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62579ce9239250f7c579310c.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62579f96239250f7c57d8b2f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257a741239250f7c58948d4.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257a761239250f7c5896ff6.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257a882239250f7c58acbc7.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257aa87239250f7c58dbef6.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257aad8239250f7c58e3ad2.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257ab55239250f7c58ee824.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257ab6c239250f7c58f03bc.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257aba9239250f7c58f524a.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257adf8239250f7c59297e1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6257aeb5239250f7c593a986.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.232Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png">
+  
+  
+  <title>16原码的乘法运算[大章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="16原码的乘法运算[大章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">16原码的乘法运算[大章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="原码乘法运算"><a href="#原码乘法运算" class="headerlink" title="原码乘法运算"></a>原码乘法运算</h1><h2 id="看看我们的十进制乘法"><a href="#看看我们的十进制乘法" class="headerlink" title="看看我们的十进制乘法"></a>看看我们的十进制乘法</h2><p><img src="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png" srcset="/img/loading.gif" lazyload alt="十进制乘法"></p>
+<p>为什么我们的进制要错位？<br>最终还得回归我们的进制公式</p>
+<p><img src="https://pic.imgdb.cn/item/6256b7f2239250f7c56c9c14.png" srcset="/img/loading.gif" lazyload alt="进制公式"></p>
+<p>$$<br>0.211=2\times10^{-1}+1\times10^{-2}+1\times10^{-3}<br>$$</p>
+<p>$$<br>0.985= 985 \times10^{-3}<br>$$</p>
+<p>$$<br>0.985\times0.211= (985\times1\times10^{-6})+ (985\times 1\times10^{-5})+ (985\times2\times10^{-4})<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/6256b8c6239250f7c56df65b.png" srcset="/img/loading.gif" lazyload alt="算式"></p>
+<p>我们将小数点算上，最终我的乘法看起来应该是长城这个样子<br><img src="https://pic.imgdb.cn/item/6256b944239250f7c56ebbdd.png" srcset="/img/loading.gif" lazyload alt="扩展后"><br>所以我们需要将每一位的位基移位</p>
+<h3 id="扩展我们的手算到二进制上"><a href="#扩展我们的手算到二进制上" class="headerlink" title="扩展我们的手算到二进制上"></a>扩展我们的手算到二进制上</h3><p><img src="https://pic.imgdb.cn/item/6256baa4239250f7c570efa7.png" srcset="/img/loading.gif" lazyload alt="二进制"></p>
+<p><img src="https://pic.imgdb.cn/item/6256bf01239250f7c5785f56.png" srcset="/img/loading.gif" lazyload alt="二进制乘法"></p>
+<p>我们二进制的乘法实现起来非常简单，如果被乘数是0就直接取全零，如果被乘数是1那就照抄乘数</p>
+<p>同时我们对于$(1101\times1\times2^{-8})$这样的2^-8^实现起来也非常方便，只需要把我们所有的位全部向右移动8位即可</p>
+<p>考虑如何用机器实现:</p>
+<ul>
+<li>实际数字有正负，符号位如何处理?</li>
+<li>乘积的位数扩大-倍，如何处理?</li>
+<li>4个位积都要保存下来最后统一相加?</li>
+</ul>
+<h3 id="原码一位的乘法"><a href="#原码一位的乘法" class="headerlink" title="原码一位的乘法"></a>原码一位的乘法</h3><p>符号单独处理:$符号位= x_5 \bigoplus y_5$<br>数值位取绝对值进行乘法计算</p>
+<p>$[ |x| ]原=0.1101$<br>$[ |y| ]原=0.1011$</p>
+<h2 id="在机器中实现乘法"><a href="#在机器中实现乘法" class="headerlink" title="在机器中实现乘法"></a>在机器中实现乘法</h2><p><img src="https://pic.imgdb.cn/item/62579a5f239250f7c5751b73.png" srcset="/img/loading.gif" lazyload alt="寄存器"></p>
+<blockquote>
+<p>开始在运算器中进行演示</p>
+</blockquote>
+<p><img src="https://pic.imgdb.cn/item/62579ace239250f7c575ce70.png" srcset="/img/loading.gif" lazyload alt="最开始的图"></p>
+<ol>
+<li><img src="https://pic.imgdb.cn/item/62579bbf239250f7c5773c92.png" srcset="/img/loading.gif" lazyload alt="image-20220414115714087"></li>
+</ol>
+<p>注:</p>
+<ul>
+<li><p>在每一次开始计算的时候，我们都需要<strong>把ACC清零</strong></p>
+</li>
+<li><p>被我们涂上<strong>灰色的1</strong>表示当前参与乘法运算的位</p>
+</li>
+</ul>
+<p>当前位=1，则ACC加上被乘数<br>当前位=0，则ACC加上0</p>
+<ol start="2">
+<li><img src="https://pic.imgdb.cn/item/62579ce9239250f7c579310c.png" srcset="/img/loading.gif" lazyload alt="image-20220414120208568"></li>
+</ol>
+<p>可以看到，此时我们参与运算的值是1，所以==我们让ACC+被乘数==,这个过程由ALU(算术逻辑单元的加法遍历)实现<br>$$<br>00000(ACC) + 01101(X) = 01101(ACC)<br>$$<br><img src="https://pic.imgdb.cn/item/62579f96239250f7c57d8b2f.png" srcset="/img/loading.gif" lazyload alt="image-20220414121337687"></p>
+<p>==图中我们红色的部分叫部分积==</p>
+<p>现在我们有了两个麻烦</p>
+<ul>
+<li>如何舍弃MQ里面已经参与运算的位</li>
+<li>乘积高位不够用了，而且我们之后需要让他能够向高位进1</li>
+</ul>
+<p>此时我们的解决方法也很简单，把我们的ACC和MQ统一右移，高位补零，ACC多余的值移动进MQ内</p>
+<p><img src="https://pic.imgdb.cn/item/6257a741239250f7c58948d4.png" srcset="/img/loading.gif" lazyload alt="image-20220414124620768"><img src="https://pic.imgdb.cn/item/6257a761239250f7c5896ff6.png" srcset="/img/loading.gif" lazyload alt="image-20220414124653185"></p>
+<ol start="3">
+<li>此时我们的运算位又是1，让我们的X+ACC<br>$$<br>00110(ACC)+01101(X)=10011(ACC)<br>$$</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/6257a882239250f7c58acbc7.png" srcset="/img/loading.gif" lazyload alt="image-20220414125141792"></p>
+<p>然后我们现在进行逻辑右移,右移的结果如图：</p>
+<p><img src="https://pic.imgdb.cn/item/6257aa87239250f7c58dbef6.png" srcset="/img/loading.gif" lazyload alt="image-20220414130018198"></p>
+<ol start="4">
+<li>此时我们发现我们的下一位是0，于是我们什么都不需要动，只需要直接右移即可</li>
+</ol>
+<p>$$<br>(ACC) + 0 \rightarrow ACC<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/6257aad8239250f7c58e3ad2.png" srcset="/img/loading.gif" lazyload alt="image-20220414130139490"></p>
+<ol start="5">
+<li>此时我们发现我们的这一项又是1,于是重复之前的操作</li>
+</ol>
+<p>$$<br>00100(ACC)+01101(X)=10001(ACC)<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/6257ab55239250f7c58ee824.png" srcset="/img/loading.gif" lazyload alt="image-20220414130344110"></p>
+<p>紧接着我们进行逻辑右移</p>
+<p><img src="https://pic.imgdb.cn/item/6257ab6c239250f7c58f03bc.png" srcset="/img/loading.gif" lazyload alt="image-20220414130407759"></p>
+<p>此时我们就剩下最后一个位了，但是这个位我们不需要让他参与运算，因为这个位实际上是符号位</p>
+<p><img src="https://pic.imgdb.cn/item/6257aba9239250f7c58f524a.png" srcset="/img/loading.gif" lazyload alt="image-20220414130508463"></p>
+<p>此时我们把所有红色的部分加起来就是我们最终的结果<br>$$<br>0.10001111<br>$$</p>
+<ol start="6">
+<li>最后我们来判断符号位要填0还是1</li>
+</ol>
+<p>因为符号位要单独处理($符号位=x_5 \bigoplus y_5$)<br>$$<br>\begin{align*}<br>[x]_原=\underline{1}.1101\<br>[y]_原=\underline{0}.1011\<br>0 \bigoplus 1 = 1\<br>\therefore 最终我们的符号&amp;位为1<br>\end{align*}<br>$$<br><img src="https://pic.imgdb.cn/item/6257adf8239250f7c59297e1.png" srcset="/img/loading.gif" lazyload alt="image-20220414131459062"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/6257aeb5239250f7c593a986.png" srcset="/img/loading.gif" lazyload alt="image-20220414131808717"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/bc94495e.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">15加减运算和溢出判断[中章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/ee2153eb.html">
+                        <span class="hidden-mobile">17补码的乘法运算[中章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="总览   古老的计数方法 一一对应的计数  稍微高级一点的权重计数    罗马数字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06进位计数制度[超大章]">
+<meta property="og:url" content="http://example.com/posts/8fb785fe.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="总览   古老的计数方法 一一对应的计数  稍微高级一点的权重计数    罗马数字">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174103.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174216.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174252.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174333.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174937.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330175034.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6244293927f86abb2a309287.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62442b9127f86abb2a34fc5b.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62442d0827f86abb2a37d291.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62442e9527f86abb2a3acaab.gif">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62442f5827f86abb2a3c4819.gif">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6244313627f86abb2a3fbaed.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62443a9927f86abb2a539953.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62443bbc27f86abb2a55cb69.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624446ae27f86abb2a6cb484.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624447e227f86abb2a6f4083.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624448e027f86abb2a715621.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62443e8327f86abb2a5b5e11.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62444bd727f86abb2a77929f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62444c6427f86abb2a78b53c.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.216Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174103.png">
+  
+  
+  <title>06进位计数制度[超大章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="06进位计数制度[超大章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">06进位计数制度[超大章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174103.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="古老的计数方法"><a href="#古老的计数方法" class="headerlink" title="古老的计数方法"></a>古老的计数方法</h1><hr>
+<p>一一对应的计数<br><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174216.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>稍微高级一点的权重计数</p>
+</blockquote>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174252.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>罗马数字</p>
+</blockquote>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174333.png" srcset="/img/loading.gif" lazyload></p>
+<p>这些都是基于”加法”思想的计数方法，很难计算大数字</p>
+<p><br><br></p>
+<h1 id="阿拉伯数字"><a href="#阿拉伯数字" class="headerlink" title="阿拉伯数字"></a>阿拉伯数字</h1><hr>
+<blockquote>
+<p>十进制</p>
+</blockquote>
+<p>eg: 975</p>
+<p>$$<br>\left{<br>\begin{array}{c}<br>    9 \times 100 + 7 \times 10+ 5 \times 1=975\<br>    9\times 10^2 + 7\times 10^1 + 5 \times 10^0 = 975\<br>\end{array}<br>\right.<br>$$</p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330174937.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="r进制计数法"><a href="#r进制计数法" class="headerlink" title="r进制计数法"></a>r进制计数法</h1><hr>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220330175034.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic.imgdb.cn/item/6244293927f86abb2a309287.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://pic.imgdb.cn/item/62442b9127f86abb2a34fc5b.png" srcset="/img/loading.gif" lazyload></p>
+<p>十六进制里A代表10</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>B</td>
+<td>11</td>
+</tr>
+<tr>
+<td>C</td>
+<td>12</td>
+</tr>
+<tr>
+<td>D</td>
+<td>13</td>
+</tr>
+<tr>
+<td>E</td>
+<td>14</td>
+</tr>
+<tr>
+<td>F</td>
+<td>15</td>
+</tr>
+</tbody></table>
+<p>为什么没有G呢？因为16进制包过0，算上0就是16位了</p>
+<blockquote>
+<p>进制的转换</p>
+</blockquote>
+<p><img src="https://pic.imgdb.cn/item/62442d0827f86abb2a37d291.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以看到我们每一位上都是怎么来的</p>
+<blockquote>
+<p>八进制加法例题</p>
+</blockquote>
+<p>$$5.4+1.4 = ?$$</p>
+<p><img src="https://pic.imgdb.cn/item/62442e9527f86abb2a3acaab.gif" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>十六进制例题</p>
+</blockquote>
+<p>$$5.8 + 0.9 = ?$$<br><img src="https://pic.imgdb.cn/item/62442f5827f86abb2a3c4819.gif" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="其他进制转换成十进制"><a href="#其他进制转换成十进制" class="headerlink" title="其他进制转换成十进制"></a>其他进制转换成十进制</h1><hr>
+<p><img src="https://pic.imgdb.cn/item/6244313627f86abb2a3fbaed.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="二进制与八进制和十六进制之间的转换"><a href="#二进制与八进制和十六进制之间的转换" class="headerlink" title="二进制与八进制和十六进制之间的转换"></a>二进制与八进制和十六进制之间的转换</h1><hr>
+<blockquote>
+<p>二进制 -&gt; 八进制</p>
+</blockquote>
+<p>==规律:3位一组，每组转换成对应的八进制符号==</p>
+<p><img src="https://pic.imgdb.cn/item/62443a9927f86abb2a539953.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以看到我们</p>
+<p>$$<br>111 = 1<em>2^2 + 1</em>2^1 + 1*2^0 = 7(八进制)<br>$$</p>
+<p>如果前面的位数不够就补上0，比如001</p>
+<br>
+
+<blockquote>
+<p>八进制转换成二进制</p>
+</blockquote>
+<p>每一位八进制对应3位二进制</p>
+<p>$$<br>251.5^{八进制} = 010,101,001.101^{二进制}<br>$$</p>
+<p><br><br></p>
+<blockquote>
+<p>二进制 -&gt; 十六进制</p>
+</blockquote>
+<p>==规律:4位一组，每组兑换成对应的十六进制==</p>
+<p><img src="https://pic.imgdb.cn/item/62443bbc27f86abb2a55cb69.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<blockquote>
+<p>十六进制 - &gt; 二进制</p>
+</blockquote>
+<p>$$<br>AE86.1^{十六进制} = 1010,1110,0110.0001^{二进制}<br>$$</p>
+<p><br><br></p>
+<h1 id="十进制转换成任意进制"><a href="#十进制转换成任意进制" class="headerlink" title="十进制转换成任意进制"></a>十进制转换成任意进制</h1><hr>
+<p><img src="https://pic.imgdb.cn/item/624446ae27f86abb2a6cb484.png" srcset="/img/loading.gif" lazyload></p>
+<p>使用短除法，用前面的商作为一下次的被除数，余数成为我们的取值</p>
+<blockquote>
+<p>十进制转换成二进制(整数部分)</p>
+</blockquote>
+<p>==除积取余法==</p>
+<p><img src="https://pic.imgdb.cn/item/624447e227f86abb2a6f4083.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>十进制转换成二进制(小数部分)</p>
+</blockquote>
+<p>==乘积取整法==</p>
+<p><img src="https://pic.imgdb.cn/item/624448e027f86abb2a715621.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>拼凑法</p>
+</blockquote>
+<p><em>例子:</em><br>$$<br>260.74=2^8 + 2^2 + 2^{-1} + 2^{-2}=100000100.11<br>$$</p>
+<p>$$<br>533.125=2^9 + 2^4 + 2^2 +2^0 + 2^{-3}=1000010101.001<br>$$</p>
+<blockquote>
+<p>十进制转换成二进制再转换成八进制</p>
+</blockquote>
+<p>$$<br>\underbrace{001}_\text{1},<br>\underbrace{000}_\text{0},<br>\underbrace{010}_\text{2},<br>\underbrace{101}_\text{5},<br>\underbrace{001}_\text{1}=1025.1^{八进制}<br>$$</p>
+<p><br><br></p>
+<h1 id="各种进制常见的书写方式"><a href="#各种进制常见的书写方式" class="headerlink" title="各种进制常见的书写方式"></a>各种进制常见的书写方式</h1><hr>
+<p><img src="https://pic.imgdb.cn/item/62443e8327f86abb2a5b5e11.png" srcset="/img/loading.gif" lazyload></p>
+<table>
+<thead>
+<tr>
+<th>进制名</th>
+<th>特征</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二进制</td>
+<td>后缀为B</td>
+<td>010B</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>后缀为8(用得不多)</td>
+<td>1652<del>8</del></td>
+</tr>
+<tr>
+<td>十进制</td>
+<td>后缀为D或者无后缀</td>
+<td>1625D</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>后缀为H或者前缀为0x</td>
+<td>1652H或者0x1652</td>
+</tr>
+</tbody></table>
+<p><br><br></p>
+<h1 id="真值和机器数-仅供了解"><a href="#真值和机器数-仅供了解" class="headerlink" title="真值和机器数(仅供了解)"></a>真值和机器数(仅供了解)</h1><hr>
+<p><img src="https://pic.imgdb.cn/item/62444bd727f86abb2a77929f.png" srcset="/img/loading.gif" lazyload></p>
+<p><br><br></p>
+<h1 id="知识点的回顾"><a href="#知识点的回顾" class="headerlink" title="知识点的回顾"></a>知识点的回顾</h1><hr>
+<p><img src="https://pic.imgdb.cn/item/62444c6427f86abb2a78b53c.png" srcset="/img/loading.gif" lazyload></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/9cee6847.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">03认识各个硬件部件[大章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/338e66cc.html">
+                        <span class="hidden-mobile">07BCD码[大章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

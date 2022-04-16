@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="定点数$$\left{\begin{array}{c}&amp;定点数:小数的位置固定 \&amp;比如996.007\\&amp;浮点数:小数的位置不固定\&amp;比如9.96007*10^2\\end{array}\right.$$ 总览 无符号数的表示无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$\begin{align}&amp;100111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12定点数的表示[超大章]">
+<meta property="og:url" content="http://example.com/posts/9f53aee2.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="定点数$$\left{\begin{array}{c}&amp;定点数:小数的位置固定 \&amp;比如996.007\\&amp;浮点数:小数的位置不固定\&amp;比如9.96007*10^2\\end{array}\right.$$ 总览 无符号数的表示无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$\begin{align}&amp;100111">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624d619c239250f7c5bb2ba1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624d66c4239250f7c5c4025e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624d6995239250f7c5ca031e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624d6aef239250f7c5cce45b.png">
+<meta property="og:image" content="https://gitee.com/sun-programing/drawing-bed/raw/master//20220406183405.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ea36e239250f7c5c67412.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/624ea4f0239250f7c5c98f79.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625107b3239250f7c58eeb2c.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62510887239250f7c59145c1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62510a3f239250f7c5967e67.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6251116d239250f7c5ac2221.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625111f1239250f7c5ad9977.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.225Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png">
+  
+  
+  <title>12定点数的表示[超大章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="12定点数的表示[超大章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">12定点数的表示[超大章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h1><p>$$<br>\left{<br>\begin{array}{c}<br>&amp;定点数:小数的位置固定 \<br>&amp;比如996.007\<br>\<br>&amp;浮点数:小数的位置不固定\<br>&amp;比如9.96007*10^2\<br>\end{array}<br>\right.<br>$$</p>
+<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p><img src="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png" srcset="/img/loading.gif" lazyload alt="总览"></p>
+<h2 id="无符号数的表示"><a href="#无符号数的表示" class="headerlink" title="无符号数的表示"></a>无符号数的表示</h2><p>无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如：</p>
+<p>$$<br>\begin{align}<br>&amp;10011100B\<br>&amp;=1<em>2^7 +0</em>2^6+0<em>2^5+1</em>2^4+1<em>2^3+1</em>2^2+0<em>2^1+0</em>2^0\<br>&amp;=156D<br>\end{align}<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/624d619c239250f7c5bb2ba1.png" srcset="/img/loading.gif" lazyload alt="2的次方数"></p>
+<p>一个8位数的二进制数能够表达出2^8^种不同的状态<br>即<code>1~256</code>，但是我们计算机是从0开始计数，于是我们表示为<code>0~255</code></p>
+<p>n位的无符号数==表示范围==为:$[0,2^n-1]^\text{集合}$</p>
+<h2 id="有符号数的定点表示"><a href="#有符号数的定点表示" class="headerlink" title="有符号数的定点表示"></a>有符号数的定点表示</h2><p><img src="https://pic.imgdb.cn/item/624d66c4239250f7c5c4025e.png" srcset="/img/loading.gif" lazyload alt="图解"></p>
+<p>符号位通常0为正,1为负</p>
+<p>注:可用原码、反码、补码三种方式来表示定<br>点整数和定点小数。还可用移码表示定点整数。</p>
+<p>若真值为x,则用[x]<del>原</del>、[x]<del>反</del>、[x]<del>补</del>、[x]<del>移</del>分别<br>表示真值所对应的原码、反码、补码、移码</p>
+<h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><p><img src="https://pic.imgdb.cn/item/624d6995239250f7c5ca031e.png" srcset="/img/loading.gif" lazyload alt="总图"></p>
+<p>比如我们现在需要表示的19和-19<br>$$19D = 10011B $$<br>如果要算上符号位的话,就可以写成<code>010011B</code><br>除了正常的表示之外，其实在2^0^之后还隐藏了小数位置,他们是2^-1^,2^-2^等等</p>
+<p><img src="https://pic.imgdb.cn/item/624d6aef239250f7c5cce45b.png" srcset="/img/loading.gif" lazyload alt="小数和整数运算"></p>
+<p>如果机器字长<code>n+1</code>位,那么==原码整数==的表示范围为<br>$$<br>-(2^n-1) \leq x \leq 2^n-1<br>$$</p>
+<p>如果机器字长<code>n+1</code>位,那么==原码小数==的表示范围为</p>
+<p>$$<br>-(1-2^{-n}) \leq x \leq 1 - 2^{-n}<br>$$</p>
+<h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><p>==如果符号位为0,则反码与原码相同==<br>==如果符号位为1,则数值位全部取反==</p>
+<p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220406183405.png" srcset="/img/loading.gif" lazyload></p>
+<p>实际上反码并没有什么用，==反码只是”源码”变成”补码”的中间状态==</p>
+<p><img src="https://pic.imgdb.cn/item/624ea36e239250f7c5c67412.png" srcset="/img/loading.gif" lazyload alt="反码用法"></p>
+<h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><p>==正数的补码 = 原码==<br>==负数的补码 = 反码末位 + 1(要考虑进位)==</p>
+<p><img src="https://pic.imgdb.cn/item/624ea4f0239250f7c5c98f79.png" srcset="/img/loading.gif" lazyload alt="补码"></p>
+<h3 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h3><p>==在补码的基础上将符号位取反(移码只能用于表示整数)==</p>
+<p>==移码和补码是一一对应的关系==所以移码能表示的范围和补码一样</p>
+<p>如果机器字长n+1位,==移码整数==的表示范围:<br>$$<br>-2^n \leq x \leq 2^n-1<br>$$</p>
+<h3 id="用几种码来表示定点整数"><a href="#用几种码来表示定点整数" class="headerlink" title="用几种码来表示定点整数"></a>用几种码来表示定点整数</h3><p><img src="https://pic.imgdb.cn/item/625107b3239250f7c58eeb2c.png" srcset="/img/loading.gif" lazyload alt="用几种码来表示定点整数"></p>
+<h3 id="真值转换成其他码练习"><a href="#真值转换成其他码练习" class="headerlink" title="真值转换成其他码练习"></a>真值转换成其他码练习</h3><blockquote>
+<p>定点整数x=50,用8位原码、反码、补码、移码表示</p>
+</blockquote>
+<p>$$<br>50D =  110010B<br>$$</p>
+<p>因为只有7位，所以我们在最高位带上一个0</p>
+<p>$$110010B \rightarrow 0110010B$$</p>
+<p>然后在最高位还要再加上一个符号位</p>
+<p>$$0110010B \rightarrow 00110010B$$</p>
+<p>因为这是一个正数,所以原码补码反码的格式相同</p>
+<p><img src="https://pic.imgdb.cn/item/62510887239250f7c59145c1.png" srcset="/img/loading.gif" lazyload alt="原码补码反码"></p>
+<p>移码是在符号位上取反</p>
+<p>$$[x]_补= 00110010B \rightarrow [x]_移=10110010B$$</p>
+<blockquote>
+<p>定点整数x=-100,用八位数原码、反码、补码、移码表示</p>
+</blockquote>
+<p>$$<br>100D =  [x]_原1100100B<br>$$</p>
+<ol>
+<li>因为这是一个负数,所以我们的符号位为1</li>
+</ol>
+<p>$$[x]_原1100100B \rightarrow [x]_原11100100B$$</p>
+<ol start="2">
+<li>反码就是除了符号位其他全部取反</li>
+</ol>
+<p>$$[x]_原1100100B \rightarrow [x]_反10011011B$$</p>
+<ol start="3">
+<li>补码就是在反码的基础上末位+1</li>
+</ol>
+<p>$$[x]_反10011011B \rightarrow [x]_补10011100$$</p>
+<ol start="4">
+<li>最后移码把符号位取反,最开头的一位变成0</li>
+</ol>
+<p>$$[x]_补10011100 \rightarrow [x]_移00011100$$</p>
+<p><img src="https://pic.imgdb.cn/item/62510a3f239250f7c5967e67.png" srcset="/img/loading.gif" lazyload alt="-100的各种码"></p>
+<p>流程分析:</p>
+<p>$$十进制整数 \rightarrow 二进制数 \rightarrow 确认位数 \rightarrow 根据正负补上符号位$$</p>
+<p>$$如果为负数 \rightarrow 反码 \rightarrow 补码 \rightarrow 移码$$</p>
+<p>$$如果为正数 \rightarrow 反码补码和原码一样 \rightarrow 移码$$</p>
+<h3 id="其他码转换成真值"><a href="#其他码转换成真值" class="headerlink" title="其他码转换成真值"></a>其他码转换成真值</h3><p>$$<br>\begin{align*}<br>[x]_原=10001101\<br>[x]_反=10001101\<br>[x]_补=10001101\<br>[x]_移=10001101\<br>\end{align*}<br>$$</p>
+<ol>
+<li>原码转真值<br>掐去符号位，然后其他的位数正常二进制转十进制即可</li>
+</ol>
+<p>$$<br>0001101B = 13D<br>$$</p>
+<p>最后加上符号位1(表示负数)，于是这个数是-13</p>
+<p>$$[x]_原=10001101=-13$$</p>
+<ol start="2">
+<li>反码转真值<br>除去符号位,其他位全部取反</li>
+</ol>
+<p>$$<br>[x]_反=10001101 = [x]_原11110010<br>$$</p>
+<p>正常的原码转换成真值</p>
+<p>$$<br>[x]_原11110010 = -114<br>$$</p>
+<ol start="3">
+<li>补码转换成真值</li>
+</ol>
+<p><strong>补码转换成原码的方式和原码转换成补码的方式相同</strong>,都是==把除了符号位的其他位取反，然后在末位加一==</p>
+<p>$$[x]_补10001101 = [x]_反11110010$$</p>
+<p>然后在反码的基础上加一</p>
+<p>$$ [x]_反11110010 + 1 = [x]_原11110011 $$</p>
+<p>此时我们就可以得知,他的真值是</p>
+<p>$$[x]_原11110011 = -115$$</p>
+<ol start="4">
+<li>移码转换成真值</li>
+</ol>
+<p>符号位取反</p>
+<p>$$[x]_移=10001101 = 00001101$$</p>
+<p>可知这个是一个正数，正数的补码和原码是相同的(如果不相同则按补码继续进行操作)</p>
+<p>$$00001101B = 13D$$</p>
+<blockquote>
+<p>其他练习<br><img src="https://pic.imgdb.cn/item/6251116d239250f7c5ac2221.png" srcset="/img/loading.gif" lazyload alt="更多练习"></p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://pic.imgdb.cn/item/625111f1239250f7c5ad9977.png" srcset="/img/loading.gif" lazyload alt="总结"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/76310a42.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">11循环冗余校验码[中章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/d278f11d.html">
+                        <span class="hidden-mobile">13各种码的作用[小章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

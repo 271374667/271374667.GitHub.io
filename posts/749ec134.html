@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bemake">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="移位运算知识总览定点数的表示和运算  移位运算  原码的算术移位 移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法 右移">
+<meta property="og:type" content="article">
+<meta property="og:title" content="14移位运算[大章]">
+<meta property="og:url" content="http://example.com/posts/749ec134.html">
+<meta property="og:site_name" content="互联网的角落">
+<meta property="og:description" content="移位运算知识总览定点数的表示和运算  移位运算  原码的算术移位 移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法 右移">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625163db239250f7c5745c6e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625163fb239250f7c5749a1d.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62516437239250f7c5751045.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625164c8239250f7c5762333.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/625165e1239250f7c57869f4.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/6251665c239250f7c5795dc5.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529981239250f7c5b01804.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529a11239250f7c5b14417.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529a7b239250f7c5b21736.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529bde239250f7c5b4a5e7.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529c63239250f7c5b5966e.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529d04239250f7c5b6fe52.gif">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529de5239250f7c5b8a42e.gif">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529d62239250f7c5b7b6a1.png">
+<meta property="og:image" content="https://pic.imgdb.cn/item/62529e6b239250f7c5b998bf.png">
+<meta property="article:published_time" content="2022-04-16T04:15:12.000Z">
+<meta property="article:modified_time" content="2022-04-16T04:21:14.228Z">
+<meta property="article:author" content="Bemake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/625163db239250f7c5745c6e.png">
+  
+  
+  <title>14移位运算[大章] - 互联网的角落</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="14移位运算[大章]">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-16 12:15" pubdate>
+        2022年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      931 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">14移位运算[大章]</h1>
+            
+            <div class="markdown-body">
+              <h1 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h1><h2 id="知识总览"><a href="#知识总览" class="headerlink" title="知识总览"></a>知识总览</h2><p>定点数的表示和运算</p>
+<p><img src="https://pic.imgdb.cn/item/625163db239250f7c5745c6e.png" srcset="/img/loading.gif" lazyload alt="定点数的表示和运算"></p>
+<p>移位运算</p>
+<p><img src="https://pic.imgdb.cn/item/625163fb239250f7c5749a1d.png" srcset="/img/loading.gif" lazyload alt="移位运算"></p>
+<h2 id="原码的算术移位"><a href="#原码的算术移位" class="headerlink" title="原码的算术移位"></a>原码的算术移位</h2><p><img src="https://pic.imgdb.cn/item/62516437239250f7c5751045.png" srcset="/img/loading.gif" lazyload alt="算术移位"></p>
+<p>移位:通过改变各个数码位和小数点的相对位置，从而改变各数码位的位权。可用移位运算实现乘法、除法</p>
+<h3 id="右移"><a href="#右移" class="headerlink" title="右移"></a>右移</h3><p>==算术的右移(除法)如果舍弃的位不等于0那么就会丢失精度==</p>
+<p>原码的算数移位:符号位保持不变，仅对数值位进行移位。</p>
+<p>右移:高位补0，低位舍弃。若弃的位=0，则相当于:2;若弃的位#0，则会丢失精度</p>
+<p><img src="https://pic.imgdb.cn/item/625164c8239250f7c5762333.png" srcset="/img/loading.gif" lazyload alt="右移"></p>
+<h3 id="左移"><a href="#左移" class="headerlink" title="左移"></a>左移</h3><p>左移:低位补0，高位舍弃,若舍弃的位=0,则相当于X2;若舍弃的位≠0，则会出现==严重误差==</p>
+<p><img src="https://pic.imgdb.cn/item/625165e1239250f7c57869f4.png" srcset="/img/loading.gif" lazyload alt="左移"></p>
+<h2 id="反码的算术移位"><a href="#反码的算术移位" class="headerlink" title="反码的算术移位"></a>反码的算术移位</h2><p>如果是正数，那么反码的算术移位和原码相同</p>
+<p>如果是负数,那么反码数值位与原码相反,==因此负数反码如果出现了空白位那么需要补的不是0而是1==</p>
+<p><img src="https://pic.imgdb.cn/item/6251665c239250f7c5795dc5.png" srcset="/img/loading.gif" lazyload alt="图解"></p>
+<h2 id="补码的算术移位"><a href="#补码的算术移位" class="headerlink" title="补码的算术移位"></a>补码的算术移位</h2><p>正数的补码和原码相同,==因此正数的补码移位运算也和原码相同==</p>
+<ul>
+<li>右移:高位补0， 低位舍弃</li>
+<li>左移:低位补0，高位舍弃</li>
+</ul>
+<p>反码的算术移位比较复杂<br>因为负数的补码=反码末位+1,导致反码最右边几个连续的1都因进位而变为0，直到进位碰到第一个0为止</p>
+<p>$$<br>\begin{align*}<br>&amp;x[原]10010100\<br>&amp;x[反]11101\underline{0}11 \<br>&amp;x[补]11101100 ,左边为我们在反码的基础上末位+1后\<br>\end{align*}<br>$$</p>
+<p><img src="https://pic.imgdb.cn/item/62529981239250f7c5b01804.png" srcset="/img/loading.gif" lazyload alt="补码移位"></p>
+<p>可以看到因为负数补码的特殊性，所以当我们在对补码补数的时候应该遵循:</p>
+<ul>
+<li>右移(同反码) :高位补1，低位舍弃。</li>
+<li>左移(同原码) :低位补0，高位舍弃。</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/62529a11239250f7c5b14417.png" srcset="/img/loading.gif" lazyload alt="规律总结"></p>
+<h3 id="算术移位的应用举例"><a href="#算术移位的应用举例" class="headerlink" title="算术移位的应用举例"></a>算术移位的应用举例</h3><p><img src="https://pic.imgdb.cn/item/62529a7b239250f7c5b21736.png" srcset="/img/loading.gif" lazyload alt="算术移位的应用举例"></p>
+<p>$$7D = 111B = 2^0+2^1+2^2$$<br>此时我们的×2就可以使用算术移位和加法来进行运算</p>
+<h2 id="逻辑移位"><a href="#逻辑移位" class="headerlink" title="逻辑移位"></a>逻辑移位</h2><p><img src="https://pic.imgdb.cn/item/62529bde239250f7c5b4a5e7.png" srcset="/img/loading.gif" lazyload alt="逻辑移位"></p>
+<p>逻辑右移:高位补0，低位舍弃。<br>逻辑左移:低位补0，高位舍弃。</p>
+<p>和原码的移位一样</p>
+<h3 id="逻辑移位的应用"><a href="#逻辑移位的应用" class="headerlink" title="逻辑移位的应用"></a>逻辑移位的应用</h3><p><img src="https://pic.imgdb.cn/item/62529c63239250f7c5b5966e.png" srcset="/img/loading.gif" lazyload alt="RGB"></p>
+<p>我们使用RGB如何把他们拼接在一起？<br>这个时候我们就需要逻辑移位,让他们<strong>先移动到自己应该在的地方</strong>，然后再把他们相加就可以了</p>
+<h2 id="循环移位"><a href="#循环移位" class="headerlink" title="循环移位"></a>循环移位</h2><blockquote>
+<p>循环移位<br><img src="https://pic.imgdb.cn/item/62529d04239250f7c5b6fe52.gif" srcset="/img/loading.gif" lazyload alt="循环移位GIF"></p>
+</blockquote>
+<blockquote>
+<p>带进位的循环左移<br><img src="https://pic.imgdb.cn/item/62529de5239250f7c5b8a42e.gif" srcset="/img/loading.gif" lazyload alt="带进位的循环左移"></p>
+</blockquote>
+<blockquote>
+<p>循环移位图片说明<br><img src="https://pic.imgdb.cn/item/62529d62239250f7c5b7b6a1.png" srcset="/img/loading.gif" lazyload alt="循环移位"></p>
+</blockquote>
+<p>使用循环移位就可以把一组数据倒换(reversed)</p>
+<h2 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h2><p><img src="https://pic.imgdb.cn/item/62529e6b239250f7c5b998bf.png" srcset="/img/loading.gif" lazyload alt="知识总结"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/d278f11d.html">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">13各种码的作用[小章]</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/bc94495e.html">
+                        <span class="hidden-mobile">15加减运算和溢出判断[中章]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
