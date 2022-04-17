@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="主机内部是如何协调工作的？ 主存储   存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
+    <meta name="description" content="主机内部是如何协调工作的？  主存储   存储体：可以寄存0和1 MAR:存储地址寄存器[1] MDR:存储数据寄存器[2]   MAR与MDR是如何工作的?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="03认识各个硬件部件[大章]">
 <meta property="og:url" content="http://example.com/posts/9cee6847.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="主机内部是如何协调工作的？ 主存储   存储体：可以寄存0和1 MAR:存储地址寄存器^[MAR全名:Memory Address Register] MDR:存储数据寄存器^[MDR全名:Memory Data Register]  MAR与MDR是如何工作的?">
+<meta property="og:description" content="主机内部是如何协调工作的？  主存储   存储体：可以寄存0和1 MAR:存储地址寄存器[1] MDR:存储数据寄存器[2]   MAR与MDR是如何工作的?">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png">
 <meta property="og:image" content="https://s2.loli.net/2022/03/29/GkD8FNgTedA5M3p.png">
@@ -217,7 +217,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.3k 字
     </span>
   
 
@@ -258,15 +258,15 @@
             <h1 style="display: none">03认识各个硬件部件[大章]</h1>
             
             <div class="markdown-body">
-              <h1>主机内部是如何协调工作的？</h1>
-<h2 id="主存储">主存储</h2>
+              <h1 id="主机内部是如何协调工作的"><a class="markdownIt-Anchor" href="#主机内部是如何协调工作的"></a> 主机内部是如何协调工作的？</h1>
+<h2 id="主存储"><a class="markdownIt-Anchor" href="#主存储"></a> 主存储</h2>
 <hr>
 <p><img src="https://s2.loli.net/2022/03/29/kivQuHnhCeKN1f9.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>存储体：可以寄存0和1</p>
-<p>MAR:存储地址寄存器^[MAR全名:Memory Address Register]</p>
-<p>MDR:存储数据寄存器^[MDR全名:Memory Data Register]</p>
+<p>MAR:存储地址寄存器<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>MDR:存储数据寄存器<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <p><br><br></p>
-<h3 id="MAR与MDR是如何工作的">MAR与MDR是如何工作的?</h3>
+<h3 id="mar与mdr是如何工作的"><a class="markdownIt-Anchor" href="#mar与mdr是如何工作的"></a> MAR与MDR是如何工作的?</h3>
 <hr>
 <blockquote>
 <p>类比菜鸟驿站</p>
@@ -275,14 +275,14 @@
 <p>我告诉店员取件号，然后店员就回去货架拿数据，然后把数据给柜台，然后给我</p>
 <p>类比，我们是告诉MAR地址，然后内存交给MDR，最后我们从MDR拿走数据</p>
 <p><br><br></p>
-<h3 id="存储体是怎么工作的？">存储体是怎么工作的？</h3>
+<h3 id="存储体是怎么工作的"><a class="markdownIt-Anchor" href="#存储体是怎么工作的"></a> 存储体是怎么工作的？</h3>
 <hr>
 <p>数据按照地址存放在存储体中</p>
 <p><img src="https://s2.loli.net/2022/03/29/gC1dx36ynP2OuI4.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>一般存储字长的数量是8的整数倍(8bit,16bit,32bit,64bit)</p>
 <p>其中<br>
-==MAR位数反应了存储单元的个数==<br>
-==MDR的位数=存储字长==</p>
+<mark>MAR位数反应了存储单元的个数</mark><br>
+<mark>MDR的位数=存储字长</mark></p>
 <p><img src="https://s2.loli.net/2022/03/29/iL6l9VDrxj7muaH.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>!!! note 注意，一个字节和一个字是不一样的<br>
 一个字节固定8bit,但是一个字不一定是16bit,需要看计算器MDR的位数</p>
@@ -293,7 +293,7 @@
 </blockquote>
 <p>因为运营商这里用的是小b,所以我们下载的时候最大真实速度需要除以8<br>
 100Mbps实际上只有12.5MBps</p>
-<h2 id="运算器的基本组成">运算器的基本组成</h2>
+<h2 id="运算器的基本组成"><a class="markdownIt-Anchor" href="#运算器的基本组成"></a> 运算器的基本组成</h2>
 <hr>
 <p><img src="https://s2.loli.net/2022/03/29/zobuJQiGj2ly1RK.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>运算器：用于实现算术运算(如加减乘除),逻辑运算(如:与或非)</p>
@@ -301,13 +301,13 @@
 MQ:乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。<br>
 通用的操作数寄存器，用于存放操作数<br>
 X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于存放操作数</p>
-<p>==ACC,MQ,X统统属于寄存器(不可或缺)==</p>
-<p>==ALU(制造成本最高，最复杂的原件)==:算术逻辑单元，通过内部复杂的电路实现算术运算和逻辑运算</p>
+<p><mark>ACC,MQ,X统统属于寄存器(不可或缺)</mark></p>
+<p><mark>ALU(制造成本最高，最复杂的原件)</mark>:算术逻辑单元，通过内部复杂的电路实现算术运算和逻辑运算</p>
 <p><br><br></p>
-<h2 id="控制器的基本组成">控制器的基本组成</h2>
+<h2 id="控制器的基本组成"><a class="markdownIt-Anchor" href="#控制器的基本组成"></a> 控制器的基本组成</h2>
 <hr>
 <p><img src="https://s2.loli.net/2022/03/29/FlrtkUugXmxbShR.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>==CU(核心空间)==:控制单元，分析指令，给出控制信号</p>
+<p><mark>CU(核心空间)</mark>:控制单元，分析指令，给出控制信号</p>
 <p>IR:指令寄存器，存放当前执行的指令</p>
 <p>PC:程序计数器，存放下一条指令地址,<br>
 有自动加1功能</p>
@@ -315,13 +315,13 @@ X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于
 <p>完成一条指令(从上往下执行)</p>
 </blockquote>
 <p><img src="https://s2.loli.net/2022/03/29/B7IYxuLR6HGJvz1.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>==其中PC和IR称为取指阶段，CU为执行阶段==</p>
+<p><mark>其中PC和IR称为取指阶段，CU为执行阶段</mark></p>
 <blockquote>
 <p>最后的统合图</p>
 </blockquote>
 <p><img src="https://s2.loli.net/2022/03/29/3KwUmVugIyDY26p.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h1>计算机的工作过程</h1>
+<h1 id="计算机的工作过程"><a class="markdownIt-Anchor" href="#计算机的工作过程"></a> 计算机的工作过程</h1>
 <hr>
 <p><img src="https://s2.loli.net/2022/03/29/ptiKsSMxlr3LCYW.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>前面0-4是机器指令</p>
@@ -351,7 +351,7 @@ X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于
 <ol>
 <li>当我们的第二个数字到了ACC，我们的ACC就会先把前一个数字传送到(x)通用寄存器里</li>
 <li>然后把被乘数存入(MQ),最后通过CU控制单元，我们的ALU开始工作，</li>
-<li>计算2X3得出结果6返回给(ACC)^当存储数字过大^^[如果乘积太大需要MQ辅助存储]</li>
+<li>计算2X3得出结果6返回给(ACC)<sup>当存储数字过大</sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
 </ol>
 <p><em>执行结束的图</em></p>
 <p><img src="https://s2.loli.net/2022/03/29/HFoiVTpsYI9zUrQ.png" srcset="/img/loading.gif" lazyload alt=""></p>
@@ -368,10 +368,21 @@ X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于
 </blockquote>
 <p><img src="https://s2.loli.net/2022/03/29/FdjrQ4gfb6o2wLK.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h2 id="总结">总结</h2>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
 <p><img src="https://s2.loli.net/2022/03/29/rOUKEACgWBvxztQ.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><img src="https://s2.loli.net/2022/03/29/vkoZrMjD2ULYHEx.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>注意：现代计算机通常把MAR与MDR也集成在CPU中</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>MAR全名:Memory Address Register <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>MDR全名:Memory Data Register <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>如果乘积太大需要MQ辅助存储 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
             </div>
             <hr>
@@ -409,8 +420,8 @@ X:<strong>实际中可能有多个</strong>,通用的操作数寄存器，用于
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/a91d72e7.html">
-                        <span class="hidden-mobile">01计算机概念和发展历程[中章]</span>
+                      <a href="/posts/873816c.html">
+                        <span class="hidden-mobile">04计算机的层次结构[小章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

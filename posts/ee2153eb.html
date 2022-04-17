@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="补码的乘法运算 补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法: 进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补    对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0   对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定   原码的符号位不参与运算(最后使用异或运算来判断)   补码的符">
+    <meta name="description" content="补码的乘法运算 补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法: 进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补    对于原码的移码(我们进行的是逻辑右移)高位补0   对于补码的移码(我们进行的是算术右移),此时我们补的个数需要根据MQ中的最低位和辅助位来确定   原码的符号位不参与运算(最后使用异或运算来判断)   补码的符号位参与运算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="17补码的乘法运算[中章]">
 <meta property="og:url" content="http://example.com/posts/ee2153eb.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="补码的乘法运算 补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法: 进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补    对于原码的移码(我们进行的是&#x3D;&#x3D;逻辑右移&#x3D;&#x3D;)高位补0   对于补码的移码(我们进行的是&#x3D;&#x3D;算术右移&#x3D;&#x3D;),此时我们补的个数需要根据MQ中的最低位和辅助位来确定   原码的符号位不参与运算(最后使用异或运算来判断)   补码的符">
+<meta property="og:description" content="补码的乘法运算 补码的运算和原码的乘法运算非常相似，但是又有不同 补码一位乘法: 进行n轮加法、移位，最后再多来一次加法 每次加法可能+0、+[x]补、+[-x]补    对于原码的移码(我们进行的是逻辑右移)高位补0   对于补码的移码(我们进行的是算术右移),此时我们补的个数需要根据MQ中的最低位和辅助位来确定   原码的符号位不参与运算(最后使用异或运算来判断)   补码的符号位参与运算">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6257c3f9239250f7c5b5d164.png">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      851 字
+      841 字
     </span>
   
 
@@ -249,7 +249,7 @@
             <h1 style="display: none">17补码的乘法运算[中章]</h1>
             
             <div class="markdown-body">
-              <h1>补码的乘法运算</h1>
+              <h1 id="补码的乘法运算"><a class="markdownIt-Anchor" href="#补码的乘法运算"></a> 补码的乘法运算</h1>
 <p>补码的运算和原码的乘法运算非常相似，但是又有不同</p>
 <p>补码一位乘法:<br>
 进行n轮加法、移位，最后再多来一次加法</p>
@@ -257,10 +257,10 @@
 <p><img src="https://pic.imgdb.cn/item/6257c2ee239250f7c5b419d1.png" srcset="/img/loading.gif" lazyload alt="image-20220414144425038"></p>
 <ul>
 <li>
-<p>对于原码的移码(我们进行的是==逻辑右移==)高位补0</p>
+<p>对于原码的移码(我们进行的是<mark>逻辑右移</mark>)高位补0</p>
 </li>
 <li>
-<p>对于补码的移码(我们进行的是==算术右移==),此时我们补的个数需要根据<strong>MQ中的最低位和辅助位</strong>来确定</p>
+<p>对于补码的移码(我们进行的是<mark>算术右移</mark>),此时我们补的个数需要根据<strong>MQ中的最低位和辅助位</strong>来确定</p>
 </li>
 <li>
 <p>原码的符号位不参与运算(最后使用异或运算来判断)</p>
@@ -269,13 +269,13 @@
 <p>补码的符号位参与运算</p>
 </li>
 </ul>
-<h2 id="在机器内的流程">在机器内的流程</h2>
+<h2 id="在机器内的流程"><a class="markdownIt-Anchor" href="#在机器内的流程"></a> 在机器内的流程</h2>
 <p><img src="https://pic.imgdb.cn/item/6257c3f9239250f7c5b5d164.png" srcset="/img/loading.gif" lazyload alt="image-20220414144852783"></p>
-<h3 id="辅助位">辅助位</h3>
+<h3 id="辅助位"><a class="markdownIt-Anchor" href="#辅助位"></a> 辅助位</h3>
 <p><img src="https://pic.imgdb.cn/item/6257c40c239250f7c5b5ef7b.png" srcset="/img/loading.gif" lazyload alt="image-20220414144911605"></p>
 <p>我们的辅助位是在<strong>MQ的最右边加上了一个额外的位</strong>(<em>理论上这个才是MQ的最低位</em>),因为我们的MQ加了一位，所以我们<strong>其他的单元也相应的加了一个位</strong></p>
 <p><img src="https://pic.imgdb.cn/item/6257c4bb239250f7c5b70caf.png" srcset="/img/loading.gif" lazyload alt="image-20220414145206543"></p>
-<h2 id="补码的一位乘法-手算模拟">补码的一位乘法(手算模拟)</h2>
+<h2 id="补码的一位乘法手算模拟"><a class="markdownIt-Anchor" href="#补码的一位乘法手算模拟"></a> 补码的一位乘法(手算模拟)</h2>
 <p><img src="https://pic.imgdb.cn/item/6257c5f8239250f7c5b90f3a.png" srcset="/img/loading.gif" lazyload alt="image-20220414145722668"></p>
 <p>看起来好像很复杂，我们一点一点来说</p>
 <ol>
@@ -288,7 +288,7 @@
 00.0000(ACC) + 00.1101([-x]_补)=00.1101(新的ACC)<br>
 $$</p>
 <blockquote>
-<p>关于[-x~补~]怎么求</p>
+<p>关于[-x<sub>补</sub>]怎么求</p>
 <p><strong>对任意的<code>x</code>,若已知<code>[x]补</code>,则把<code>[x]补</code>连同符号位的每一位都取反再<code>加1</code>即可得到<code>[-x]补</code></strong></p>
 <p>当x为正数时，设[x]补 = 01010</p>
 <p>∵ [x]补 = 01010<br>
@@ -354,8 +354,8 @@ $$</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/44487134.html">
-                        <span class="hidden-mobile">18原码的除法运算</span>
+                      <a href="/posts/77cd4175.html">
+                        <span class="hidden-mobile">README</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

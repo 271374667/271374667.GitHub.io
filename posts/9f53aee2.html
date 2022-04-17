@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="定点数 $$ \left{ \begin{array}{c} &amp;定点数:小数的位置固定 \ &amp;比如996.007\ \ &amp;浮点数:小数的位置不固定\ &amp;比如9.96007*10^2\ \end{array} \right. $$ 总览  无符号数的表示 无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$ \begin{ali">
+    <meta name="description" content="定点数 $$ \left{ \begin{array}{c} &amp;定点数:小数的位置固定 \ &amp;比如996.007\ \ &amp;浮点数:小数的位置不固定\ &amp;比如9.96007*10^2\ \end{array} \right. $$  总览   无符号数的表示 无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$ \begin{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="12定点数的表示[超大章]">
 <meta property="og:url" content="http://example.com/posts/9f53aee2.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="定点数 $$ \left{ \begin{array}{c} &amp;定点数:小数的位置固定 \ &amp;比如996.007\ \ &amp;浮点数:小数的位置不固定\ &amp;比如9.96007*10^2\ \end{array} \right. $$ 总览  无符号数的表示 无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$ \begin{ali">
+<meta property="og:description" content="定点数 $$ \left{ \begin{array}{c} &amp;定点数:小数的位置固定 \ &amp;比如996.007\ \ &amp;浮点数:小数的位置不固定\ &amp;比如9.96007*10^2\ \end{array} \right. $$  总览   无符号数的表示 无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如： $$ \begin{">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/624d619c239250f7c5bb2ba1.png">
@@ -212,7 +212,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.2k 字
+      2.1k 字
     </span>
   
 
@@ -253,7 +253,7 @@
             <h1 style="display: none">12定点数的表示[超大章]</h1>
             
             <div class="markdown-body">
-              <h1>定点数</h1>
+              <h1 id="定点数"><a class="markdownIt-Anchor" href="#定点数"></a> 定点数</h1>
 <p>$$<br>
 \left{<br>
 \begin{array}{c}<br>
@@ -265,63 +265,63 @@
 \end{array}<br>
 \right.<br>
 $$</p>
-<h2 id="总览-3">总览</h2>
+<h2 id="总览"><a class="markdownIt-Anchor" href="#总览"></a> 总览</h2>
 <p><img src="https://pic.imgdb.cn/item/624d609d239250f7c5b9391f.png" srcset="/img/loading.gif" lazyload alt="总览"></p>
-<h2 id="无符号数的表示">无符号数的表示</h2>
+<h2 id="无符号数的表示"><a class="markdownIt-Anchor" href="#无符号数的表示"></a> 无符号数的表示</h2>
 <p>无符号数:整个机器字长的全部:二进制位均为数值位,没有符号位,相当于数的绝对值。比如：</p>
 <p>$$<br>
 \begin{align}<br>
 &amp;10011100B\<br>
-&amp;=1<em>2^7 +0</em>2^6+0<em>2^5+1</em>2^4+1<em>2^3+1</em>2^2+0<em>2^1+0</em>2^0\<br>
+&amp;=1<em>2^7 +0</em>2<sup>6+0*2</sup>5+1<em>2<sup>4+1*2</sup>3+1</em>2<sup>2+0*2</sup>1+0*2^0\<br>
 &amp;=156D<br>
 \end{align}<br>
 $$</p>
 <p><img src="https://pic.imgdb.cn/item/624d619c239250f7c5bb2ba1.png" srcset="/img/loading.gif" lazyload alt="2的次方数"></p>
-<p>一个8位数的二进制数能够表达出2^8^种不同的状态<br>
+<p>一个8位数的二进制数能够表达出2<sup>8</sup>种不同的状态<br>
 即<code>1~256</code>，但是我们计算机是从0开始计数，于是我们表示为<code>0~255</code></p>
-<p>n位的无符号数==表示范围==为:$[0,2^n-1]^\text{集合}$</p>
-<h2 id="有符号数的定点表示">有符号数的定点表示</h2>
+<p>n位的无符号数<mark>表示范围</mark>为:$[0,2<sup>n-1]</sup>\text{集合}$</p>
+<h2 id="有符号数的定点表示"><a class="markdownIt-Anchor" href="#有符号数的定点表示"></a> 有符号数的定点表示</h2>
 <p><img src="https://pic.imgdb.cn/item/624d66c4239250f7c5c4025e.png" srcset="/img/loading.gif" lazyload alt="图解"></p>
 <p>符号位通常0为正,1为负</p>
 <p>注:可用原码、反码、补码三种方式来表示定<br>
 点整数和定点小数。还可用移码表示定点整数。</p>
-<p>若真值为x,则用[x]~原~、[x]~反~、[x]~补~、[x]~移~分别<br>
+<p>若真值为x,则用[x]<sub>原</sub>、[x]<sub>反</sub>、[x]<sub>补</sub>、[x]<sub>移</sub>分别<br>
 表示真值所对应的原码、反码、补码、移码</p>
-<h3 id="原码">原码</h3>
+<h3 id="原码"><a class="markdownIt-Anchor" href="#原码"></a> 原码</h3>
 <p><img src="https://pic.imgdb.cn/item/624d6995239250f7c5ca031e.png" srcset="/img/loading.gif" lazyload alt="总图"></p>
 <p>比如我们现在需要表示的19和-19<br>
 $$19D = 10011B $$<br>
 如果要算上符号位的话,就可以写成<code>010011B</code><br>
-除了正常的表示之外，其实在2^0^之后还隐藏了小数位置,他们是2^-1^,2^-2^等等</p>
+除了正常的表示之外，其实在2<sup>0</sup>之后还隐藏了小数位置,他们是2<sup>-1</sup>,2<sup>-2</sup>等等</p>
 <p><img src="https://pic.imgdb.cn/item/624d6aef239250f7c5cce45b.png" srcset="/img/loading.gif" lazyload alt="小数和整数运算"></p>
-<p>如果机器字长<code>n+1</code>位,那么==原码整数==的表示范围为<br>
+<p>如果机器字长<code>n+1</code>位,那么<mark>原码整数</mark>的表示范围为<br>
 $$<br>
 -(2^n-1) \leq x \leq 2^n-1<br>
 $$</p>
-<p>如果机器字长<code>n+1</code>位,那么==原码小数==的表示范围为</p>
+<p>如果机器字长<code>n+1</code>位,那么<mark>原码小数</mark>的表示范围为</p>
 <p>$$<br>
 -(1-2^{-n}) \leq x \leq 1 - 2^{-n}<br>
 $$</p>
-<h3 id="反码">反码</h3>
-<p>==如果符号位为0,则反码与原码相同==<br>
-==如果符号位为1,则数值位全部取反==</p>
+<h3 id="反码"><a class="markdownIt-Anchor" href="#反码"></a> 反码</h3>
+<p><mark>如果符号位为0,则反码与原码相同</mark><br>
+<mark>如果符号位为1,则数值位全部取反</mark></p>
 <p><img src="https://gitee.com/sun-programing/drawing-bed/raw/master//20220406183405.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>实际上反码并没有什么用，==反码只是"源码"变成"补码"的中间状态==</p>
+<p>实际上反码并没有什么用，<mark>反码只是"源码"变成"补码"的中间状态</mark></p>
 <p><img src="https://pic.imgdb.cn/item/624ea36e239250f7c5c67412.png" srcset="/img/loading.gif" lazyload alt="反码用法"></p>
-<h3 id="补码">补码</h3>
-<p>==正数的补码 = 原码==<br>
-==负数的补码 = 反码末位 + 1(要考虑进位)==</p>
+<h3 id="补码"><a class="markdownIt-Anchor" href="#补码"></a> 补码</h3>
+<p><mark>正数的补码 = 原码</mark><br>
+<mark>负数的补码 = 反码末位 + 1(要考虑进位)</mark></p>
 <p><img src="https://pic.imgdb.cn/item/624ea4f0239250f7c5c98f79.png" srcset="/img/loading.gif" lazyload alt="补码"></p>
-<h3 id="移码">移码</h3>
-<p>==在补码的基础上将符号位取反(移码只能用于表示整数)==</p>
-<p>==移码和补码是一一对应的关系==所以移码能表示的范围和补码一样</p>
-<p>如果机器字长n+1位,==移码整数==的表示范围:<br>
+<h3 id="移码"><a class="markdownIt-Anchor" href="#移码"></a> 移码</h3>
+<p><mark>在补码的基础上将符号位取反(移码只能用于表示整数)</mark></p>
+<p><mark>移码和补码是一一对应的关系</mark>所以移码能表示的范围和补码一样</p>
+<p>如果机器字长n+1位,<mark>移码整数</mark>的表示范围:<br>
 $$<br>
 -2^n \leq x \leq 2^n-1<br>
 $$</p>
-<h3 id="用几种码来表示定点整数">用几种码来表示定点整数</h3>
+<h3 id="用几种码来表示定点整数"><a class="markdownIt-Anchor" href="#用几种码来表示定点整数"></a> 用几种码来表示定点整数</h3>
 <p><img src="https://pic.imgdb.cn/item/625107b3239250f7c58eeb2c.png" srcset="/img/loading.gif" lazyload alt="用几种码来表示定点整数"></p>
-<h3 id="真值转换成其他码练习">真值转换成其他码练习</h3>
+<h3 id="真值转换成其他码练习"><a class="markdownIt-Anchor" href="#真值转换成其他码练习"></a> 真值转换成其他码练习</h3>
 <blockquote>
 <p>定点整数x=50,用8位原码、反码、补码、移码表示</p>
 </blockquote>
@@ -363,7 +363,7 @@ $$</p>
 <p>$$十进制整数 \rightarrow 二进制数 \rightarrow 确认位数 \rightarrow 根据正负补上符号位$$</p>
 <p>$$如果为负数 \rightarrow 反码 \rightarrow 补码 \rightarrow 移码$$</p>
 <p>$$如果为正数 \rightarrow 反码补码和原码一样 \rightarrow 移码$$</p>
-<h3 id="其他码转换成真值">其他码转换成真值</h3>
+<h3 id="其他码转换成真值"><a class="markdownIt-Anchor" href="#其他码转换成真值"></a> 其他码转换成真值</h3>
 <p>$$<br>
 \begin{align*}<br>
 [x]_原=10001101\<br>
@@ -395,7 +395,7 @@ $$</p>
 <ol start="3">
 <li>补码转换成真值</li>
 </ol>
-<p><strong>补码转换成原码的方式和原码转换成补码的方式相同</strong>,都是==把除了符号位的其他位取反，然后在末位加一==</p>
+<p><strong>补码转换成原码的方式和原码转换成补码的方式相同</strong>,都是<mark>把除了符号位的其他位取反，然后在末位加一</mark></p>
 <p>$$[x]_补10001101 = [x]_反11110010$$</p>
 <p>然后在反码的基础上加一</p>
 <p>$$ [x]_反11110010 + 1 = [x]_原11110011 $$</p>
@@ -412,7 +412,7 @@ $$</p>
 <p>其他练习<br>
 <img src="https://pic.imgdb.cn/item/6251116d239250f7c5ac2221.png" srcset="/img/loading.gif" lazyload alt="更多练习"></p>
 </blockquote>
-<h2 id="总结-3">总结</h2>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
 <p><img src="https://pic.imgdb.cn/item/625111f1239250f7c5ad9977.png" srcset="/img/loading.gif" lazyload alt="总结"></p>
 
             </div>
@@ -441,9 +441,9 @@ $$</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/76310a42.html">
+                      <a href="/posts/4c294f2e.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">11循环冗余校验码[中章]</span>
+                        <span class="hidden-mobile">10海明码校验码[中章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -451,8 +451,8 @@ $$</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/d278f11d.html">
-                        <span class="hidden-mobile">13各种码的作用[小章]</span>
+                      <a href="/posts/76310a42.html">
+                        <span class="hidden-mobile">11循环冗余校验码[中章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

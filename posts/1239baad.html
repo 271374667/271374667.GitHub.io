@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="原码乘法运算 看看我们的十进制乘法  为什么我们的进制要错位？ 最终还得回归我们的进制公式  $$ 0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3} $$ $$ 0.985&#x3D; 985 \times10^{-3} $$ $$ 0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\time">
+    <meta name="description" content="原码乘法运算  看看我们的十进制乘法  为什么我们的进制要错位？ 最终还得回归我们的进制公式  $$ 0.211&#x3D;2\times10{-1}+1\times10{-2}+1\times10^{-3} $$ $$ 0.985&#x3D; 985 \times10^{-3} $$ $$ 0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\time">
 <meta property="og:type" content="article">
 <meta property="og:title" content="16原码的乘法运算[大章]">
 <meta property="og:url" content="http://example.com/posts/1239baad.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="原码乘法运算 看看我们的十进制乘法  为什么我们的进制要错位？ 最终还得回归我们的进制公式  $$ 0.211&#x3D;2\times10^{-1}+1\times10^{-2}+1\times10^{-3} $$ $$ 0.985&#x3D; 985 \times10^{-3} $$ $$ 0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\time">
+<meta property="og:description" content="原码乘法运算  看看我们的十进制乘法  为什么我们的进制要错位？ 最终还得回归我们的进制公式  $$ 0.211&#x3D;2\times10{-1}+1\times10{-2}+1\times10^{-3} $$ $$ 0.985&#x3D; 985 \times10^{-3} $$ $$ 0.985\times0.211&#x3D; (985\times1\times10^{-6})+ (985\times 1\time">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/6256b7f2239250f7c56c9c14.png">
@@ -261,14 +261,14 @@
             <h1 style="display: none">16原码的乘法运算[大章]</h1>
             
             <div class="markdown-body">
-              <h1>原码乘法运算</h1>
-<h2 id="看看我们的十进制乘法">看看我们的十进制乘法</h2>
+              <h1 id="原码乘法运算"><a class="markdownIt-Anchor" href="#原码乘法运算"></a> 原码乘法运算</h1>
+<h2 id="看看我们的十进制乘法"><a class="markdownIt-Anchor" href="#看看我们的十进制乘法"></a> 看看我们的十进制乘法</h2>
 <p><img src="https://pic.imgdb.cn/item/6256b7c8239250f7c56c5ff2.png" srcset="/img/loading.gif" lazyload alt="十进制乘法"></p>
 <p>为什么我们的进制要错位？<br>
 最终还得回归我们的进制公式</p>
 <p><img src="https://pic.imgdb.cn/item/6256b7f2239250f7c56c9c14.png" srcset="/img/loading.gif" lazyload alt="进制公式"></p>
 <p>$$<br>
-0.211=2\times10^{-1}+1\times10^{-2}+1\times10^{-3}<br>
+0.211=2\times10<sup>{-1}+1\times10</sup>{-2}+1\times10^{-3}<br>
 $$</p>
 <p>$$<br>
 0.985= 985 \times10^{-3}<br>
@@ -280,23 +280,23 @@ $$</p>
 <p>我们将小数点算上，最终我的乘法看起来应该是长城这个样子<br>
 <img src="https://pic.imgdb.cn/item/6256b944239250f7c56ebbdd.png" srcset="/img/loading.gif" lazyload alt="扩展后"><br>
 所以我们需要将每一位的位基移位</p>
-<h3 id="扩展我们的手算到二进制上">扩展我们的手算到二进制上</h3>
+<h3 id="扩展我们的手算到二进制上"><a class="markdownIt-Anchor" href="#扩展我们的手算到二进制上"></a> 扩展我们的手算到二进制上</h3>
 <p><img src="https://pic.imgdb.cn/item/6256baa4239250f7c570efa7.png" srcset="/img/loading.gif" lazyload alt="二进制"></p>
 <p><img src="https://pic.imgdb.cn/item/6256bf01239250f7c5785f56.png" srcset="/img/loading.gif" lazyload alt="二进制乘法"></p>
 <p>我们二进制的乘法实现起来非常简单，如果被乘数是0就直接取全零，如果被乘数是1那就照抄乘数</p>
-<p>同时我们对于$(1101\times1\times2^{-8})$这样的2^-8^实现起来也非常方便，只需要把我们所有的位全部向右移动8位即可</p>
+<p>同时我们对于$(1101\times1\times2<sup>{-8})$这样的2</sup>-8^实现起来也非常方便，只需要把我们所有的位全部向右移动8位即可</p>
 <p>考虑如何用机器实现:</p>
 <ul>
 <li>实际数字有正负，符号位如何处理?</li>
 <li>乘积的位数扩大-倍，如何处理?</li>
 <li>4个位积都要保存下来最后统一相加?</li>
 </ul>
-<h3 id="原码一位的乘法">原码一位的乘法</h3>
+<h3 id="原码一位的乘法"><a class="markdownIt-Anchor" href="#原码一位的乘法"></a> 原码一位的乘法</h3>
 <p>符号单独处理:$符号位= x_5 \bigoplus y_5$<br>
 数值位取绝对值进行乘法计算</p>
 <p>$[ |x| ]原=0.1101$<br>
 $[ |y| ]原=0.1011$</p>
-<h2 id="在机器中实现乘法">在机器中实现乘法</h2>
+<h2 id="在机器中实现乘法"><a class="markdownIt-Anchor" href="#在机器中实现乘法"></a> 在机器中实现乘法</h2>
 <p><img src="https://pic.imgdb.cn/item/62579a5f239250f7c5751b73.png" srcset="/img/loading.gif" lazyload alt="寄存器"></p>
 <blockquote>
 <p>开始在运算器中进行演示</p>
@@ -319,12 +319,12 @@ $[ |y| ]原=0.1011$</p>
 <ol start="2">
 <li><img src="https://pic.imgdb.cn/item/62579ce9239250f7c579310c.png" srcset="/img/loading.gif" lazyload alt="image-20220414120208568"></li>
 </ol>
-<p>可以看到，此时我们参与运算的值是1，所以==我们让ACC+被乘数==,这个过程由ALU(算术逻辑单元的加法遍历)实现<br>
+<p>可以看到，此时我们参与运算的值是1，所以<mark>我们让ACC+被乘数</mark>,这个过程由ALU(算术逻辑单元的加法遍历)实现<br>
 $$<br>
 00000(ACC) + 01101(X) = 01101(ACC)<br>
 $$<br>
 <img src="https://pic.imgdb.cn/item/62579f96239250f7c57d8b2f.png" srcset="/img/loading.gif" lazyload alt="image-20220414121337687"></p>
-<p>==图中我们红色的部分叫部分积==</p>
+<p><mark>图中我们红色的部分叫部分积</mark></p>
 <p>现在我们有了两个麻烦</p>
 <ul>
 <li>如何舍弃MQ里面已经参与运算的位</li>
@@ -376,7 +376,7 @@ $$<br>
 \end{align*}<br>
 $$<br>
 <img src="https://pic.imgdb.cn/item/6257adf8239250f7c59297e1.png" srcset="/img/loading.gif" lazyload alt="image-20220414131459062"></p>
-<h2 id="总结-5">总结</h2>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
 <p><img src="https://pic.imgdb.cn/item/6257aeb5239250f7c593a986.png" srcset="/img/loading.gif" lazyload alt="image-20220414131808717"></p>
 
             </div>
@@ -405,9 +405,9 @@ $$<br>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/bc94495e.html">
+                      <a href="/posts/749ec134.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">15加减运算和溢出判断[中章]</span>
+                        <span class="hidden-mobile">14移位运算[大章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

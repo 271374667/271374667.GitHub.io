@@ -16,12 +16,12 @@
   <meta name="author" content="Bemake">
   <meta name="keywords" content="">
   
-    <meta name="description" content="总览   BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
+    <meta name="description" content="总览    BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有24&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余   8421码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="07BCD码[大章]">
 <meta property="og:url" content="http://example.com/posts/338e66cc.html">
 <meta property="og:site_name" content="互联网的角落">
-<meta property="og:description" content="总览   BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有2^4^&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余  8421码">
+<meta property="og:description" content="总览    BCD码  我们使用4个bit来代表一个十进制 但是这样的话我们就有24&#x3D;16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余   8421码">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png">
 <meta property="og:image" content="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png">
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      623 字
+      617 字
     </span>
   
 
@@ -249,15 +249,15 @@
             <h1 style="display: none">07BCD码[大章]</h1>
             
             <div class="markdown-body">
-              <h1>总览</h1>
+              <h1 id="总览"><a class="markdownIt-Anchor" href="#总览"></a> 总览</h1>
 <p><img src="https://pic.imgdb.cn/item/62444e1327f86abb2a7c4c71.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><br><br></p>
-<h1>BCD码</h1>
+<h1 id="bcd码"><a class="markdownIt-Anchor" href="#bcd码"></a> BCD码</h1>
 <hr>
 <p>我们使用4个bit来代表一个十进制<br>
-但是这样的话我们就有2^4^=16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余</p>
+但是这样的话我们就有2<sup>4</sup>=16种表达方式，显然表示0-9是绰绰有余,而且还有6种冗余</p>
 <p><br><br></p>
-<h2 id="8421码">8421码</h2>
+<h2 id="8421码"><a class="markdownIt-Anchor" href="#8421码"></a> 8421码</h2>
 <hr>
 <p><img src="https://pic.imgdb.cn/item/62451c5d27f86abb2ab0ca40.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以看到，我们对应的权重</p>
@@ -271,7 +271,7 @@
 \overbrace{0101}^\text {5}=985^{十进制}<br>
 $$</p>
 <p><br><br></p>
-<h3 id="8421码的加法">8421码的加法</h3>
+<h3 id="8421码的加法"><a class="markdownIt-Anchor" href="#8421码的加法"></a> 8421码的加法</h3>
 <hr>
 <p><img src="https://pic.imgdb.cn/item/62451dff27f86abb2ab3b508.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>$$<br>
@@ -287,7 +287,7 @@ $$</p>
 <p>(<code>07进位计数制度[大章]</code>)</p>
 <p><img src="https://pic.imgdb.cn/item/62451f5727f86abb2ab63961.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>此时我们计算出来的值为1101，但是在8421码中1010-1111(10-15)这部分没有定义</p>
-<p>==所以我们在这个范围里面的数字，我们统一加上一个6==</p>
+<p><mark>所以我们在这个范围里面的数字，我们统一加上一个6</mark></p>
 <p><img src="https://pic.imgdb.cn/item/62451fc027f86abb2ab6fa45.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>$$<br>
 \begin{align*}<br>
@@ -296,13 +296,13 @@ $$</p>
 \end{align*}<br>
 $$</p>
 <p><br><br></p>
-<h2 id="余3码">余3码</h2>
+<h2 id="余3码"><a class="markdownIt-Anchor" href="#余3码"></a> 余3码</h2>
 <hr>
 <p><img src="https://pic.imgdb.cn/item/6245267127f86abb2ac33147.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们余3码就是在8421码的基础上都+3(0011)变化而来的<br>
 但也因此，我们的余3码没有固定的权重</p>
 <p><br><br></p>
-<h2 id="2421码-改变权值定义">2421码 改变权值定义</h2>
+<h2 id="2421码-改变权值定义"><a class="markdownIt-Anchor" href="#2421码-改变权值定义"></a> 2421码 改变权值定义</h2>
 <hr>
 <p><img src="https://pic.imgdb.cn/item/6245275827f86abb2ac4afb9.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>和8421码一样，我们2421码改变了权值<br>
@@ -313,7 +313,7 @@ $$</p>
 <p>!!! note 注意<br>
 0到4所有的开头都是0<br>
 5到9所有的开头都是1</p>
-<h1>总结</h1>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
 <p><img src="https://pic.imgdb.cn/item/62459fe327f86abb2ab7c99d.png" srcset="/img/loading.gif" lazyload alt=""></p>
 
             </div>
@@ -342,9 +342,9 @@ $$</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/77e40f07.html">
+                      <a href="/posts/8fb785fe.html">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">08字符与字符串[中章]</span>
+                        <span class="hidden-mobile">06进位计数制度[超大章]</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -352,8 +352,8 @@ $$</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/a7d32227.html">
-                        <span class="hidden-mobile">09奇偶校验码[中章]</span>
+                      <a href="/posts/77e40f07.html">
+                        <span class="hidden-mobile">08字符与字符串[中章]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
